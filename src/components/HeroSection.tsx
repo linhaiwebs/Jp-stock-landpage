@@ -1,12 +1,14 @@
 import { useEffect, useRef } from 'react';
-import { TrendingUp, CheckCircle, Clock, Shield } from 'lucide-react';
+import { TrendingUp, CheckCircle, Clock, Shield, Sparkles, Zap } from 'lucide-react';
 
 interface HeroSectionProps {
   stockCode?: string;
   stockName?: string;
+  onDiagnosis?: () => void;
+  disabled?: boolean;
 }
 
-export default function HeroSection({ stockCode = '----', stockName = '' }: HeroSectionProps) {
+export default function HeroSection({ stockCode = '----', stockName = '', onDiagnosis, disabled = false }: HeroSectionProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -120,7 +122,31 @@ export default function HeroSection({ stockCode = '----', stockName = '' }: Hero
             あなたの投資判断をサポートします
           </p>
 
-          <div className="flex items-center justify-center gap-2 text-sm text-gray-500 bg-dark-card/30 backdrop-blur-sm px-4 py-2 rounded-lg inline-flex mx-auto border border-trust-green/20 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          {onDiagnosis && (
+            <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              <button
+                onClick={onDiagnosis}
+                disabled={disabled}
+                className="relative group disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-accent-orange via-accent-gold to-accent-orange rounded-full blur-xl opacity-60 group-hover:opacity-90 animate-pulse-gold"></div>
+
+                <div className="relative bg-gradient-to-r from-accent-orange via-accent-gold to-accent-orange text-white font-black text-lg sm:text-xl px-10 py-4 rounded-full shadow-gold-glow-lg transform transition-all duration-300 group-hover:scale-105 group-active:scale-95 animate-pulse-gold border-2 border-accent-gold-light/50">
+                  <div className="flex items-center justify-center gap-3">
+                    <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 animate-spin" style={{ animationDuration: '3s' }} />
+                    <span className="drop-shadow-lg">今すぐAI診断を開始</span>
+                    <Zap className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </div>
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent rounded-full pointer-events-none"></div>
+
+                <div className="absolute -inset-1 bg-gradient-to-r from-accent-orange via-accent-gold to-accent-orange rounded-full opacity-0 group-hover:opacity-20 blur-2xl transition-opacity"></div>
+              </button>
+            </div>
+          )}
+
+          <div className="flex items-center justify-center gap-2 text-sm text-gray-500 bg-dark-card/30 backdrop-blur-sm px-4 py-2 rounded-lg inline-flex mx-auto border border-trust-green/20 animate-fade-in" style={{ animationDelay: '0.8s' }}>
             <Shield className="w-4 h-4 text-trust-green" />
             <span>公式LINEを通じて安全に結果をお届けします</span>
           </div>

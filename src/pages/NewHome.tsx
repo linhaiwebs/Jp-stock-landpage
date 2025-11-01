@@ -343,7 +343,12 @@ export default function NewHome() {
 
   return (
     <div className="min-h-screen bg-dark-tech-gradient">
-      <HeroSection stockCode={stockCode} stockName={stockData?.info.name} />
+      <HeroSection
+        stockCode={stockCode}
+        stockName={stockData?.info.name}
+        onDiagnosis={runDiagnosis}
+        disabled={!hasRealData || diagnosisState !== 'initial'}
+      />
       <ApiStatsDisplay />
 
       <div className="pb-8">

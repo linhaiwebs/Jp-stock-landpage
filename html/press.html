@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プレスリリース - AI株式診断サービス</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', Meiryo, sans-serif;
+            line-height: 1.6; background: linear-gradient(135deg, #f1f5f9 0%, #f8fafc 50%, #eff6ff 100%);
+            min-height: 100vh; padding: 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        .back-link {
+            display: inline-flex; align-items: center; gap: 8px; color: #2563eb;
+            text-decoration: none; margin-bottom: 24px; font-size: 14px;
+        }
+        .back-link:hover { color: #1e40af; text-decoration: underline; }
+        .content-box { background: white; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); padding: 40px; }
+        .header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+        .icon-box { background: #dbeafe; padding: 12px; border-radius: 8px; flex-shrink: 0; }
+        .icon { width: 24px; height: 24px; color: #1d4ed8; }
+        h1 { font-size: 30px; font-weight: bold; color: #111827; }
+        p.intro { color: #374151; line-height: 1.6; margin-bottom: 32px; }
+        section { margin-bottom: 32px; }
+        h2 { font-size: 24px; font-weight: bold; color: #111827; margin-bottom: 16px; }
+        .press-card {
+            background: #f9fafb; border-radius: 8px; padding: 24px;
+            border: 2px solid #e5e7eb; margin-bottom: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .press-card:hover { border-color: #bfdbfe; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .press-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            gap: 16px; margin-bottom: 12px; flex-wrap: wrap;
+        }
+        .press-date {
+            display: flex; align-items: center; gap: 8px;
+        }
+        .date-icon { width: 20px; height: 20px; color: #6b7280; flex-shrink: 0; }
+        .press-date span { font-size: 14px; font-weight: 600; color: #4b5563; }
+        .press-badge {
+            padding: 4px 12px; border-radius: 9999px; font-size: 12px;
+            font-weight: 600; color: white; background: #2563eb;
+        }
+        .press-card h3 { font-size: 18px; font-weight: bold; color: #111827; margin-bottom: 8px; }
+        .press-card p { font-size: 14px; color: #374151; line-height: 1.6; margin-bottom: 12px; }
+        .press-card button {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: #2563eb; font-size: 14px; font-weight: 600;
+            background: none; border: none; cursor: pointer;
+            transition: color 0.2s;
+        }
+        .press-card button:hover { color: #1d4ed8; }
+        .press-link-icon { width: 16px; height: 16px; }
+        .media-box {
+            background: #f9fafb; border-radius: 8px; padding: 24px; border: 1px solid #e5e7eb;
+        }
+        .media-box p { color: #374151; line-height: 1.6; margin-bottom: 16px; }
+        .media-note {
+            background: #eff6ff; border-radius: 8px; padding: 16px;
+        }
+        .media-note p { font-size: 14px; color: #1e40af; }
+        .media-note strong { font-weight: 600; }
+        .kit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+        .kit-card {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            border-radius: 8px; padding: 20px; border: 1px solid #e5e7eb;
+            transition: box-shadow 0.3s;
+        }
+        .kit-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .kit-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+        .kit-card h3 { font-weight: bold; color: #111827; }
+        .kit-badge {
+            background: #4b5563; color: white; font-size: 12px;
+            font-weight: 600; padding: 2px 8px; border-radius: 4px;
+        }
+        .kit-card p { font-size: 14px; color: #374151; margin-bottom: 16px; }
+        .kit-card button {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: #2563eb; font-size: 14px; font-weight: 600;
+            background: none; border: none; cursor: pointer;
+        }
+        .kit-card button:hover { color: #1d4ed8; }
+        .download-icon { width: 16px; height: 16px; }
+        .notice-box {
+            margin-top: 16px; padding: 16px; background: #fffbeb;
+            border: 1px solid #fde68a; border-radius: 8px;
+        }
+        .notice-box p { font-size: 14px; color: #78350f; }
+        .notice-box strong { font-weight: 600; }
+        .contact-section {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 8px; padding: 24px; border: 2px solid #bfdbfe; margin-bottom: 32px;
+        }
+        .contact-section p { color: #374151; line-height: 1.6; margin-bottom: 16px; }
+        .contact-info {
+            background: white; border-radius: 8px; padding: 20px; margin-bottom: 16px;
+        }
+        .contact-item {
+            display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;
+        }
+        .contact-item:last-child { margin-bottom: 0; }
+        .contact-label { font-weight: 600; color: #111827; min-width: 96px; }
+        .contact-value { color: #374151; }
+        .contact-value.email { color: #2563eb; }
+        .contact-note { font-size: 14px; color: #4b5563; }
+        .disclaimer-box {
+            background: #f1f5f9; border-radius: 8px; padding: 24px; border: 1px solid #e5e7eb;
+        }
+        .disclaimer-box h3 { font-weight: bold; color: #111827; margin-bottom: 12px; }
+        .disclaimer-box p { font-size: 14px; color: #374151; line-height: 1.6; }
+        @media (max-width: 768px) {
+            .content-box { padding: 24px; }
+            h1 { font-size: 24px; }
+            .kit-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            トップページに戻る
+        </a>
+
+        <div class="content-box">
+            <div class="header">
+                <div class="icon-box">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+                    </svg>
+                </div>
+                <h1>プレスリリース</h1>
+            </div>
+
+            <p class="intro">
+                AI株式診断サービスに関するプレスリリース、メディア掲載情報、
+                ニュースなどを掲載しています。
+            </p>
+
+            <section>
+                <h2>最新のプレスリリース</h2>
+
+                <div class="press-card">
+                    <div class="press-header">
+                        <div class="press-date">
+                            <svg class="date-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            <span>2025年1月15日</span>
+                        </div>
+                        <span class="press-badge">サービス</span>
+                    </div>
+                    <h3>AI株式診断サービス、正式版をリリース</h3>
+                    <p>
+                        最新のAI技術を活用した株式診断サービスの正式版を公開いたしました。無料でご利用いただけます。
+                    </p>
+                    <button>
+                        詳細を見る
+                        <svg class="press-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="press-card">
+                    <div class="press-header">
+                        <div class="press-date">
+                            <svg class="date-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            <span>2025年1月10日</span>
+                        </div>
+                        <span class="press-badge">機能追加</span>
+                    </div>
+                    <h3>株価データ提供範囲を拡大、全上場銘柄に対応</h3>
+                    <p>
+                        日本の主要市場の全上場銘柄に対応し、より幅広い銘柄の分析が可能になりました。
+                    </p>
+                    <button>
+                        詳細を見る
+                        <svg class="press-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="press-card">
+                    <div class="press-header">
+                        <div class="press-date">
+                            <svg class="date-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            <span>2024年12月20日</span>
+                        </div>
+                        <span class="press-badge">サービス</span>
+                    </div>
+                    <h3>ベータ版リリースのお知らせ</h3>
+                    <p>
+                        AI株式診断サービスのベータ版を公開し、一般ユーザー向けのテストを開始いたしました。
+                    </p>
+                    <button>
+                        詳細を見る
+                        <svg class="press-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="press-card">
+                    <div class="press-header">
+                        <div class="press-date">
+                            <svg class="date-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            <span>2024年12月1日</span>
+                        </div>
+                        <span class="press-badge">企業</span>
+                    </div>
+                    <h3>AI株式診断サービス開発開始のお知らせ</h3>
+                    <p>
+                        投資情報の民主化を目指し、AIを活用した株式診断サービスの開発を開始いたしました。
+                    </p>
+                    <button>
+                        詳細を見る
+                        <svg class="press-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <section>
+                <h2>メディア掲載</h2>
+                <div class="media-box">
+                    <p>
+                        現在、メディア掲載情報はありません。
+                        今後、掲載があり次第、こちらに掲載いたします。
+                    </p>
+                    <div class="media-note">
+                        <p>
+                            <strong>メディア関係者の方へ：</strong>
+                            取材のご依頼、サービスに関するお問い合わせは、下記のメディア窓口までご連絡ください。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>メディアキット</h2>
+                <p style="color: #374151; line-height: 1.6; margin-bottom: 16px;">
+                    報道関係者向けの資料をご用意しております。
+                    ダウンロードしてご利用ください。
+                </p>
+                <div class="kit-grid">
+                    <div class="kit-card">
+                        <div class="kit-header">
+                            <h3>会社概要</h3>
+                            <span class="kit-badge">PDF</span>
+                        </div>
+                        <p>サービスの概要、ミッション、ビジョンなど</p>
+                        <button>
+                            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            ダウンロード
+                        </button>
+                    </div>
+
+                    <div class="kit-card">
+                        <div class="kit-header">
+                            <h3>ロゴ素材</h3>
+                            <span class="kit-badge">ZIP</span>
+                        </div>
+                        <p>ロゴデータ（PNG、SVG形式）</p>
+                        <button>
+                            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            ダウンロード
+                        </button>
+                    </div>
+
+                    <div class="kit-card">
+                        <div class="kit-header">
+                            <h3>サービス紹介資料</h3>
+                            <span class="kit-badge">PDF</span>
+                        </div>
+                        <p>機能説明、利用方法など</p>
+                        <button>
+                            <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            ダウンロード
+                        </button>
+                    </div>
+                </div>
+                <div class="notice-box">
+                    <p>
+                        <strong>注意：</strong> メディアキットのダウンロード機能は現在準備中です。
+                        資料が必要な場合は、メディア窓口までお問い合わせください。
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>メディア窓口</h2>
+                <div class="contact-section">
+                    <p>
+                        取材のご依頼、プレスリリースに関するお問い合わせは、
+                        以下の窓口までご連絡ください。
+                    </p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-label">部署：</span>
+                            <span class="contact-value">広報担当</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Email：</span>
+                            <span class="contact-value email">press@ai-stock-diagnosis.example.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">電話：</span>
+                            <span class="contact-value">03-XXXX-XXXX</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">受付時間：</span>
+                            <span class="contact-value">平日 9:00 - 18:00</span>
+                        </div>
+                    </div>
+                    <p class="contact-note">
+                        ※土日祝日、年末年始を除く。お問い合わせ内容により、
+                        回答までに数日かかる場合がございます。
+                    </p>
+                </div>
+            </section>
+
+            <div class="disclaimer-box">
+                <h3>免責事項</h3>
+                <p>
+                    本プレスリリースに記載された情報は、発表日現在のものです。
+                    発表日以降の業務上の理由、諸般の事情により、
+                    内容が変更される場合がありますので、あらかじめご了承ください。
+                    また、本プレスリリースに記載されている内容について、
+                    当社は一切の責任を負いません。
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

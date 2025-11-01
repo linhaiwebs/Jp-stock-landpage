@@ -47,7 +47,7 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
                 </div>
               </div>
 
-              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg ${changeBgColor} border ${changeBorderColor}`}>
+              <div className={`flex items-center gap-2 px-4 py-2 rounded-lg ${changeBgColor} border ${changeBorderColor}`}>
                 <TrendIcon className={`w-5 h-5 ${changeColor}`} />
                 <div className="flex items-center gap-2">
                   <span className={`text-lg font-bold ${changeColor}`}>{info.change}</span>

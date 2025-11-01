@@ -72,7 +72,7 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
 
   return (
     <div className="mx-4 my-8 animate-slide-up">
-      <div className="max-w-6xl mx-auto bg-gradient-to-br from-dark-card via-dark-tech to-dark-card backdrop-blur-sm rounded-2xl overflow-hidden border border-accent-orange/30 shadow-orange-glow">
+      <div className="mx-4 bg-gradient-to-br from-dark-card via-dark-tech to-dark-card backdrop-blur-sm rounded-2xl overflow-hidden border border-accent-orange/30 shadow-orange-glow">
         <div className="bg-gradient-to-r from-accent-orange to-accent-gold px-6 py-4 border-b border-accent-gold/30">
           <h3 className="text-white font-bold text-lg flex items-center gap-2">
             <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>

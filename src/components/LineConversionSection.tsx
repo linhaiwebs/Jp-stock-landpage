@@ -31,7 +31,7 @@ export default function LineConversionSection({ onLineConversion, stockName }: L
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-2 gap-3 mb-8">
               <div className="bg-dark-deep/50 rounded-xl p-4 border border-accent-orange/20 hover:border-accent-gold/50 transition-all">
                 <Bell className="w-8 h-8 text-accent-gold mb-2" />
                 <div className="text-white font-bold text-sm mb-1">リアルタイム通知</div>

@@ -1,4 +1,4 @@
-import { TrendingUp, TrendingDown } from 'lucide-react';
+import { TrendingUp, TrendingDown, BarChart3, DollarSign } from 'lucide-react';
 import { StockInfo, StockPrice } from '../types/stock';
 
 interface SplitStockCardProps {
@@ -8,63 +8,88 @@ interface SplitStockCardProps {
 
 export default function SplitStockCard({ info, latestPrice }: SplitStockCardProps) {
   const isPositive = info.change.includes('+') || parseFloat(info.change) > 0;
-  const changeColor = isPositive ? 'text-green-400' : info.change === '0.0' ? 'text-gray-400' : 'text-red-400';
+  const changeColor = isPositive ? 'text-trust-green' : info.change === '0.0' ? 'text-gray-400' : 'text-accent-red';
+  const changeBgColor = isPositive ? 'bg-trust-green/10' : info.change === '0.0' ? 'bg-gray-500/10' : 'bg-accent-red/10';
+  const changeBorderColor = isPositive ? 'border-trust-green/30' : info.change === '0.0' ? 'border-gray-500/30' : 'border-accent-red/30';
   const TrendIcon = isPositive ? TrendingUp : TrendingDown;
 
   return (
-    <div className="relative mx-4 my-6">
-      <div className="relative bg-gradient-to-br from-blue-900/50 to-blue-950/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 shadow-2xl">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
+    <div className="relative mx-4 my-8 animate-slide-up">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-4">
+        <div className="relative bg-gradient-to-br from-dark-card via-dark-tech to-dark-card backdrop-blur-sm rounded-2xl overflow-hidden border border-accent-orange/30 shadow-orange-glow hover:shadow-orange-glow-lg transition-all">
+          <div className="absolute inset-0 bg-gradient-to-br from-accent-orange/5 to-transparent pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-accent-gold/10 rounded-full blur-3xl"></div>
 
-        <div className="relative flex" style={{ minHeight: '180px' }}>
-          <div className="w-[40%] relative flex flex-col justify-between p-4 border-r border-white/30">
-            <div className="absolute top-0 right-0 w-3 h-3 bg-white rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-            <div className="absolute bottom-0 right-0 w-3 h-3 bg-white rounded-full transform translate-x-1/2 translate-y-1/2"></div>
-
-            <div className="space-y-1">
-              <div className="text-white text-base sm:text-lg font-bold truncate">{info.name}</div>
-              <div className="text-blue-300 text-sm font-medium">{info.code}</div>
-              <div className="text-blue-200 text-xs">{info.timestamp}</div>
+          <div className="relative p-6">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-accent-orange to-accent-gold rounded-xl flex items-center justify-center shadow-gold-glow">
+                  <BarChart3 className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <div className="text-xs text-gray-400 font-medium">証券コード</div>
+                  <div className="text-accent-gold text-xl font-black">{info.code}</div>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-xs text-gray-400">{info.timestamp}</div>
+              </div>
             </div>
 
-            <div className="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent my-2"></div>
+            <h2 className="text-white text-2xl font-bold mb-6 leading-tight">{info.name}</h2>
 
-            <div className="space-y-1">
-              <div className="flex items-baseline gap-2">
-                <span className="text-white text-3xl sm:text-4xl font-black">{info.price}</span>
-                <TrendIcon className={`w-6 h-6 ${isPositive ? 'text-green-400' : 'text-red-400'}`} />
+            <div className="space-y-4">
+              <div className="flex items-baseline gap-3">
+                <DollarSign className="w-8 h-8 text-accent-gold mt-1" />
+                <div>
+                  <div className="text-xs text-gray-400 mb-1">現在値</div>
+                  <div className="text-white text-4xl font-black tracking-tight">¥{info.price}</div>
+                </div>
               </div>
-              <div className={`flex items-center gap-2 text-sm font-bold ${changeColor}`}>
-                <span>{info.change}</span>
-                <span>({info.changePercent})</span>
+
+              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg ${changeBgColor} border ${changeBorderColor}`}>
+                <TrendIcon className={`w-5 h-5 ${changeColor}`} />
+                <div className="flex items-center gap-2">
+                  <span className={`text-lg font-bold ${changeColor}`}>{info.change}</span>
+                  <span className={`text-base font-semibold ${changeColor}`}>({info.changePercent})</span>
+                </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="absolute left-[40%] top-1/2 transform -translate-y-1/2 w-px h-[70%] bg-white/40"></div>
+        <div className="relative bg-gradient-to-br from-dark-card via-dark-tech to-dark-card backdrop-blur-sm rounded-2xl overflow-hidden border border-accent-orange/30 shadow-orange-glow hover:shadow-orange-glow-lg transition-all">
+          <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/5 to-transparent pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent-orange/10 rounded-full blur-3xl"></div>
 
-          <div className="w-[60%] p-4 flex items-center">
-            <div className="grid grid-cols-2 gap-x-4 gap-y-3 w-full">
-              <div className="space-y-0.5">
-                <div className="text-blue-300 text-xs font-medium">始値</div>
-                <div className="text-white text-sm font-bold">{latestPrice?.open || info.price}</div>
+          <div className="relative p-6">
+            <h3 className="text-white text-lg font-bold mb-4 flex items-center gap-2">
+              <span className="w-2 h-2 bg-accent-gold rounded-full animate-pulse"></span>
+              当日取引データ
+            </h3>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-dark-deep/50 rounded-lg p-4 border border-accent-orange/20 hover:border-accent-orange/40 transition-all">
+                <div className="text-gray-400 text-xs mb-1 font-medium">始値</div>
+                <div className="text-white text-xl font-bold">¥{latestPrice?.open || info.price}</div>
               </div>
-              <div className="space-y-0.5">
-                <div className="text-blue-300 text-xs font-medium">高値</div>
-                <div className="text-white text-sm font-bold">{latestPrice?.high || info.price}</div>
+              <div className="bg-dark-deep/50 rounded-lg p-4 border border-accent-orange/20 hover:border-accent-orange/40 transition-all">
+                <div className="text-gray-400 text-xs mb-1 font-medium">高値</div>
+                <div className="text-trust-green text-xl font-bold">¥{latestPrice?.high || info.price}</div>
               </div>
-              <div className="space-y-0.5">
-                <div className="text-blue-300 text-xs font-medium">安値</div>
-                <div className="text-white text-sm font-bold">{latestPrice?.low || info.price}</div>
+              <div className="bg-dark-deep/50 rounded-lg p-4 border border-accent-orange/20 hover:border-accent-orange/40 transition-all">
+                <div className="text-gray-400 text-xs mb-1 font-medium">安値</div>
+                <div className="text-accent-red text-xl font-bold">¥{latestPrice?.low || info.price}</div>
               </div>
-              <div className="space-y-0.5">
-                <div className="text-blue-300 text-xs font-medium">終値</div>
-                <div className="text-white text-sm font-bold">{latestPrice?.close || info.price}</div>
+              <div className="bg-dark-deep/50 rounded-lg p-4 border border-accent-orange/20 hover:border-accent-orange/40 transition-all">
+                <div className="text-gray-400 text-xs mb-1 font-medium">終値</div>
+                <div className="text-white text-xl font-bold">¥{latestPrice?.close || info.price}</div>
               </div>
-              <div className="space-y-0.5 col-span-2">
-                <div className="text-blue-300 text-xs font-medium">出来高</div>
-                <div className="text-white text-sm font-bold">{latestPrice?.volume || 'N/A'}</div>
-              </div>
+            </div>
+
+            <div className="mt-4 bg-dark-deep/50 rounded-lg p-4 border border-accent-gold/20">
+              <div className="text-gray-400 text-xs mb-1 font-medium">出来高</div>
+              <div className="text-accent-gold text-lg font-bold">{latestPrice?.volume || 'N/A'}</div>
             </div>
           </div>
         </div>

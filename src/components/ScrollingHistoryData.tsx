@@ -71,17 +71,18 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
   const duplicatedPrices = [...prices, ...prices];
 
   return (
-    <div className="mx-4 my-6">
-      <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-3">
-          <h3 className="text-white font-bold text-base">
-            {stockName} - 取引履歴
+    <div className="mx-4 my-8 animate-slide-up">
+      <div className="max-w-6xl mx-auto bg-gradient-to-br from-dark-card via-dark-tech to-dark-card backdrop-blur-sm rounded-2xl overflow-hidden border border-accent-orange/30 shadow-orange-glow">
+        <div className="bg-gradient-to-r from-accent-orange to-accent-gold px-6 py-4 border-b border-accent-gold/30">
+          <h3 className="text-white font-bold text-lg flex items-center gap-2">
+            <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+            {stockName} - 取引履歴データ
           </h3>
         </div>
 
         <div
           ref={containerRef}
-          className="relative h-[240px] overflow-hidden bg-gradient-to-b from-gray-900/50 to-gray-800/50"
+          className="relative h-[280px] overflow-hidden bg-gradient-to-b from-dark-deep/50 to-dark-tech/50"
         >
           <div
             className="absolute w-full"
@@ -102,26 +103,26 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
               return (
                 <div
                   key={`${index}-${price.date}`}
-                  className="flex items-center justify-between px-4 py-3 border-b border-blue-500/20 h-[60px]"
+                  className="flex items-center justify-between px-6 py-4 border-b border-accent-orange/10 hover:bg-accent-orange/5 transition-all h-[70px]"
                 >
-                  <div className="flex items-center gap-3 flex-1">
-                    <div className="text-blue-200 text-xs font-medium w-20">
+                  <div className="flex items-center gap-4 flex-1">
+                    <div className="text-accent-gold text-sm font-semibold w-24">
                       {price.date}
                     </div>
-                    <div className="text-white text-sm font-bold">
+                    <div className="text-white text-lg font-bold">
                       ¥{price.close}
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3">
-                    <div className={`text-xs font-bold ${isPositive ? 'text-green-400' : isNegative ? 'text-red-400' : 'text-gray-400'}`}>
+                  <div className="flex items-center gap-4">
+                    <div className={`text-sm font-bold px-3 py-1 rounded-lg ${isPositive ? 'text-trust-green bg-trust-green/10' : isNegative ? 'text-accent-red bg-accent-red/10' : 'text-gray-400 bg-gray-500/10'}`}>
                       {isPositive ? '+' : ''}{changePercent}%
                     </div>
 
                     <div className="flex items-center gap-1">
-                      {trend === 'up' && <TrendingUp className="w-5 h-5 text-green-400" />}
-                      {trend === 'down' && <TrendingDown className="w-5 h-5 text-red-400" />}
-                      {trend === 'neutral' && <Minus className="w-5 h-5 text-gray-400" />}
+                      {trend === 'up' && <TrendingUp className="w-6 h-6 text-trust-green" />}
+                      {trend === 'down' && <TrendingDown className="w-6 h-6 text-accent-red" />}
+                      {trend === 'neutral' && <Minus className="w-6 h-6 text-gray-400" />}
                     </div>
                   </div>
                 </div>
@@ -129,8 +130,8 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
             })}
           </div>
 
-          <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-gray-900/80 to-transparent pointer-events-none"></div>
-          <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-gray-800/80 to-transparent pointer-events-none"></div>
+          <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-dark-deep to-transparent pointer-events-none"></div>
+          <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-dark-tech to-transparent pointer-events-none"></div>
         </div>
       </div>
     </div>

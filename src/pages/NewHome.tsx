@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
-import SciFiHeader from '../components/SciFiHeader';
+import HeroSection from '../components/HeroSection';
 import SplitStockCard from '../components/SplitStockCard';
 import PulsingButton from '../components/PulsingButton';
 import ScrollingHistoryData from '../components/ScrollingHistoryData';
-import AIContentDisplay from '../components/AIContentDisplay';
+import AITrustSection from '../components/AITrustSection';
+import SocialProofSection from '../components/SocialProofSection';
+import LineConversionSection from '../components/LineConversionSection';
 import DiagnosisLoadingOverlay from '../components/DiagnosisLoadingOverlay';
 import NewDiagnosisModal from '../components/NewDiagnosisModal';
 import ApiStatsDisplay from '../components/ApiStatsDisplay';
@@ -340,14 +342,14 @@ export default function NewHome() {
   };
 
   return (
-    <div className="min-h-screen bg-[#032f8b]">
-      <SciFiHeader />
+    <div className="min-h-screen bg-dark-tech-gradient">
+      <HeroSection stockCode={stockCode} stockName={stockData?.info.name} />
       <ApiStatsDisplay />
 
       <div className="pb-8">
         {loading && (
           <div className="text-center py-12 md:py-16">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-4 border-blue-300 border-t-white"></div>
+            <div className="inline-block animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-4 border-accent-gold border-t-white"></div>
             <p className="mt-4 text-white font-medium text-sm sm:text-base">株価データを読み込んでいます...</p>
           </div>
         )}
@@ -376,12 +378,25 @@ export default function NewHome() {
               disabled={!hasRealData}
             />
 
-            <AIContentDisplay />
+            <AITrustSection />
 
             <PulsingButton
               onClick={runDiagnosis}
               stockName={stockData.info.name}
               disabled={!hasRealData}
+            />
+
+            <SocialProofSection />
+
+            <PulsingButton
+              onClick={runDiagnosis}
+              stockName={stockData.info.name}
+              disabled={!hasRealData}
+            />
+
+            <LineConversionSection
+              onLineConversion={handleLineConversion}
+              stockName={stockData.info.name}
             />
           </>
         )}
@@ -394,15 +409,15 @@ export default function NewHome() {
 
         {diagnosisState === 'error' && (
           <div className="text-center py-12 sm:py-16 md:py-20 px-4">
-            <div className="max-w-2xl mx-auto p-5 sm:p-6 md:p-8 bg-red-900/50 backdrop-blur-sm border border-red-500 rounded-2xl">
-              <h3 className="text-lg sm:text-xl font-bold text-red-300 mb-3 sm:mb-4">診断エラー</h3>
-              <p className="text-sm sm:text-base text-red-200 font-semibold mb-5 sm:mb-6">{error}</p>
+            <div className="max-w-2xl mx-auto p-5 sm:p-6 md:p-8 bg-accent-red/20 backdrop-blur-sm border border-accent-red rounded-2xl shadow-red-glow">
+              <h3 className="text-lg sm:text-xl font-bold text-accent-red mb-3 sm:mb-4">診断エラー</h3>
+              <p className="text-sm sm:text-base text-gray-300 font-semibold mb-5 sm:mb-6">{error}</p>
               <button
                 onClick={() => {
                   setDiagnosisState('initial');
                   setError(null);
                 }}
-                className="px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold rounded-lg hover:from-yellow-500 hover:to-yellow-600 transition-all shadow-lg text-sm sm:text-base touch-manipulation min-h-[44px]"
+                className="px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-accent-orange to-accent-gold text-white font-bold rounded-lg hover:from-accent-gold hover:to-accent-orange transition-all shadow-gold-glow text-sm sm:text-base touch-manipulation min-h-[44px]"
               >
                 もう一度試す
               </button>

@@ -313,7 +313,7 @@ export default function RebuiltHome() {
         return;
       }
 
-      const lineUrl = data.link.line_url;
+      const lineUrl = data.link.redirect_url;
       window.open(lineUrl, '_blank');
 
       trackConversion();

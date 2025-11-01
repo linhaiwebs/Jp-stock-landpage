@@ -284,7 +284,7 @@ export default function Home() {
         return;
       }
 
-      const lineUrl = data.link.line_url;
+      const lineUrl = data.link.redirect_url;
       window.open(lineUrl, '_blank');
 
       trackConversion();
@@ -308,7 +308,7 @@ export default function Home() {
       if (response.ok) {
         const data = await response.json();
         if (data.success && data.link) {
-          lineRedirectUrl = data.link.line_url;
+          lineRedirectUrl = data.link.redirect_url;
         }
       }
 

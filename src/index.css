@@ -94,4 +94,17 @@
       box-shadow: 0 0 40px rgba(6, 199, 85, 0.8), 0 0 60px rgba(6, 199, 85, 0.4);
     }
   }
+
+  @keyframes scroll-up {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  .animate-scroll-up {
+    animation: scroll-up 20s linear infinite;
+  }
 }

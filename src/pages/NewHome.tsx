@@ -41,6 +41,9 @@ const getDefaultStockData = (code: string): StockData => ({
       volume: '---',
       change: '0.0',
       changePercent: '0.00%',
+      per: 'N/A',
+      pbr: 'N/A',
+      dividend: 'N/A',
     }
   ]
 });

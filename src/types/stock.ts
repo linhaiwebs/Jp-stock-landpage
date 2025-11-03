@@ -27,6 +27,9 @@ export interface StockPrice {
   change: string;
   changePercent: string;
   volume: string;
+  per?: string;
+  pbr?: string;
+  dividend?: string;
 }
 
 export interface StockData {

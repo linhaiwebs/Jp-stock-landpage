@@ -15,11 +15,6 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
   return (
     <div className="px-4 py-8">
       <div className="max-w-lg mx-auto">
-        <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-white mb-1">历史数据趋势</h2>
-          <p className="text-sm text-gray-400">Historical Data Trend</p>
-        </div>
-
         <div
           className="relative overflow-hidden"
           style={{
@@ -30,7 +25,10 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
             height: '300px'
           }}
         >
-          <div className="relative z-10 px-6 py-4 h-full overflow-hidden">
+          <div className="text-center pt-4 pb-2">
+            <h2 className="text-2xl font-bold text-white">历史数据趋势</h2>
+          </div>
+          <div className="relative z-10 px-6 py-2 h-full overflow-hidden">
             <div className="animate-scroll-step">
               {doubledPrices.map((price, index) => {
                 const isPositive = price.change && (price.change.includes('+') || parseFloat(price.change) > 0);
@@ -40,10 +38,10 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
                 return (
                   <div
                     key={`${price.date}-${index}`}
-                    className="h-[100px] flex flex-col justify-center"
+                    className="h-[80px] flex flex-col justify-center"
                   >
-                    <div className="text-center mb-2">
-                      <div className="flex items-center justify-center gap-3 text-sm mb-2">
+                    <div className="text-center mb-1">
+                      <div className="flex items-center justify-center gap-3 text-sm mb-1">
                         <span className="text-gray-300 font-semibold">{price.date}</span>
                         <span className="text-gray-400">•</span>
                         <span className="text-gray-400 text-xs">{price.volume || 'N/A'} 株</span>

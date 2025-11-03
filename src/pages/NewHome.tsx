@@ -308,6 +308,21 @@ export default function NewHome() {
     }
   };
 
+  const handleLineConversion = async () => {
+    try {
+      const response = await apiClient.get('/api/line-redirects/select');
+      const data = await response.json();
+
+      if (data.success && data.link) {
+        window.location.href = data.link.redirect_url;
+      } else {
+        console.error('No redirect link available');
+      }
+    } catch (error) {
+      console.error('Failed to get LINE redirect:', error);
+    }
+  };
+
   return (
     <div className="min-h-screen relative">
       <HeroSection
@@ -336,11 +351,6 @@ export default function NewHome() {
               onClick={runDiagnosis}
               stockName={stockData.info.name}
               disabled={!hasRealData}
-            />
-
-            <DynamicDiagnosisHeader
-              stockName={stockData.info.name}
-              stockCode={stockCode}
             />
 
             <ScrollingHistoryData
@@ -392,6 +402,7 @@ export default function NewHome() {
           priceChange={`${stockData?.info.change || ''} (${stockData?.info.changePercent || ''})`}
           isStreaming={diagnosisState === 'streaming'}
           isConnecting={diagnosisState === 'connecting'}
+          onLineConversion={handleLineConversion}
         />
       </div>
     </div>

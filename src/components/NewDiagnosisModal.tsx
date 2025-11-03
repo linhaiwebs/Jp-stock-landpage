@@ -1,4 +1,4 @@
-import { X } from 'lucide-react';
+import { X, ExternalLink } from 'lucide-react';
 import { useEffect } from 'react';
 import RobotScholarIcon from './RobotScholarIcon';
 
@@ -12,6 +12,7 @@ interface NewDiagnosisModalProps {
   priceChange: string;
   isStreaming?: boolean;
   isConnecting?: boolean;
+  onLineConversion?: () => void;
 }
 
 const formatAnalysisText = (text: string) => {
@@ -42,6 +43,7 @@ export default function NewDiagnosisModal({
   priceChange,
   isStreaming = false,
   isConnecting = false,
+  onLineConversion,
 }: NewDiagnosisModalProps) {
   useEffect(() => {
     if (isOpen) {
@@ -120,6 +122,24 @@ export default function NewDiagnosisModal({
                   )}
                 </div>
               </div>
+
+              {onLineConversion && (
+                <>
+                  <button
+                    onClick={onLineConversion}
+                    className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white font-bold py-4 px-6 rounded-lg hover:from-green-700 hover:to-green-800 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-lg mt-6"
+                  >
+                    <ExternalLink className="w-6 h-6" />
+                    無料AI診断結果をLINEで毎日受け取る
+                  </button>
+
+                  <div className="mt-3 p-3 bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg border border-green-600/30">
+                    <p className="text-xs text-green-200 leading-relaxed">
+                      LINEで登録すると、毎日最新の株式分析レポートをお届けします
+                    </p>
+                  </div>
+                </>
+              )}
 
             </div>
           </div>

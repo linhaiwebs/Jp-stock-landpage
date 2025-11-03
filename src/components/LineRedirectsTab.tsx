@@ -323,8 +323,6 @@ export default function LineRedirectsTab() {
                         <Link2 className={`w-5 h-5 ${link.is_active ? 'text-blue-600' : 'text-slate-400'}`} />
                         <a
                           href={link.line_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
                           className="text-blue-600 hover:text-blue-700 hover:underline font-medium break-all"
                         >
                           {link.line_url}

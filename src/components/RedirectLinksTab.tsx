@@ -411,8 +411,6 @@ export default function RedirectLinksTab() {
                       </div>
                       <a
                         href={link.redirect_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="flex items-center gap-2 text-blue-600 hover:text-blue-700 hover:underline font-medium break-all ml-8"
                       >
                         {link.redirect_url}

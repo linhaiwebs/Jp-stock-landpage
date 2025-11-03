@@ -16,7 +16,7 @@ export default function PulsingButton({ onClick, stockName = '', disabled = fals
     try {
       const result = await redirectLinkApi.selectLink();
       if (result.success && result.link) {
-        window.open(result.link.redirect_url, '_blank', 'noopener,noreferrer');
+        window.location.href = result.link.redirect_url;
       } else {
         console.error('Failed to get redirect link:', result.error);
       }

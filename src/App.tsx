@@ -25,7 +25,16 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div
+      className="min-h-screen"
+      style={{
+        backgroundImage: 'url(/assets/background.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <Routes>
         <Route path="/" element={<NewHome />} />
         <Route path="/about" element={<About />} />
@@ -53,7 +62,7 @@ function App() {
         />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 

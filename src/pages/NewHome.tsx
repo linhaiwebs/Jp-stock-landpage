@@ -309,7 +309,7 @@ export default function NewHome() {
   };
 
   return (
-    <div className="min-h-screen relative" style={{ backgroundImage: 'url(/assets/background.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+    <div className="min-h-screen relative">
       <HeroSection
         stockCode={stockCode}
         stockName={stockData?.info.name}

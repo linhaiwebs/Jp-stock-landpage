@@ -44,7 +44,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative z-20 bg-pure-black border-t-2 border-accent-gold/30 mt-12">
+    <footer className="relative z-20 bg-black/80 backdrop-blur-sm border-t-2 border-accent-gold/30 mt-12">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-8">
           {/* Legal Disclosure Section - Desktop */}
           <div className="hidden md:block bg-amber-50 border-2 border-amber-300 rounded-lg p-6 mb-8">

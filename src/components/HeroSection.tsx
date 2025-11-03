@@ -23,7 +23,7 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
 
           <div className="relative">
             <img
-              src="/assets/header copy.png"
+              src="/assets/header.png"
               alt="AI"
               className="w-32 h-32 object-contain"
             />

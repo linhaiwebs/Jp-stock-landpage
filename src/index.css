@@ -107,4 +107,29 @@
   .animate-scroll-up {
     animation: scroll-up 20s linear infinite;
   }
+
+  @keyframes scroll-step {
+    0%, 15% {
+      transform: translateY(0);
+    }
+    20%, 35% {
+      transform: translateY(-200px);
+    }
+    40%, 55% {
+      transform: translateY(-400px);
+    }
+    60%, 75% {
+      transform: translateY(-600px);
+    }
+    80%, 95% {
+      transform: translateY(-800px);
+    }
+    100% {
+      transform: translateY(-1000px);
+    }
+  }
+
+  .animate-scroll-step {
+    animation: scroll-step 20s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
 }

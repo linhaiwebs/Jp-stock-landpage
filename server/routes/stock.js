@@ -116,9 +116,16 @@ router.get('/data', async (req, res) => {
       return res.status(500).json({ error: 'Failed to parse stock data' });
     }
 
+    const enrichedPrices = stockPrices.map(price => ({
+      ...price,
+      per: stockInfo.per,
+      pbr: stockInfo.pbr,
+      dividend: stockInfo.dividend,
+    }));
+
     const data = {
       info: stockInfo,
-      prices: stockPrices,
+      prices: enrichedPrices,
     };
 
     res.json(data);

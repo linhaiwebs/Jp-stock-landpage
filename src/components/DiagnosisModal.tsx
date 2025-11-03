@@ -88,11 +88,11 @@ export default function DiagnosisModal({
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black bg-opacity-75" style={{ touchAction: 'none' }}>
       <div className="relative w-full max-w-3xl max-h-[90vh]">
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-[60%] z-[10000]">
           <RobotScholarIcon />
         </div>
 
-        <div className="relative bg-white rounded-lg shadow-blue-glow-lg overflow-hidden border-2 border-blue-400/50 mt-20" style={{ touchAction: 'auto' }}>
+        <div className="relative bg-white rounded-lg shadow-blue-glow-lg overflow-hidden border-2 border-blue-400/50 pt-16" style={{ touchAction: 'auto' }}>
           <div className="sticky top-0 bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-4 flex items-center justify-between">
           <div className="flex-1 text-center">
             <h2 className="text-2xl font-bold text-white">

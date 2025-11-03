@@ -57,43 +57,38 @@ export default function DiagnosisLoadingOverlay({
       }`}
       style={{ touchAction: 'none' }}
     >
-      <div className={`w-full max-w-2xl transition-transform duration-500 ${
+      <div className={`w-full max-w-lg transition-transform duration-500 ${
         isExiting ? 'scale-95' : 'scale-100'
       }`}>
-        <div className="bg-gradient-to-br from-[#1a0f3e] via-[#2d1b5e] to-[#1a0f3e] border-2 border-orange-500/50 rounded-2xl shadow-2xl p-8">
+        <div className="bg-gradient-to-br from-dark-deep via-dark-tech to-dark-deep border-2 border-accent-gold/50 rounded-2xl shadow-neon-gold p-8">
           <RobotScholarIcon />
 
           <div className="mb-6">
             <h3 className="text-xl font-bold text-white mb-2 text-center">AI診断を実行中</h3>
-            <p className="text-sm text-orange-300 text-center">市場データを分析しています...</p>
+            <p className="text-sm text-accent-gold text-center">市場データを分析しています...</p>
           </div>
 
-          <div className="relative w-full h-3 bg-gray-800/50 rounded-full overflow-hidden mb-3 border border-orange-500/30">
+          <div className="relative w-full h-3 bg-dark-deep/50 rounded-full overflow-hidden mb-3 border border-accent-gold/30">
             <div
-              className="absolute top-0 left-0 h-full bg-gradient-to-r from-orange-500 to-orange-600 transition-all duration-300 ease-out shadow-lg shadow-orange-500/50"
+              className="absolute top-0 left-0 h-full bg-gradient-to-r from-accent-orange to-accent-gold transition-all duration-300 ease-out shadow-neon-gold"
               style={{ width: `${Math.min(progress, 100)}%` }}
             />
           </div>
 
           <div className="mb-6 text-center">
-            <span className="text-sm font-semibold text-orange-400">
+            <span className="text-sm font-semibold text-accent-gold">
               {Math.floor(Math.min(progress, 100))}%
             </span>
           </div>
 
-          <div className="bg-gray-900/40 border-2 border-orange-500/30 rounded-lg p-6 backdrop-blur-sm">
+          <div className="bg-black/40 border-2 border-accent-gold/30 rounded-lg p-6 backdrop-blur-sm">
             <div className="space-y-3 text-sm">
               <p className="text-white font-semibold text-center text-base">
-                📊 データはAIによって深度分析中です
+                データはAIによって深度分析中です
               </p>
-              <p className="text-orange-200 text-center">
+              <p className="text-accent-gold text-center">
                 しばらくお待ちください
               </p>
-              <div className="pt-3 border-t border-orange-500/30">
-                <p className="text-xs text-gray-300 text-center leading-relaxed">
-                  すべてのデータは公開されている市場情報を使用しており、データの真実性と有効性を保証します。本分析は最新のAI技術により、財務指標、業界動向、市場トレンドを総合的に評価しています。
-                </p>
-              </div>
             </div>
           </div>
         </div>

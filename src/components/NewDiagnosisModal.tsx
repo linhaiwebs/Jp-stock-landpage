@@ -1,4 +1,4 @@
-import { X, ExternalLink } from 'lucide-react';
+import { X } from 'lucide-react';
 import { useEffect } from 'react';
 import RobotScholarIcon from './RobotScholarIcon';
 
@@ -10,7 +10,6 @@ interface NewDiagnosisModalProps {
   stockName: string;
   stockPrice: string;
   priceChange: string;
-  onLineConversion: () => void;
   isStreaming?: boolean;
   isConnecting?: boolean;
 }
@@ -41,7 +40,6 @@ export default function NewDiagnosisModal({
   stockName,
   stockPrice,
   priceChange,
-  onLineConversion,
   isStreaming = false,
   isConnecting = false,
 }: NewDiagnosisModalProps) {
@@ -123,36 +121,10 @@ export default function NewDiagnosisModal({
                 </div>
               </div>
 
-              <div className="relative mt-4 z-10">
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#06C755] via-[#05b04b] to-[#06C755] rounded-lg blur-md opacity-60 animate-pulse pointer-events-none"></div>
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-400 rounded-lg opacity-0 animate-[shimmer_3s_ease-in-out_infinite] pointer-events-none"></div>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onLineConversion();
-                  }}
-                  disabled={isConnecting || isStreaming}
-                  className="relative w-full bg-gradient-to-r from-[#06C755] to-[#05b04b] text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-lg hover:from-[#05b04b] hover:to-[#049c42] transition-all duration-300 shadow-lg hover:shadow-2xl flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02] active:scale-[0.98] animate-[bounce_3s_ease-in-out_infinite] pointer-events-auto z-20"
-                >
-                  <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 animate-pulse" />
-                  LINEで詳細な診断レポートを受け取る
-                </button>
-              </div>
-
-              <div className="mt-3 sm:mt-4 p-2.5 sm:p-3 bg-gradient-to-r from-green-900/40 to-emerald-900/40 rounded-lg border border-green-500/30">
-                <p className="text-xs sm:text-sm text-green-200 leading-relaxed">
-                  メッセージを送信した瞬間にAI診断が始まり、最新レポートが即座に届きます。
-                </p>
-              </div>
             </div>
           </div>
         </div>
 
-        <div className="relative sticky bottom-0 bg-gradient-to-t from-dark-deep via-dark-tech/95 to-transparent px-3 py-3 sm:px-5 sm:py-4 border-t border-accent-orange/30 backdrop-blur-sm">
-          <p className="text-[10px] sm:text-xs text-accent-gold text-center font-medium">
-            「AI 株式 アシスタント」を追加して、銘柄コード「{stockName}」または「{stockCode}」を送信
-          </p>
-        </div>
         </div>
       </div>
     </div>

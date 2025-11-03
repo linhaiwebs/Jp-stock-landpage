@@ -3,9 +3,10 @@ import HeroSection from '../components/HeroSection';
 import SplitStockCard from '../components/SplitStockCard';
 import PulsingButton from '../components/PulsingButton';
 import ScrollingHistoryData from '../components/ScrollingHistoryData';
+import DynamicDiagnosisHeader from '../components/DynamicDiagnosisHeader';
+import CircularAnalysisNav from '../components/CircularAnalysisNav';
 import AITrustSection from '../components/AITrustSection';
 import SocialProofSection from '../components/SocialProofSection';
-import LineConversionSection from '../components/LineConversionSection';
 import DiagnosisLoadingOverlay from '../components/DiagnosisLoadingOverlay';
 import NewDiagnosisModal from '../components/NewDiagnosisModal';
 import ApiStatsDisplay from '../components/ApiStatsDisplay';
@@ -14,7 +15,6 @@ import { DiagnosisState } from '../types/diagnosis';
 import { useUrlParams } from '../hooks/useUrlParams';
 import { apiClient } from '../lib/apiClient';
 import { userTracking } from '../lib/userTracking';
-import { trackConversion } from '../lib/googleTracking';
 
 const getDefaultStockData = (code: string): StockData => ({
   info: {
@@ -293,39 +293,6 @@ export default function NewHome() {
     }
   };
 
-  const handleLineConversion = async () => {
-    try {
-      const response = await apiClient.get('/api/line-redirects/select');
-
-      if (!response.ok) {
-        console.error('Failed to get LINE redirect link');
-        alert('LINEリンクの取得に失敗しました。しばらくしてからもう一度お試しください。');
-        return;
-      }
-
-      const data = await response.json();
-
-      if (!data.success || !data.link) {
-        console.error('No active LINE redirect links available');
-        alert('現在利用可能なLINEリンクがありません。');
-        return;
-      }
-
-      const lineUrl = data.link.redirect_url;
-      window.location.href = data.link.redirect_url;
-
-      trackConversion();
-
-      await userTracking.trackConversion({
-        gclid: urlParams.gclid
-      });
-
-      console.log('LINE conversion tracked successfully');
-    } catch (error) {
-      console.error('LINE conversion error:', error);
-      alert('操作に失敗しました。しばらくしてからもう一度お試しください。');
-    }
-  };
 
   const closeModal = () => {
     setDiagnosisState('initial');
@@ -342,14 +309,13 @@ export default function NewHome() {
   };
 
   return (
-    <div className="min-h-screen bg-dark-tech-gradient">
+    <div className="min-h-screen bg-pure-black">
       <HeroSection
         stockCode={stockCode}
         stockName={stockData?.info.name}
         onDiagnosis={runDiagnosis}
         disabled={!hasRealData || diagnosisState !== 'initial'}
       />
-      <ApiStatsDisplay />
 
       <div className="pb-8">
         {loading && (
@@ -372,6 +338,11 @@ export default function NewHome() {
               disabled={!hasRealData}
             />
 
+            <DynamicDiagnosisHeader
+              stockName={stockData.info.name}
+              stockCode={stockCode}
+            />
+
             <ScrollingHistoryData
               prices={stockData.prices}
               stockName={stockData.info.name}
@@ -383,26 +354,7 @@ export default function NewHome() {
               disabled={!hasRealData}
             />
 
-            <AITrustSection />
-
-            <PulsingButton
-              onClick={runDiagnosis}
-              stockName={stockData.info.name}
-              disabled={!hasRealData}
-            />
-
-            <SocialProofSection />
-
-            <PulsingButton
-              onClick={runDiagnosis}
-              stockName={stockData.info.name}
-              disabled={!hasRealData}
-            />
-
-            <LineConversionSection
-              onLineConversion={handleLineConversion}
-              stockName={stockData.info.name}
-            />
+            <CircularAnalysisNav />
           </>
         )}
 
@@ -438,7 +390,6 @@ export default function NewHome() {
           stockName={stockData?.info.name || ''}
           stockPrice={stockData?.info.price || ''}
           priceChange={`${stockData?.info.change || ''} (${stockData?.info.changePercent || ''})`}
-          onLineConversion={handleLineConversion}
           isStreaming={diagnosisState === 'streaming'}
           isConnecting={diagnosisState === 'connecting'}
         />

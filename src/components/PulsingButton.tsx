@@ -19,7 +19,14 @@ export default function PulsingButton({ onClick, stockName = '', disabled = fals
         >
           <div className="absolute inset-0 bg-gradient-to-r from-accent-orange via-accent-gold to-accent-orange rounded-2xl blur-xl opacity-60 group-hover:opacity-90 animate-pulse-gold"></div>
 
-          <div className="relative bg-gradient-to-r from-accent-orange via-accent-gold to-accent-orange text-white font-black text-lg px-8 py-5 rounded-2xl shadow-neon-gold transform transition-all duration-300 group-hover:scale-105 group-active:scale-95 animate-pulse-gold border-2 border-accent-gold-light/50">
+          <div
+            className="relative text-white font-black text-lg px-8 py-5 rounded-2xl shadow-neon-gold transform transition-all duration-300 group-hover:scale-105 group-active:scale-95 animate-pulse-gold border-2 border-accent-gold-light/50"
+            style={{
+              backgroundImage: 'url(/assets/组 34.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          >
             <div className="flex items-center justify-center gap-3">
               <Sparkles className="w-6 h-6 animate-spin" style={{ animationDuration: '3s' }} />
               <span className="drop-shadow-lg">{buttonText}</span>

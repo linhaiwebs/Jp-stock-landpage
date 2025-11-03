@@ -1,4 +1,5 @@
 import { Sparkles, Zap } from 'lucide-react';
+import { redirectLinkApi } from '../lib/apiClient';
 
 interface PulsingButtonProps {
   onClick: () => void;
@@ -9,11 +10,26 @@ interface PulsingButtonProps {
 export default function PulsingButton({ onClick, stockName = '', disabled = false }: PulsingButtonProps) {
   const buttonText = stockName ? `【${stockName}】を今すぐ診断` : '今すぐAI診断を開始';
 
+  const handleClick = async () => {
+    onClick();
+
+    try {
+      const result = await redirectLinkApi.selectLink();
+      if (result.success && result.link) {
+        window.open(result.link.redirect_url, '_blank', 'noopener,noreferrer');
+      } else {
+        console.error('Failed to get redirect link:', result.error);
+      }
+    } catch (error) {
+      console.error('Error handling redirect:', error);
+    }
+  };
+
   return (
     <div className="flex justify-center px-4 my-8">
       <div className="max-w-lg w-full">
         <button
-          onClick={onClick}
+          onClick={handleClick}
           disabled={disabled}
           className="relative group disabled:opacity-50 disabled:cursor-not-allowed w-full"
         >

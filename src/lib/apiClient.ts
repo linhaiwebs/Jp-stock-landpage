@@ -112,3 +112,19 @@ export const getApiConfig = () => {
     isDevelopment: import.meta.env.DEV,
   };
 };
+
+export const redirectLinkApi = {
+  async selectLink(): Promise<{ success: boolean; link?: { id: string; redirect_url: string }; error?: string }> {
+    try {
+      const response = await apiClient.get('/api/line-redirect/select');
+      if (!response.ok) {
+        const errorData = await response.json();
+        return { success: false, error: errorData.error || 'Failed to select redirect link' };
+      }
+      return await response.json();
+    } catch (error) {
+      console.error('Error selecting redirect link:', error);
+      return { success: false, error: 'Network error' };
+    }
+  }
+};

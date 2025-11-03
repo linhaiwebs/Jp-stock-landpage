@@ -17,7 +17,7 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
         <div
           className="relative rounded-3xl overflow-hidden"
           style={{
-            backgroundImage: 'url(/assets/top1.png)',
+            backgroundImage: 'url(/assets/top1 copy.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}

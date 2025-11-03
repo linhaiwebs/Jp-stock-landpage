@@ -27,7 +27,7 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
               key={`${price.date}-${index}`}
               className="relative rounded-3xl overflow-hidden"
               style={{
-                backgroundImage: 'url(/assets/top2.png)',
+                backgroundImage: 'url(/assets/top2 copy.png)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               }}

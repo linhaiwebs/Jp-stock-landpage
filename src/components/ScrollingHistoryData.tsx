@@ -27,10 +27,10 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
             backgroundSize: '100% 100%',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
-            height: '200px'
+            height: '300px'
           }}
         >
-          <div className="relative z-10 px-6 py-6 pt-8 h-full overflow-hidden">
+          <div className="relative z-10 px-6 py-4 h-full overflow-hidden">
             <div className="animate-scroll-step">
               {doubledPrices.map((price, index) => {
                 const isPositive = price.change && (price.change.includes('+') || parseFloat(price.change) > 0);
@@ -40,10 +40,10 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
                 return (
                   <div
                     key={`${price.date}-${index}`}
-                    className="h-[200px] flex flex-col justify-center"
+                    className="h-[100px] flex flex-col justify-center"
                   >
-                    <div className="text-center mb-4">
-                      <div className="flex items-center justify-center gap-3 text-sm mb-3">
+                    <div className="text-center mb-2">
+                      <div className="flex items-center justify-center gap-3 text-sm mb-2">
                         <span className="text-gray-300 font-semibold">{price.date}</span>
                         <span className="text-gray-400">•</span>
                         <span className="text-gray-400 text-xs">{price.volume || 'N/A'} 株</span>

@@ -6,7 +6,7 @@ export default function CircularAnalysisNav() {
         <div className="h-1 w-24 mx-auto bg-gradient-to-r from-accent-orange via-accent-gold to-accent-orange rounded-full"></div>
       </div>
 
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center px-4 py-6">
         <img
           src="/assets/footer.png"
           alt="分析サイクル"

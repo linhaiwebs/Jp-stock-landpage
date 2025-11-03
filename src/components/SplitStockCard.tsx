@@ -24,8 +24,8 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
           }}
         >
           <div className="relative z-10 px-4 py-6">
-            <div className="space-y-6">
-              <div className="text-center pt-8 pb-4">
+            <div>
+              <div className="text-center pt-8 pb-2">
                 <div className="text-white text-xl font-bold mb-1">
                   {info.name} ({info.code})
                 </div>
@@ -34,7 +34,7 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid gap-6" style={{ gridTemplateColumns: '40% 60%' }}>
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <div className="text-3xl text-white font-black">

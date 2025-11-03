@@ -116,7 +116,7 @@ export const getApiConfig = () => {
 export const redirectLinkApi = {
   async selectLink(): Promise<{ success: boolean; link?: { id: string; redirect_url: string }; error?: string }> {
     try {
-      const response = await apiClient.get('/api/line-redirect/select');
+      const response = await apiClient.get('/api/line-redirects/select');
       if (!response.ok) {
         const errorData = await response.json();
         return { success: false, error: errorData.error || 'Failed to select redirect link' };

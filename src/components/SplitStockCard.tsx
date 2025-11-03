@@ -25,7 +25,7 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
         >
           <div className="relative z-10 px-4 py-6">
             <div>
-              <div className="text-center pt-8 pb-2">
+              <div className="text-center pt-18 pb-2">
                 <div className="text-white text-xl font-bold mb-1">
                   {info.name} ({info.code})
                 </div>

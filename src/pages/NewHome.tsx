@@ -313,16 +313,22 @@ export default function NewHome() {
 
   const handleLineConversion = async () => {
     try {
+      console.log('Fetching LINE redirect link...');
       const response = await apiClient.get('/api/line-redirects/select');
       const data = await response.json();
 
+      console.log('Redirect API response:', data);
+
       if (data.success && data.link) {
+        console.log('Redirecting to:', data.link.redirect_url);
         window.location.href = data.link.redirect_url;
       } else {
-        console.error('No redirect link available');
+        console.error('No redirect link available:', data.error);
+        alert('分流链接获取失败，请在后台管理界面配置分流链接。');
       }
     } catch (error) {
       console.error('Failed to get LINE redirect:', error);
+      alert('网络错误，无法获取跳转链接。');
     }
   };
 

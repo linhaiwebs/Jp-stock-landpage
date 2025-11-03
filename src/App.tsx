@@ -31,7 +31,6 @@ function App() {
         backgroundImage: 'url(/assets/background.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
         backgroundRepeat: 'no-repeat'
       }}
     >

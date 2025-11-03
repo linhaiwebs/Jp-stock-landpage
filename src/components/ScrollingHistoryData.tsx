@@ -28,11 +28,12 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
               className="relative overflow-hidden"
               style={{
                 backgroundImage: 'url(/assets/top2.png)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
+                backgroundSize: '100% 100%',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
               }}
             >
-              <div className="relative z-10 px-6 py-6 pt-16">
+              <div className="relative z-10 px-6 py-6 pt-8">
                 <div className="mb-3 text-center">
                   <div className="text-white text-3xl font-black mb-2">
                     ¥{price.close}

@@ -18,11 +18,12 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
           className="relative overflow-hidden"
           style={{
             backgroundImage: 'url(/assets/top1.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundSize: '100% 100%',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
           }}
         >
-          <div className="relative z-10 p-6 pt-20">
+          <div className="relative z-10 p-6 pt-8">
             <div className="space-y-6">
               <div className="flex items-end gap-4">
                 <div className="flex-1">

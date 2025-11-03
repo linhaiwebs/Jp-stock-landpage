@@ -9,9 +9,9 @@ export default function CircularAnalysisNav() {
 
         <div className="flex items-center justify-center">
           <img
-            src="/assets/组 29 拷贝.png"
+            src="/assets/footer.png"
             alt="分析サイクル"
-            className="w-full max-w-md object-contain"
+            className="w-full object-contain"
           />
         </div>
       </div>

@@ -25,7 +25,7 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
           return (
             <div
               key={`${price.date}-${index}`}
-              className="relative rounded-3xl overflow-hidden"
+              className="relative overflow-hidden"
               style={{
                 backgroundImage: 'url(/assets/top2.png)',
                 backgroundSize: 'cover',
@@ -43,7 +43,7 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
                   </div>
                 </div>
 
-                <div className="relative h-2 bg-dark-deep/30 rounded-full overflow-hidden mb-3">
+                <div className="relative h-2 rounded-full overflow-hidden mb-3">
                   <div
                     className={`absolute left-0 top-0 h-full bg-gradient-to-r ${progressColor} rounded-full transition-all duration-500`}
                     style={{ width: `${progressWidth}%` }}
@@ -51,11 +51,11 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 text-xs">
-                  <div className="bg-dark-deep/40 rounded-lg p-2 text-center">
+                  <div className="p-2 text-center">
                     <div className="text-gray-400 mb-1">日付</div>
                     <div className="text-white font-semibold">{price.date}</div>
                   </div>
-                  <div className="bg-dark-deep/40 rounded-lg p-2 text-center">
+                  <div className="p-2 text-center">
                     <div className="text-gray-400 mb-1">出来高</div>
                     <div className="text-accent-gold font-semibold">{price.volume || 'N/A'}</div>
                   </div>

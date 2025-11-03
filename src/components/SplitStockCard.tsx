@@ -15,7 +15,7 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
     <div className="px-4 py-6">
       <div className="max-w-lg mx-auto">
         <div
-          className="relative rounded-3xl overflow-hidden"
+          className="relative overflow-hidden"
           style={{
             backgroundImage: 'url(/assets/top1.png)',
             backgroundSize: 'cover',
@@ -38,11 +38,11 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
               </div>
 
               <div className="grid grid-cols-2 gap-3 text-sm">
-                <div className="bg-dark-deep/50 rounded-lg p-3 border border-accent-orange/20">
+                <div className="p-3">
                   <div className="text-gray-400 text-xs mb-1">時刻</div>
                   <div className="text-white font-semibold">{info.timestamp}</div>
                 </div>
-                <div className="bg-dark-deep/50 rounded-lg p-3 border border-accent-orange/20">
+                <div className="p-3">
                   <div className="text-gray-400 text-xs mb-1">出来高</div>
                   <div className="text-accent-gold font-semibold">{latestPrice?.volume || 'N/A'}</div>
                 </div>

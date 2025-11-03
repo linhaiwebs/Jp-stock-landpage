@@ -25,30 +25,40 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
           return (
             <div
               key={`${price.date}-${index}`}
-              className="bg-black/60 backdrop-blur-sm rounded-xl overflow-hidden border border-accent-gold/30 shadow-orange-glow"
+              className="relative rounded-3xl overflow-hidden"
+              style={{
+                backgroundImage: 'url(/assets/top2.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
             >
-              <div className="px-4 py-3 bg-gradient-to-r from-dark-deep to-dark-tech border-b border-accent-gold/20">
-                <div className="text-accent-gold font-semibold text-sm">
-                  株|{stockName} {price.date}
-                </div>
-              </div>
-
-              <div className="px-4 py-4">
-                <div className="mb-3">
+              <div className="relative z-10 px-6 py-6 pt-16">
+                <div className="mb-3 text-center">
                   <div className="text-white text-3xl font-black mb-2">
                     ¥{price.close}
                   </div>
-                  <div className={`flex items-center gap-2 ${changeColor} text-base font-bold`}>
+                  <div className={`flex items-center justify-center gap-2 ${changeColor} text-base font-bold`}>
                     <span>前日比 {price.change || '0.0'}</span>
                     <span>({price.changePercent || '0.00%'})</span>
                   </div>
                 </div>
 
-                <div className="relative h-2 bg-dark-deep/50 rounded-full overflow-hidden">
+                <div className="relative h-2 bg-dark-deep/30 rounded-full overflow-hidden mb-3">
                   <div
                     className={`absolute left-0 top-0 h-full bg-gradient-to-r ${progressColor} rounded-full transition-all duration-500`}
                     style={{ width: `${progressWidth}%` }}
                   ></div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 text-xs">
+                  <div className="bg-dark-deep/40 rounded-lg p-2 text-center">
+                    <div className="text-gray-400 mb-1">日付</div>
+                    <div className="text-white font-semibold">{price.date}</div>
+                  </div>
+                  <div className="bg-dark-deep/40 rounded-lg p-2 text-center">
+                    <div className="text-gray-400 mb-1">出来高</div>
+                    <div className="text-accent-gold font-semibold">{price.volume || 'N/A'}</div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -44,16 +44,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative z-20 mt-12">
-      <div
-        className="w-full"
-        style={{
-          backgroundImage: 'url(/assets/footer.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-8">
+    <footer className="relative z-20 bg-pure-black border-t-2 border-accent-gold/30 mt-12">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-8">
           {/* Legal Disclosure Section - Desktop */}
           <div className="hidden md:block bg-amber-50 border-2 border-amber-300 rounded-lg p-6 mb-8">
           <div className="flex items-start gap-4">
@@ -186,11 +178,6 @@ export default function Footer() {
           </div>
         </div>
 
-        </div>
-      </div>
-
-      <div className="bg-pure-black">
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-8">
         {/* Footer Links Section */}
         <div className="border-t-2 border-gray-700 pt-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6">
@@ -355,7 +342,6 @@ export default function Footer() {
               掲載されている情報の正確性については万全を期しておりますが、その内容の正確性、安全性、有用性を保証するものではありません。
             </p>
           </div>
-        </div>
         </div>
       </div>
     </footer>

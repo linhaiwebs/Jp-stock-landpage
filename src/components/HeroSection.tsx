@@ -34,7 +34,12 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
           <button
             onClick={onDiagnosis}
             disabled={disabled}
-            className="w-full bg-gradient-to-r from-accent-orange to-accent-gold text-white font-bold text-lg py-4 px-6 rounded-2xl shadow-neon-gold hover:shadow-gold-glow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95 animate-pulse-gold"
+            className="w-full text-white font-bold text-lg py-4 px-6 rounded-2xl shadow-neon-gold hover:shadow-gold-glow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95 animate-pulse-gold"
+            style={{
+              backgroundImage: 'url(/assets/组 34.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
           >
             {hasStockData ? `【${stockName}】` : '銘柄'}無料診断
           </button>

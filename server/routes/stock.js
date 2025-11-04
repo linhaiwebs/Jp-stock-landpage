@@ -1,4 +1,5 @@
 import express from 'express';
+import { getUSStockData } from '../utils/usStockScraper.js';
 
 const router = express.Router();
 
@@ -95,10 +96,41 @@ function parseStockPrices(html) {
 
 router.get('/data', async (req, res) => {
   try {
-    const { code } = req.query;
+    const { code, market = 'jp' } = req.query;
 
     if (!code) {
       return res.status(400).json({ error: 'Stock code is required' });
+    }
+
+    if (market.toLowerCase() === 'us') {
+      const usStockData = await getUSStockData(code);
+
+      if (!usStockData) {
+        return res.status(404).json({ error: 'Failed to fetch US stock data' });
+      }
+
+      const formattedData = {
+        info: {
+          code: code.toUpperCase(),
+          name: usStockData.stockName,
+          subName: usStockData.stockSubName,
+          market: 'US',
+          price: usStockData.stockPrice,
+          change: usStockData.adjClose,
+          changePercent: usStockData.change,
+          timestamp: usStockData.stockDate,
+        },
+        prices: usStockData.historicalData.map(item => ({
+          date: item.date,
+          open: item.open,
+          high: item.high,
+          low: item.low,
+          close: item.close,
+          volume: item.volume,
+        })),
+      };
+
+      return res.json(formattedData);
     }
 
     const stockUrl = `https://kabutan.jp/stock/kabuka?code=${code}`;

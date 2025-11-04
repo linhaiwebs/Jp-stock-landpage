@@ -3,16 +3,16 @@ import { generateUUID } from '../database/helpers.js';
 
 const CACHE_DURATION_HOURS = 4;
 
-export async function getCachedDiagnosis(stockCode) {
+export async function getCachedDiagnosis(stockCode, market = 'jp') {
   try {
     const now = new Date().toISOString();
     const stmt = db.prepare(`
       SELECT * FROM diagnosis_cache
-      WHERE stock_code = ? AND expires_at > ?
+      WHERE stock_code = ? AND market = ? AND expires_at > ?
       ORDER BY created_at DESC
       LIMIT 1
     `);
-    const data = stmt.get(stockCode, now);
+    const data = stmt.get(stockCode, market, now);
 
     if (data) {
       const updateStmt = db.prepare(`
@@ -22,7 +22,7 @@ export async function getCachedDiagnosis(stockCode) {
       `);
       updateStmt.run(new Date().toISOString(), data.id);
 
-      console.log(`Cache hit for stock ${stockCode}, hit_count: ${data.hit_count + 1}`);
+      console.log(`Cache hit for stock ${stockCode} (${market}), hit_count: ${data.hit_count + 1}`);
 
       return {
         ...data,
@@ -30,7 +30,7 @@ export async function getCachedDiagnosis(stockCode) {
       };
     }
 
-    console.log(`Cache miss for stock ${stockCode}`);
+    console.log(`Cache miss for stock ${stockCode} (${market})`);
     return null;
   } catch (error) {
     console.error('Error in getCachedDiagnosis:', error);
@@ -38,27 +38,28 @@ export async function getCachedDiagnosis(stockCode) {
   }
 }
 
-export async function saveDiagnosisToCache(stockCode, stockData, diagnosisResult, modelUsed = 'qwen2.5-7b-instruct') {
+export async function saveDiagnosisToCache(stockCode, stockData, diagnosisResult, modelUsed = 'qwen2.5-7b-instruct', market = 'jp') {
   try {
     const expiresAt = new Date();
     expiresAt.setHours(expiresAt.getHours() + CACHE_DURATION_HOURS);
 
     const id = generateUUID();
     const stmt = db.prepare(`
-      INSERT INTO diagnosis_cache (id, stock_code, stock_data, diagnosis_result, model_used, expires_at)
-      VALUES (?, ?, ?, ?, ?, ?)
+      INSERT INTO diagnosis_cache (id, stock_code, market, stock_data, diagnosis_result, model_used, expires_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
     `);
 
     stmt.run(
       id,
       stockCode,
+      market,
       JSON.stringify(stockData),
       diagnosisResult,
       modelUsed,
       expiresAt.toISOString()
     );
 
-    console.log(`Saved diagnosis to cache for stock ${stockCode}, expires at ${expiresAt.toISOString()}`);
+    console.log(`Saved diagnosis to cache for stock ${stockCode} (${market}), expires at ${expiresAt.toISOString()}`);
     return { id };
   } catch (error) {
     console.error('Error in saveDiagnosisToCache:', error);

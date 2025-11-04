@@ -351,7 +351,11 @@ export default function NewHome() {
         )}
 
         {diagnosisState === 'initial' && (
-          <FeaturesSection />
+          <FeaturesSection
+            onDiagnosis={runDiagnosis}
+            disabled={!hasRealData}
+            stockName={stockData?.info.name}
+          />
         )}
 
         <DiagnosisLoadingOverlay

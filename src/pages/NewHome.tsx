@@ -1,9 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import HeroSection from '../components/HeroSection';
-import SplitStockCard from '../components/SplitStockCard';
-import PulsingButton from '../components/PulsingButton';
-import ScrollingHistoryData from '../components/ScrollingHistoryData';
-import CircularAnalysisNav from '../components/CircularAnalysisNav';
+import FeaturesSection from '../components/FeaturesSection';
 import DiagnosisLoadingOverlay from '../components/DiagnosisLoadingOverlay';
 import NewDiagnosisModal from '../components/NewDiagnosisModal';
 import { StockData } from '../types/stock';
@@ -340,6 +337,9 @@ export default function NewHome() {
       <HeroSection
         stockCode={stockCode}
         onStockCodeChange={handleStockCodeChange}
+        onDiagnosis={runDiagnosis}
+        disabled={!hasRealData || diagnosisState !== 'initial'}
+        stockName={stockData?.info.name}
       />
 
       <div className="pb-8">
@@ -350,32 +350,8 @@ export default function NewHome() {
           </div>
         )}
 
-        {stockData && diagnosisState === 'initial' && (
-          <>
-            <SplitStockCard
-              info={stockData.info}
-              latestPrice={stockData.prices[0]}
-            />
-
-            <PulsingButton
-              onClick={runDiagnosis}
-              stockName={stockData.info.name}
-              disabled={!hasRealData}
-            />
-
-            <ScrollingHistoryData
-              prices={stockData.prices}
-              stockName={stockData.info.name}
-            />
-
-            <PulsingButton
-              onClick={runDiagnosis}
-              stockName={stockData.info.name}
-              disabled={!hasRealData}
-            />
-
-            <CircularAnalysisNav />
-          </>
+        {diagnosisState === 'initial' && (
+          <FeaturesSection />
         )}
 
         <DiagnosisLoadingOverlay

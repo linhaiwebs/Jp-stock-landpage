@@ -10,22 +10,20 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
 
   return (
     <div className="relative w-full">
-      <div className="w-full">
-        <div className="relative w-full">
-          <img
-            src="/assets/head.png"
-            alt="Header"
-            className="w-full h-auto block"
-          />
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold tracking-wider">
-              AI Stock
-            </h1>
-            <p className="text-white text-xl md:text-3xl lg:text-4xl font-light tracking-widest mt-2">
-              Intelligence
-            </p>
-          </div>
+      <div className="w-full px-4 py-6">
+        <div className="text-center mb-6">
+          <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold tracking-wider">
+            AI Stock
+          </h1>
+          <p className="text-white text-xl md:text-3xl lg:text-4xl font-light tracking-widest mt-2">
+            Intelligence
+          </p>
         </div>
+        <img
+          src="/assets/head.png"
+          alt="Header"
+          className="w-full h-auto block"
+        />
       </div>
 
       {onDiagnosis && (

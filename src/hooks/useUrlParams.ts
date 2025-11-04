@@ -12,16 +12,16 @@ function detectMarketFromCode(code: string): string {
   const isJapaneseCode = /^\d{4}$/.test(code);
   const isUSCode = /^[A-Z]{1,5}$/i.test(code);
 
-  if (isUSCode) return 'us';
   if (isJapaneseCode) return 'jp';
+  if (isUSCode) return 'us';
 
-  return 'jp';
+  return 'us';
 }
 
 export function useUrlParams(): UrlParams {
   const getParamsFromUrl = () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('code') || '2269';
+    const code = urlParams.get('code') || 'AAPL';
     const src = urlParams.get('src') || '';
     const racText = urlParams.get('rac_text') || '';
     const gclid = urlParams.get('gclid') || '';
@@ -32,7 +32,7 @@ export function useUrlParams(): UrlParams {
 
     let validCode = code;
     if (!isJapaneseCode && !isUSCode) {
-      validCode = '2269';
+      validCode = 'AAPL';
     }
 
     const detectedMarket = marketParam || detectMarketFromCode(validCode);

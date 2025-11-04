@@ -11,7 +11,7 @@ import { userTracking } from '../lib/userTracking';
 
 const getDefaultStockData = (code: string): StockData => ({
   info: {
-    code: code || '----',
+    code: code || 'AAPL',
     name: 'Loading data...',
     price: '---',
     change: '0.0',
@@ -21,7 +21,7 @@ const getDefaultStockData = (code: string): StockData => ({
     dividend: 'N/A',
     industry: 'N/A',
     marketCap: 'N/A',
-    market: 'N/A',
+    market: 'US',
     timestamp: new Date().toLocaleString('en-US'),
   },
   prices: [
@@ -61,7 +61,7 @@ export default function NewHome() {
       setStockCode(urlParams.code);
       fetchStockData(urlParams.code, urlParams.market);
     } else {
-      const defaultCode = '----';
+      const defaultCode = 'AAPL';
       setStockCode(defaultCode);
       setStockData(getDefaultStockData(defaultCode));
       setHasRealData(false);
@@ -328,7 +328,9 @@ export default function NewHome() {
   const handleStockCodeChange = (code: string) => {
     setStockCode(code);
     if (code.trim().length > 0) {
-      fetchStockData(code);
+      const isJapaneseCode = /^\d{4}$/.test(code.trim());
+      const market = isJapaneseCode ? 'jp' : 'us';
+      fetchStockData(code, market);
     }
   };
 

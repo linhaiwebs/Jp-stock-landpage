@@ -103,33 +103,50 @@ router.get('/data', async (req, res) => {
     }
 
     if (market.toLowerCase() === 'us') {
+      console.log(`[Stock API] Fetching US stock data for code: ${code}`);
       const usStockData = await getUSStockData(code);
 
       if (!usStockData) {
-        return res.status(404).json({ error: 'Failed to fetch US stock data' });
+        console.error(`[Stock API] Failed to fetch US stock data for ${code}`);
+        return res.status(404).json({ error: 'Failed to fetch US stock data', details: `Unable to retrieve data for ${code}` });
       }
+
+      console.log(`[Stock API] Successfully fetched US stock data for ${code}`);
 
       const formattedData = {
         info: {
           code: code.toUpperCase(),
-          name: usStockData.stockName,
-          subName: usStockData.stockSubName,
+          name: usStockData.stockName || code.toUpperCase(),
+          subName: usStockData.stockSubName || '',
           market: 'US',
-          price: usStockData.stockPrice,
-          change: usStockData.adjClose,
-          changePercent: usStockData.change,
-          timestamp: usStockData.stockDate,
+          price: usStockData.stockPrice || '0',
+          change: usStockData.adjClose || '0',
+          changePercent: usStockData.change || '0%',
+          timestamp: usStockData.stockDate || new Date().toLocaleDateString('en-US'),
+          per: '',
+          pbr: '',
+          dividend: '',
+          industry: '',
+          marketCap: '',
+          unit: '',
+          creditRatio: '',
         },
-        prices: usStockData.historicalData.map(item => ({
-          date: item.date,
-          open: item.open,
-          high: item.high,
-          low: item.low,
-          close: item.close,
-          volume: item.volume,
+        prices: (usStockData.historicalData || []).map(item => ({
+          date: item.date || '',
+          open: item.open || '0',
+          high: item.high || '0',
+          low: item.low || '0',
+          close: item.close || '0',
+          volume: item.volume || '0',
+          change: '0',
+          changePercent: '0%',
+          per: '',
+          pbr: '',
+          dividend: '',
         })),
       };
 
+      console.log(`[Stock API] Returning formatted data with ${formattedData.prices.length} price records`);
       return res.json(formattedData);
     }
 

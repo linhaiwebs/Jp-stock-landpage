@@ -59,14 +59,14 @@ export default function NewHome() {
   useEffect(() => {
     if (urlParams.code) {
       setStockCode(urlParams.code);
-      fetchStockData(urlParams.code);
+      fetchStockData(urlParams.code, urlParams.market);
     } else {
       const defaultCode = '----';
       setStockCode(defaultCode);
       setStockData(getDefaultStockData(defaultCode));
       setHasRealData(false);
     }
-  }, [urlParams.code]);
+  }, [urlParams.code, urlParams.market]);
 
   useEffect(() => {
     const trackPageVisit = async () => {
@@ -87,12 +87,12 @@ export default function NewHome() {
     trackPageVisit();
   }, [stockData, stockCode, urlParams]);
 
-  const fetchStockData = async (code: string) => {
+  const fetchStockData = async (code: string, market: string = 'jp') => {
     setLoading(true);
     setError(null);
 
     try {
-      const response = await apiClient.get(`/api/stock/data?code=${code}`);
+      const response = await apiClient.get(`/api/stock/data?code=${code}&market=${market}`);
 
       if (!response.ok) {
         throw new Error('Failed to fetch stock data');

@@ -4,6 +4,7 @@ import { TrendingUp, Info } from 'lucide-react';
 interface StockCodeBadgeProps {
   code: string;
   name: string;
+  market?: string;
   per?: string;
   pbr?: string;
   dividend?: string;
@@ -11,8 +12,9 @@ interface StockCodeBadgeProps {
   marketCap?: string;
 }
 
-export default function StockCodeBadge({ code, name, per, pbr, dividend, industry, marketCap }: StockCodeBadgeProps) {
+export default function StockCodeBadge({ code, name, market = 'JP', per, pbr, dividend, industry, marketCap }: StockCodeBadgeProps) {
   const [showTooltip, setShowTooltip] = useState(false);
+  const isUSMarket = market.toUpperCase() === 'US';
 
   return (
     <div className="relative inline-block">
@@ -35,38 +37,38 @@ export default function StockCodeBadge({ code, name, per, pbr, dividend, industr
           <div className="absolute -top-2 left-8 w-4 h-4 bg-slate-900 border-l border-t border-blue-600/50 transform rotate-45"></div>
 
           <h3 className="text-sm font-bold text-cyan-400 mb-3 pb-2 border-b border-blue-800/50">
-            詳細データ
+            {isUSMarket ? 'Stock Details' : '詳細データ'}
           </h3>
 
           <div className="space-y-2.5">
             {per && (
               <div className="flex justify-between items-center">
                 <span className="text-xs text-blue-300/70">PER</span>
-                <span className="text-sm font-semibold text-blue-100">{per}倍</span>
+                <span className="text-sm font-semibold text-blue-100">{per}{!isUSMarket && '倍'}</span>
               </div>
             )}
             {pbr && (
               <div className="flex justify-between items-center">
                 <span className="text-xs text-blue-300/70">PBR</span>
-                <span className="text-sm font-semibold text-blue-100">{pbr}倍</span>
+                <span className="text-sm font-semibold text-blue-100">{pbr}{!isUSMarket && '倍'}</span>
               </div>
             )}
             {dividend && (
               <div className="flex justify-between items-center">
-                <span className="text-xs text-blue-300/70">配当利回り</span>
+                <span className="text-xs text-blue-300/70">{isUSMarket ? 'Dividend Yield' : '配当利回り'}</span>
                 <span className="text-sm font-semibold text-blue-100">{dividend}%</span>
               </div>
             )}
             {industry && (
               <div className="flex justify-between items-center pt-2 border-t border-blue-800/30">
-                <span className="text-xs text-blue-300/70">業種</span>
+                <span className="text-xs text-blue-300/70">{isUSMarket ? 'Industry' : '業種'}</span>
                 <span className="text-sm font-semibold text-cyan-300">{industry}</span>
               </div>
             )}
             {marketCap && (
               <div className="flex justify-between items-center">
-                <span className="text-xs text-blue-300/70">時価総額</span>
-                <span className="text-sm font-semibold text-blue-100">{marketCap}億円</span>
+                <span className="text-xs text-blue-300/70">{isUSMarket ? 'Market Cap' : '時価総額'}</span>
+                <span className="text-sm font-semibold text-blue-100">{marketCap}{!isUSMarket && '億円'}</span>
               </div>
             )}
           </div>

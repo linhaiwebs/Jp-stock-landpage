@@ -1,6 +1,7 @@
 export interface StockInfo {
   code: string;
   name: string;
+  subName?: string;
   market: string;
   price: string;
   change: string;
@@ -8,13 +9,13 @@ export interface StockInfo {
   timestamp: string;
   ptsPrice?: string;
   ptsTime?: string;
-  industry: string;
-  unit: string;
-  per: string;
-  pbr: string;
-  dividend: string;
-  creditRatio: string;
-  marketCap: string;
+  industry?: string;
+  unit?: string;
+  per?: string;
+  pbr?: string;
+  dividend?: string;
+  creditRatio?: string;
+  marketCap?: string;
   earningsDate?: string;
 }
 

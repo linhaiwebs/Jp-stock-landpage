@@ -5,6 +5,17 @@ export interface UrlParams {
   src: string;
   racText: string;
   gclid: string;
+  market: string;
+}
+
+function detectMarketFromCode(code: string): string {
+  const isJapaneseCode = /^\d{4}$/.test(code);
+  const isUSCode = /^[A-Z]{1,5}$/i.test(code);
+
+  if (isUSCode) return 'us';
+  if (isJapaneseCode) return 'jp';
+
+  return 'jp';
 }
 
 export function useUrlParams(): UrlParams {
@@ -14,13 +25,24 @@ export function useUrlParams(): UrlParams {
     const src = urlParams.get('src') || '';
     const racText = urlParams.get('rac_text') || '';
     const gclid = urlParams.get('gclid') || '';
-    const isValidCode = /^\d{4}$/.test(code);
+    const marketParam = urlParams.get('market') || '';
+
+    const isJapaneseCode = /^\d{4}$/.test(code);
+    const isUSCode = /^[A-Z]{1,5}$/i.test(code);
+
+    let validCode = code;
+    if (!isJapaneseCode && !isUSCode) {
+      validCode = '2269';
+    }
+
+    const detectedMarket = marketParam || detectMarketFromCode(validCode);
 
     return {
-      code: isValidCode ? code : '2269',
+      code: validCode,
       src,
       racText,
       gclid,
+      market: detectedMarket,
     };
   };
 

@@ -91,11 +91,13 @@ function parseHistoricalData(html) {
   try {
     const tableMatch = html.match(/<table[^>]*class="[^"]*svelte-[^"]*"[^>]*>([\s\S]*?)<\/table>/);
     if (!tableMatch) {
+      console.log('No table found in HTML');
       return [];
     }
 
     const tbodyMatch = tableMatch[0].match(/<tbody[^>]*>([\s\S]*?)<\/tbody>/);
     if (!tbodyMatch) {
+      console.log('No tbody found in table');
       return [];
     }
 
@@ -109,7 +111,13 @@ function parseHistoricalData(html) {
       let cellMatch;
 
       while ((cellMatch = cellRegex.exec(rowMatch[1])) !== null) {
-        const text = cellMatch[1].replace(/<[^>]*>/g, '').trim();
+        let text = cellMatch[1];
+
+        text = text.replace(/<!--[\s\S]*?-->/g, '');
+        text = text.replace(/<span[^>]*class="[^"]*r[rg][^"]*"[^>]*>/g, '');
+        text = text.replace(/<[^>]*>/g, '');
+        text = text.replace(/\s+/g, ' ').trim();
+
         cells.push(text);
       }
 
@@ -125,6 +133,7 @@ function parseHistoricalData(html) {
       }
     }
 
+    console.log(`Parsed ${rows.length} rows of historical data`);
     return rows;
   } catch (error) {
     console.error('Error parsing historical data:', error);

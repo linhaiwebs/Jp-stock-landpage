@@ -41,22 +41,6 @@ export default function Footer() {
                     Disclaimer <ExternalLink className="w-3 h-3" />
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="/risk-disclosure"
-                    className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
-                  >
-                    Risk Disclosure <ExternalLink className="w-3 h-3" />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/specified-commercial-transaction-act"
-                    className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
-                  >
-                    Commercial Transaction Act <ExternalLink className="w-3 h-3" />
-                  </Link>
-                </li>
               </ul>
             </div>
 
@@ -72,23 +56,7 @@ export default function Footer() {
                     to="/contact"
                     className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
                   >
-                    Contact Form <ExternalLink className="w-3 h-3" />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/faq"
-                    className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
-                  >
-                    FAQ <ExternalLink className="w-3 h-3" />
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/support"
-                    className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
-                  >
-                    Support <ExternalLink className="w-3 h-3" />
+                    Contact Us <ExternalLink className="w-3 h-3" />
                   </Link>
                 </li>
                 <li className="flex items-center gap-1 text-gray-300">
@@ -96,7 +64,7 @@ export default function Footer() {
                   <span>080-3376-0625</span>
                 </li>
                 <li className="text-gray-400 text-xs">
-                  Hours: Weekdays 9:00-18:00 JST
+                  Hours: Weekdays 9:00 AM - 6:00 PM JST
                 </li>
               </ul>
             </div>

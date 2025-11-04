@@ -14,15 +14,7 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
   return (
     <div className="px-4 py-6">
       <div className="max-w-lg mx-auto">
-        <div
-          className="relative overflow-hidden"
-          style={{
-            backgroundImage: 'url(/assets/top1.png)',
-            backgroundSize: '100% 100%',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        >
+        <div className="relative overflow-hidden">
           <div className="relative z-10 px-4 py-6">
             <div>
               <div className="text-center pt-18 pb-2">

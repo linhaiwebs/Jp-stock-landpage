@@ -1,13 +1,9 @@
 interface HeroSectionProps {
   stockCode?: string;
-  stockName?: string;
-  onDiagnosis?: () => void;
-  disabled?: boolean;
+  onStockCodeChange?: (code: string) => void;
 }
 
-export default function HeroSection({ stockCode = '----', stockName = '', onDiagnosis, disabled = false }: HeroSectionProps) {
-  const hasStockData = stockCode !== '----' && stockName;
-
+export default function HeroSection({ stockCode = '', onStockCodeChange }: HeroSectionProps) {
   return (
     <div className="relative w-full">
       <div className="w-full px-4 py-6">
@@ -26,24 +22,17 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
         />
       </div>
 
-      {onDiagnosis && (
-        <div className="px-4 py-6">
-          <div className="max-w-lg mx-auto">
-            <button
-              onClick={onDiagnosis}
-              disabled={disabled}
-              className="w-full text-white font-bold text-lg py-4 px-6 rounded-2xl shadow-neon-gold hover:shadow-gold-glow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95 animate-pulse-gold"
-              style={{
-                backgroundImage: 'url(/assets/组 34.png)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            >
-              {hasStockData ? `【${stockName}】` : '銘柄'}無料診断
-            </button>
-          </div>
+      <div className="px-4 py-6">
+        <div className="max-w-lg mx-auto">
+          <input
+            type="text"
+            value={stockCode}
+            onChange={(e) => onStockCodeChange?.(e.target.value)}
+            placeholder="株式コードを入力"
+            className="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-2xl text-white text-lg placeholder-white/50 focus:outline-none focus:border-white/50 transition-all"
+          />
         </div>
-      )}
+      </div>
     </div>
   );
 }

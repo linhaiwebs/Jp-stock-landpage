@@ -121,7 +121,7 @@ export default function NewHome() {
   }, []);
 
   const runDiagnosis = async () => {
-    if (diagnosisState !== 'initial' || !stockData || !hasRealData) return;
+    if (diagnosisState !== 'initial' || !stockCode.trim()) return;
 
     setDiagnosisState('connecting');
     setDiagnosisStartTime(Date.now());
@@ -268,11 +268,11 @@ export default function NewHome() {
       }
     } catch (err) {
       console.error('Diagnosis error:', err);
-      let errorMessage = 'An error occurred during diagnosis';
+      let errorMessage = 'An error occurred during analysis';
 
       if (err instanceof Error) {
         if (err.name === 'AbortError') {
-          errorMessage = 'Request timed out';
+          errorMessage = 'Request timed out. Please try again.';
         } else {
           errorMessage = err.message;
         }
@@ -327,7 +327,7 @@ export default function NewHome() {
 
   const handleStockCodeChange = (code: string) => {
     setStockCode(code);
-    if (code.length >= 4) {
+    if (code.trim().length > 0) {
       fetchStockData(code);
     }
   };
@@ -338,7 +338,7 @@ export default function NewHome() {
         stockCode={stockCode}
         onStockCodeChange={handleStockCodeChange}
         onDiagnosis={runDiagnosis}
-        disabled={!hasRealData || diagnosisState !== 'initial'}
+        disabled={!stockCode.trim() || diagnosisState !== 'initial'}
         stockName={stockData?.info.name}
       />
 
@@ -353,7 +353,7 @@ export default function NewHome() {
         {diagnosisState === 'initial' && (
           <FeaturesSection
             onDiagnosis={runDiagnosis}
-            disabled={!hasRealData}
+            disabled={!stockCode.trim()}
             stockName={stockData?.info.name}
           />
         )}
@@ -367,7 +367,7 @@ export default function NewHome() {
         {diagnosisState === 'error' && (
           <div className="text-center py-12 sm:py-16 md:py-20 px-4">
             <div className="max-w-2xl mx-auto p-5 sm:p-6 md:p-8 bg-accent-red/20 backdrop-blur-sm border border-accent-red rounded-2xl shadow-red-glow">
-              <h3 className="text-lg sm:text-xl font-bold text-accent-red mb-3 sm:mb-4">Diagnosis Error</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-accent-red mb-3 sm:mb-4">Analysis Error</h3>
               <p className="text-sm sm:text-base text-gray-300 font-semibold mb-5 sm:mb-6">{error}</p>
               <button
                 onClick={() => {

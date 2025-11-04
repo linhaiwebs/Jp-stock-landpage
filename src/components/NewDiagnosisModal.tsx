@@ -135,7 +135,7 @@ export default function NewDiagnosisModal({
 
                   <div className="mt-3 p-3 bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg border border-green-600/30">
                     <p className="text-xs text-green-200 leading-relaxed">
-                      Register on LINE to receive daily stock analysis reports
+                      Add us on LINE to receive daily stock analysis reports and detailed insights
                     </p>
                   </div>
                 </>

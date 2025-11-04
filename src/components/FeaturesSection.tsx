@@ -63,7 +63,7 @@ export default function FeaturesSection({ onDiagnosis, disabled = false, stockNa
               }}
             >
               <span className="drop-shadow-lg">
-                {stockName ? `【${stockName}】を今すぐ診断` : '今すぐAI診断を開始'}
+                {stockName ? `Analyze ${stockName} Now` : 'Start AI Analysis'}
               </span>
             </div>
           </button>

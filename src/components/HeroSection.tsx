@@ -31,7 +31,7 @@ export default function HeroSection({ stockCode = '', onStockCodeChange, onDiagn
             type="text"
             value={stockCode}
             onChange={(e) => onStockCodeChange?.(e.target.value)}
-            placeholder="株式コードを入力"
+            placeholder="Enter stock code"
             className="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-2xl text-white text-lg placeholder-white/50 focus:outline-none focus:border-white/50 transition-all"
           />
 
@@ -50,7 +50,7 @@ export default function HeroSection({ stockCode = '', onStockCodeChange, onDiagn
                 }}
               >
                 <span className="drop-shadow-lg">
-                  {stockName ? `【${stockName}】を今すぐ診断` : '今すぐAI診断を開始'}
+                  {stockName ? `Analyze ${stockName} Now` : 'Start AI Analysis'}
                 </span>
               </div>
             </button>

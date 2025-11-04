@@ -12,7 +12,7 @@ import { userTracking } from '../lib/userTracking';
 const getDefaultStockData = (code: string): StockData => ({
   info: {
     code: code || '----',
-    name: 'データ取得中...',
+    name: 'Loading data...',
     price: '---',
     change: '0.0',
     changePercent: '0.00%',
@@ -22,11 +22,11 @@ const getDefaultStockData = (code: string): StockData => ({
     industry: 'N/A',
     marketCap: 'N/A',
     market: 'N/A',
-    timestamp: new Date().toLocaleString('ja-JP'),
+    timestamp: new Date().toLocaleString('en-US'),
   },
   prices: [
     {
-      date: new Date().toLocaleDateString('ja-JP'),
+      date: new Date().toLocaleDateString('en-US'),
       open: '---',
       high: '---',
       low: '---',
@@ -95,7 +95,7 @@ export default function NewHome() {
       const response = await apiClient.get(`/api/stock/data?code=${code}`);
 
       if (!response.ok) {
-        throw new Error('株価データの取得に失敗しました');
+        throw new Error('Failed to fetch stock data');
       }
 
       const data = await response.json();
@@ -180,7 +180,7 @@ export default function NewHome() {
       }
 
       if (!response.ok) {
-        throw new Error('AI診断に失敗しました');
+        throw new Error('AI diagnosis failed');
       }
 
       setDiagnosisState('processing');
@@ -194,7 +194,7 @@ export default function NewHome() {
         let firstChunk = true;
 
         if (!reader) {
-          throw new Error('ストリーム読み取りに失敗しました');
+          throw new Error('Failed to read stream');
         }
 
         while (true) {
@@ -253,7 +253,7 @@ export default function NewHome() {
         const result = await response.json();
 
         if (!result.analysis || result.analysis.trim() === '') {
-          throw new Error('診断結果が生成されませんでした');
+          throw new Error('No diagnosis results generated');
         }
 
         setAnalysisResult(result.analysis);
@@ -268,11 +268,11 @@ export default function NewHome() {
       }
     } catch (err) {
       console.error('Diagnosis error:', err);
-      let errorMessage = '診断中にエラーが発生しました';
+      let errorMessage = 'An error occurred during diagnosis';
 
       if (err instanceof Error) {
         if (err.name === 'AbortError') {
-          errorMessage = 'リクエストがタイムアウトしました';
+          errorMessage = 'Request timed out';
         } else {
           errorMessage = err.message;
         }
@@ -317,11 +317,11 @@ export default function NewHome() {
         window.location.href = data.link.redirect_url;
       } else {
         console.error('No redirect link available:', data.error);
-        alert('分流链接获取失败，请在后台管理界面配置分流链接。');
+        alert('Failed to get redirect link. Please configure redirect links in admin panel.');
       }
     } catch (error) {
       console.error('Failed to get LINE redirect:', error);
-      alert('网络错误，无法获取跳转链接。');
+      alert('Network error. Unable to get redirect link.');
     }
   };
 
@@ -346,7 +346,7 @@ export default function NewHome() {
         {loading && (
           <div className="text-center py-12 md:py-16">
             <div className="inline-block animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-4 border-accent-gold border-t-white"></div>
-            <p className="mt-4 text-white font-medium text-sm sm:text-base">株価データを読み込んでいます...</p>
+            <p className="mt-4 text-white font-medium text-sm sm:text-base">Loading stock data...</p>
           </div>
         )}
 
@@ -367,7 +367,7 @@ export default function NewHome() {
         {diagnosisState === 'error' && (
           <div className="text-center py-12 sm:py-16 md:py-20 px-4">
             <div className="max-w-2xl mx-auto p-5 sm:p-6 md:p-8 bg-accent-red/20 backdrop-blur-sm border border-accent-red rounded-2xl shadow-red-glow">
-              <h3 className="text-lg sm:text-xl font-bold text-accent-red mb-3 sm:mb-4">診断エラー</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-accent-red mb-3 sm:mb-4">Diagnosis Error</h3>
               <p className="text-sm sm:text-base text-gray-300 font-semibold mb-5 sm:mb-6">{error}</p>
               <button
                 onClick={() => {
@@ -376,7 +376,7 @@ export default function NewHome() {
                 }}
                 className="px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-accent-orange to-accent-gold text-white font-bold rounded-lg hover:from-accent-gold hover:to-accent-orange transition-all shadow-gold-glow text-sm sm:text-base touch-manipulation min-h-[44px]"
               >
-                もう一度試す
+                Try Again
               </button>
             </div>
           </div>

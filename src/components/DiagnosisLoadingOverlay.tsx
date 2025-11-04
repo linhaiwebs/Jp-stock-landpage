@@ -64,8 +64,8 @@ export default function DiagnosisLoadingOverlay({
           <RobotScholarIcon />
 
           <div className="mb-6">
-            <h3 className="text-xl font-bold text-white mb-2 text-center">AI診断を実行中</h3>
-            <p className="text-sm text-accent-gold text-center">市場データを分析しています...</p>
+            <h3 className="text-xl font-bold text-white mb-2 text-center">Running AI Analysis</h3>
+            <p className="text-sm text-accent-gold text-center">Analyzing market data...</p>
           </div>
 
           <div className="relative w-full h-3 bg-dark-deep/50 rounded-full overflow-hidden mb-3 border border-accent-gold/30">
@@ -84,10 +84,10 @@ export default function DiagnosisLoadingOverlay({
           <div className="bg-black/40 border-2 border-accent-gold/30 rounded-lg p-6 backdrop-blur-sm">
             <div className="space-y-3 text-sm">
               <p className="text-white font-semibold text-center text-base">
-                データはAIによって深度分析中です
+                Performing deep AI analysis
               </p>
               <p className="text-accent-gold text-center">
-                しばらくお待ちください
+                Please wait a moment
               </p>
             </div>
           </div>

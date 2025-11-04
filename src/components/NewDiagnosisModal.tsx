@@ -85,13 +85,13 @@ export default function NewDiagnosisModal({
           <div className="relative sticky top-0 bg-gradient-to-r from-accent-orange to-accent-gold px-3 py-2 sm:px-5 sm:py-3 flex items-center justify-between border-b border-accent-gold/30 backdrop-blur-sm z-10 shadow-gold-glow">
           <div className="flex-1 text-center pr-8">
             <h2 className="text-base sm:text-lg md:text-xl font-bold text-white drop-shadow-lg">
-              {stockName}（{stockCode}）AI銘柄診断レポート
+              {stockName} ({stockCode}) AI Stock Analysis Report
             </h2>
           </div>
           <button
             onClick={onClose}
             className="p-1 sm:p-2 hover:bg-white/20 rounded-lg transition-colors backdrop-blur-sm hover:shadow-lg"
-            aria-label="閉じる"
+            aria-label="Close"
           >
             <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
           </button>
@@ -99,7 +99,7 @@ export default function NewDiagnosisModal({
 
         <div className="relative overflow-y-auto max-h-[calc(95vh-180px)] sm:max-h-[calc(95vh-200px)] px-3 py-3 sm:px-5 sm:py-4 space-y-3 sm:space-y-4">
 
-          <h3 className="text-lg sm:text-xl font-bold text-white text-center mb-4">AI診断結果</h3>
+          <h3 className="text-lg sm:text-xl font-bold text-white text-center mb-4">AI Analysis Results</h3>
 
           <div className="relative bg-dark-card/40 backdrop-blur-xl rounded-lg sm:rounded-xl p-4 sm:p-5 border border-accent-orange/30 overflow-hidden shadow-orange-glow">
             <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-accent-gold/10 to-accent-orange/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -110,7 +110,7 @@ export default function NewDiagnosisModal({
                 <div className="text-xs sm:text-sm text-gray-700 leading-relaxed space-y-2">
                   {isConnecting ? (
                     <div className="text-center py-4">
-                      <p className="text-accent-orange font-semibold">AI分析エンジン接続中...</p>
+                      <p className="text-accent-orange font-semibold">Connecting to AI Analysis Engine...</p>
                     </div>
                   ) : (
                     <>
@@ -130,12 +130,12 @@ export default function NewDiagnosisModal({
                     className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white font-bold py-4 px-6 rounded-lg hover:from-green-700 hover:to-green-800 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-lg mt-6"
                   >
                     <ExternalLink className="w-6 h-6" />
-                    無料AI診断結果をLINEで毎日受け取る
+                    Get Free Daily AI Analysis on LINE
                   </button>
 
                   <div className="mt-3 p-3 bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg border border-green-600/30">
                     <p className="text-xs text-green-200 leading-relaxed">
-                      LINEで登録すると、毎日最新の株式分析レポートをお届けします
+                      Register on LINE to receive daily stock analysis reports
                     </p>
                   </div>
                 </>

@@ -17,6 +17,20 @@
     font-style: normal;
   }
 
+  @font-face {
+    font-family: 'Kozuka Gothic Pr6N';
+    src: local('Kozuka Gothic Pr6N'), local('小塚ゴシック Pr6N'), local('KozGoPr6N-Regular');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Kozuka Gothic Pr6N';
+    src: local('Kozuka Gothic Pr6N Bold'), local('小塚ゴシック Pr6N Bold'), local('KozGoPr6N-Bold');
+    font-weight: 700;
+    font-style: normal;
+  }
+
   html {
     overflow-y: scroll;
     scrollbar-gutter: stable;

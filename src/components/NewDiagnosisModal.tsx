@@ -68,7 +68,7 @@ export default function NewDiagnosisModal({
 
   return (
     <div
-      className="fixed inset-0 z-[9998] flex items-center justify-center p-2 sm:p-4 bg-black/90 backdrop-blur-md"
+      className="fixed inset-0 z-[9998] flex items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-sm"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -76,8 +76,8 @@ export default function NewDiagnosisModal({
       }}
     >
       <div className="relative w-full max-w-3xl max-h-[95vh] z-[9999]" onClick={(e) => e.stopPropagation()}>
-        <div className="relative bg-gradient-to-br from-dark-deep via-dark-tech to-dark-deep rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden border-2 border-accent-orange/50 pt-4 sm:pt-6 shadow-orange-glow-lg">
-          <div className="relative sticky top-0 bg-gradient-to-r from-accent-orange to-accent-gold px-3 py-2 sm:px-5 sm:py-3 flex items-center justify-between border-b border-accent-gold/30 backdrop-blur-sm z-10 shadow-gold-glow">
+        <div className="relative bg-gradient-to-br from-dark-deep via-dark-tech to-dark-deep rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden border border-accent-orange/30 pt-4 sm:pt-6">
+          <div className="relative sticky top-0 bg-gradient-to-r from-accent-orange to-accent-gold px-3 py-2 sm:px-5 sm:py-3 flex items-center justify-between border-b border-accent-gold/30 backdrop-blur-sm z-10">
           <div className="flex-1 text-center pr-8">
             <h2 className="text-base sm:text-lg md:text-xl font-bold text-white drop-shadow-lg">
               {stockName} ({stockCode}) AI Stock Analysis Report
@@ -93,12 +93,12 @@ export default function NewDiagnosisModal({
         </div>
 
         <div className="relative overflow-y-auto max-h-[calc(95vh-180px)] sm:max-h-[calc(95vh-200px)] px-3 py-3 sm:px-5 sm:py-4 space-y-3 sm:space-y-4">
-          <div className="relative bg-dark-card/40 backdrop-blur-xl rounded-lg sm:rounded-xl p-4 sm:p-5 border border-accent-orange/30 overflow-hidden shadow-orange-glow">
-            <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-accent-gold/10 to-accent-orange/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-36 sm:h-36 bg-gradient-to-tr from-accent-orange/10 to-accent-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="relative bg-dark-card/40 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-5 border border-accent-orange/20 overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-accent-gold/5 to-accent-orange/5 rounded-full blur-2xl pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-36 sm:h-36 bg-gradient-to-tr from-accent-orange/5 to-accent-gold/5 rounded-full blur-2xl pointer-events-none"></div>
 
             <div className="relative space-y-2 sm:space-y-3">
-              <div className="bg-white/95 rounded-lg p-3 sm:p-4 border border-accent-gold/30 backdrop-blur-sm shadow-lg">
+              <div className="bg-white/90 rounded-lg p-3 sm:p-4 border border-gray-300/30 backdrop-blur-sm shadow-md">
                 <div className="text-xs sm:text-sm text-gray-700 leading-relaxed space-y-2">
                   {isConnecting ? (
                     <div className="text-center py-4">

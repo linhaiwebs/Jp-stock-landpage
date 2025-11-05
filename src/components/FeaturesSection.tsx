@@ -37,11 +37,11 @@ export default function FeaturesSection({ onDiagnosis, disabled = false, stockNa
               className="flex items-center gap-3 px-4 py-3 w-full"
               style={{
                 borderRadius: '12px 0 12px 0',
-                background: 'linear-gradient(90deg, rgba(59, 130, 246, 0.3) 0%, rgba(147, 197, 253, 0.1) 100%)'
+                background: 'linear-gradient(90deg, rgba(31, 41, 55, 0.6) 0%, rgba(17, 24, 39, 0.4) 100%)'
               }}
             >
-              <Icon className="w-5 h-5 text-gray-400 flex-shrink-0" />
-              <span className="text-gray-400 text-sm font-light">{feature.text}</span>
+              <Icon className="w-5 h-5 text-gray-300 flex-shrink-0" />
+              <span className="text-gray-200 text-sm font-light">{feature.text}</span>
             </div>
           );
         })}
@@ -73,20 +73,20 @@ export default function FeaturesSection({ onDiagnosis, disabled = false, stockNa
       <div className="px-4 mt-6">
         <div className="max-w-lg mx-auto relative">
           <div className="absolute -top-3 left-4 z-10">
-            <div className="bg-blue-400/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg">
+            <div className="bg-accent-orange/80 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg">
               <AlertTriangle className="w-4 h-4 text-white" />
               <span className="text-white text-xs font-semibold">WARNING</span>
             </div>
           </div>
 
           <div
-            className="bg-blue-400/20 backdrop-blur-sm border border-blue-400/30 px-5 py-5 pt-7"
+            className="bg-gray-900/50 backdrop-blur-sm border border-accent-orange/30 px-5 py-5 pt-7"
             style={{
               borderRadius: '12px 0 12px 0'
             }}
           >
-            <p className="text-blue-200 text-xs leading-relaxed font-light">
-              <span className="font-semibold">RISK WARNING</span>: Trading and investing involves substantial risk of loss and is not suitable for all investors. This information is for informational and educational purposes only and does not constitute financial, investment, or trading advice. Past performance is not indicative of future results.
+            <p className="text-gray-300 text-xs leading-relaxed font-light">
+              <span className="font-semibold text-accent-gold">RISK WARNING</span>: Trading and investing involves substantial risk of loss and is not suitable for all investors. This information is for informational and educational purposes only and does not constitute financial, investment, or trading advice. Past performance is not indicative of future results.
             </p>
           </div>
         </div>

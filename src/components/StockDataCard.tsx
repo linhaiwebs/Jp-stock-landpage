@@ -24,9 +24,9 @@ export default function StockDataCard({ stockData }: StockDataCardProps) {
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto mt-4 bg-blue-400/20 backdrop-blur-sm rounded-2xl p-6 border border-blue-300/30">
+    <div className="w-full max-w-lg mx-auto mt-4 bg-gray-900/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/40">
       <div className="text-center mb-6">
-        <h3 className="text-white text-lg font-bold">
+        <h3 className="text-gray-100 text-lg font-bold">
           AI Diagnosis Stock - {stockData.info.timestamp}
         </h3>
       </div>
@@ -34,22 +34,22 @@ export default function StockDataCard({ stockData }: StockDataCardProps) {
       <div className="flex gap-6">
         <div className="flex-[0.4] space-y-3">
           <div>
-            <div className="text-white/70 text-sm mb-1">Stock Name</div>
-            <div className="text-white font-semibold">{stockData.info.name}</div>
+            <div className="text-gray-400 text-sm mb-1">Stock Name</div>
+            <div className="text-gray-100 font-semibold">{stockData.info.name}</div>
           </div>
 
           <div>
-            <div className="text-white/70 text-sm mb-1">Stock Code</div>
-            <div className="text-white font-semibold">{stockData.info.code}</div>
+            <div className="text-gray-400 text-sm mb-1">Stock Code</div>
+            <div className="text-gray-100 font-semibold">{stockData.info.code}</div>
           </div>
 
           <div>
-            <div className="text-white/70 text-sm mb-1">Current Price</div>
-            <div className="text-white font-semibold">{formatValue(stockData.info.price)}</div>
+            <div className="text-gray-400 text-sm mb-1">Current Price</div>
+            <div className="text-gray-100 font-semibold">{formatValue(stockData.info.price)}</div>
           </div>
 
           <div>
-            <div className="text-white/70 text-sm mb-1">Change</div>
+            <div className="text-gray-400 text-sm mb-1">Change</div>
             <div className="flex items-center gap-2">
               <span className={`font-semibold ${isPositive ? 'text-green-400' : 'text-red-400'}`}>
                 {stockData.info.changePercent}
@@ -65,33 +65,33 @@ export default function StockDataCard({ stockData }: StockDataCardProps) {
 
         <div className="flex-[0.6] grid grid-cols-2 gap-4">
           <div>
-            <div className="text-white/70 text-sm mb-1 text-center">Open</div>
-            <div className="text-white font-semibold text-center">{formatNumber(latestPrice?.open)}</div>
+            <div className="text-gray-400 text-sm mb-1 text-center">Open</div>
+            <div className="text-gray-100 font-semibold text-center">{formatNumber(latestPrice?.open)}</div>
           </div>
 
           <div>
-            <div className="text-white/70 text-sm mb-1 text-center">High</div>
-            <div className="text-white font-semibold text-center">{formatNumber(latestPrice?.high)}</div>
+            <div className="text-gray-400 text-sm mb-1 text-center">High</div>
+            <div className="text-gray-100 font-semibold text-center">{formatNumber(latestPrice?.high)}</div>
           </div>
 
           <div>
-            <div className="text-white/70 text-sm mb-1 text-center">Low</div>
-            <div className="text-white font-semibold text-center">{formatNumber(latestPrice?.low)}</div>
+            <div className="text-gray-400 text-sm mb-1 text-center">Low</div>
+            <div className="text-gray-100 font-semibold text-center">{formatNumber(latestPrice?.low)}</div>
           </div>
 
           <div>
-            <div className="text-white/70 text-sm mb-1 text-center">Close</div>
-            <div className="text-white font-semibold text-center">{formatNumber(latestPrice?.close)}</div>
+            <div className="text-gray-400 text-sm mb-1 text-center">Close</div>
+            <div className="text-gray-100 font-semibold text-center">{formatNumber(latestPrice?.close)}</div>
           </div>
 
           <div>
-            <div className="text-white/70 text-sm mb-1 text-center">Adj Close</div>
-            <div className="text-white font-semibold text-center">{formatNumber(latestPrice?.adjClose)}</div>
+            <div className="text-gray-400 text-sm mb-1 text-center">Adj Close</div>
+            <div className="text-gray-100 font-semibold text-center">{formatNumber(latestPrice?.adjClose)}</div>
           </div>
 
           <div>
-            <div className="text-white/70 text-sm mb-1 text-center">Volume</div>
-            <div className="text-white font-semibold text-center">{formatNumber(latestPrice?.volume)}</div>
+            <div className="text-gray-400 text-sm mb-1 text-center">Volume</div>
+            <div className="text-gray-100 font-semibold text-center">{formatNumber(latestPrice?.volume)}</div>
           </div>
         </div>
       </div>

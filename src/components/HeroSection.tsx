@@ -13,7 +13,7 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
       <div className="w-full">
         <div className="relative w-full">
           <img
-            src="/assets/head.png"
+            src="/assets/head copy copy.png"
             alt="Header"
             className="w-full h-auto block"
           />

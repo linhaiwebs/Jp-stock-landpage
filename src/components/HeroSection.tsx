@@ -10,11 +10,22 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
 
   return (
     <div className="relative w-full">
-      <div className="w-full px-4 py-6">
+      <div className="w-full px-4 py-8 flex flex-col items-center">
         <img
-          src="/assets/header.png"
-          alt="Header"
-          className="w-full h-auto block"
+          src="/assets/logo.png"
+          alt="AI Logo"
+          className="w-32 h-32 mb-6"
+        />
+
+        <h1 className="text-center mb-6">
+          <span className="text-yellow-400 font-bold text-4xl md:text-5xl">情報</span>
+          <span className="text-blue-500 font-medium text-2xl md:text-3xl">銘柄基本</span>
+        </h1>
+
+        <img
+          src="/assets/logo2.png"
+          alt="Frame"
+          className="w-full max-w-3xl h-auto"
         />
       </div>
 

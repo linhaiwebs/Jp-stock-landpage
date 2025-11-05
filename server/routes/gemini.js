@@ -12,9 +12,9 @@ router.post('/diagnosis', async (req, res) => {
   const startTime = Date.now();
 
   try {
-    const { code, stockData } = req.body;
+    const { code, stockData, isInvalidStock } = req.body;
 
-    console.log('Diagnosis request received for stock:', code);
+    console.log('Diagnosis request received for stock:', code, 'Invalid stock:', isInvalidStock);
 
     if (!code || !stockData) {
       console.error('Missing required parameters:', { code, hasStockData: !!stockData });
@@ -56,7 +56,28 @@ router.post('/diagnosis', async (req, res) => {
     console.log('SiliconFlow API Key selected, making streaming API request...');
     console.log('Using model:', siliconflowModel);
 
-    const prompt = `You are a professional stock market analyst. Based on the following stock data, create an analysis report in the specified format below.
+    let prompt;
+
+    if (isInvalidStock) {
+      prompt = `Generate a professional error message in the following format:
+
+Thank you for using our AI-powered stock analysis platform.
+
+We encountered an issue processing your request:
+
+股票代码有误，请与人工联系。
+(Invalid stock code. Please contact support for assistance.)
+
+To get help with:
+- Verifying the correct stock code
+- Understanding stock code formats (US: 3+ characters, JP: 4 digits)
+- Receiving personalized assistance
+
+Please add our LINE account "AI Stock Assistant" and send your inquiry. Our team will respond promptly to help you.
+
+IMPORTANT: Follow this format strictly.`;
+    } else {
+      prompt = `You are a professional stock market analyst. Based on the following stock data, create an analysis report in the specified format below.
 
 Stock Information:
 Company Name: ${stockData.name}
@@ -88,6 +109,7 @@ Once you have added our account, send the stock code "${code}" or the company na
 Your personalized AI analysis report will be delivered instantly upon sending your message.
 
 IMPORTANT: Follow this format strictly and do not include any other analysis content.`;
+    }
 
     res.setHeader('Content-Type', 'text/event-stream');
     res.setHeader('Cache-Control', 'no-cache');

@@ -1,6 +1,5 @@
 import { X, ExternalLink } from 'lucide-react';
 import { useEffect } from 'react';
-import RobotScholarIcon from './RobotScholarIcon';
 
 interface NewDiagnosisModalProps {
   isOpen: boolean;
@@ -77,11 +76,7 @@ export default function NewDiagnosisModal({
       }}
     >
       <div className="relative w-full max-w-3xl max-h-[95vh] z-[9999]" onClick={(e) => e.stopPropagation()}>
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-[60%] z-[10000] scale-75 sm:scale-100 pointer-events-none">
-          <RobotScholarIcon />
-        </div>
-
-        <div className="relative bg-gradient-to-br from-dark-deep via-dark-tech to-dark-deep rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden border-2 border-accent-orange/50 pt-12 sm:pt-16 shadow-orange-glow-lg">
+        <div className="relative bg-gradient-to-br from-dark-deep via-dark-tech to-dark-deep rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden border-2 border-accent-orange/50 pt-4 sm:pt-6 shadow-orange-glow-lg">
           <div className="relative sticky top-0 bg-gradient-to-r from-accent-orange to-accent-gold px-3 py-2 sm:px-5 sm:py-3 flex items-center justify-between border-b border-accent-gold/30 backdrop-blur-sm z-10 shadow-gold-glow">
           <div className="flex-1 text-center pr-8">
             <h2 className="text-base sm:text-lg md:text-xl font-bold text-white drop-shadow-lg">
@@ -98,9 +93,6 @@ export default function NewDiagnosisModal({
         </div>
 
         <div className="relative overflow-y-auto max-h-[calc(95vh-180px)] sm:max-h-[calc(95vh-200px)] px-3 py-3 sm:px-5 sm:py-4 space-y-3 sm:space-y-4">
-
-          <h3 className="text-lg sm:text-xl font-bold text-white text-center mb-4">AI Analysis Results</h3>
-
           <div className="relative bg-dark-card/40 backdrop-blur-xl rounded-lg sm:rounded-xl p-4 sm:p-5 border border-accent-orange/30 overflow-hidden shadow-orange-glow">
             <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-accent-gold/10 to-accent-orange/10 rounded-full blur-3xl pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-36 sm:h-36 bg-gradient-to-tr from-accent-orange/10 to-accent-gold/10 rounded-full blur-3xl pointer-events-none"></div>

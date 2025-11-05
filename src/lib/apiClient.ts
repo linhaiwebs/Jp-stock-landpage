@@ -51,13 +51,14 @@ const buildHeaders = (additionalHeaders?: HeadersInit): HeadersInit => {
 };
 
 export const apiClient = {
-  async get(endpoint: string, options?: RequestInit) {
+  async get(endpoint: string, signal?: AbortSignal, options?: RequestInit) {
     const url = buildApiUrl(endpoint);
     const response = await fetch(url, {
       ...options,
       method: 'GET',
       headers: buildHeaders(options?.headers),
       cache: 'no-store',
+      signal,
     });
     return response;
   },

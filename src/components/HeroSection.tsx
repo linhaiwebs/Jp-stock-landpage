@@ -4,9 +4,10 @@ interface HeroSectionProps {
   onDiagnosis?: () => void;
   disabled?: boolean;
   stockName?: string;
+  isLoadingStock?: boolean;
 }
 
-export default function HeroSection({ stockCode = '', onStockCodeChange, onDiagnosis, disabled = false, stockName = '' }: HeroSectionProps) {
+export default function HeroSection({ stockCode = '', onStockCodeChange, onDiagnosis, disabled = false, stockName = '', isLoadingStock = false }: HeroSectionProps) {
   return (
     <div className="relative w-full">
       <div className="w-full px-4 py-6">
@@ -27,13 +28,20 @@ export default function HeroSection({ stockCode = '', onStockCodeChange, onDiagn
 
       <div className="px-4 py-6">
         <div className="max-w-lg mx-auto space-y-4">
-          <input
-            type="text"
-            value={stockCode}
-            onChange={(e) => onStockCodeChange?.(e.target.value)}
-            placeholder="Enter stock code"
-            className="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-2xl text-white text-lg placeholder-white/50 focus:outline-none focus:border-white/50 transition-all"
-          />
+          <div className="relative">
+            <input
+              type="text"
+              value={stockCode}
+              onChange={(e) => onStockCodeChange?.(e.target.value)}
+              placeholder="Enter stock code (US: 3+ chars, JP: 4 digits)"
+              className="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-2xl text-white text-lg placeholder-white/50 focus:outline-none focus:border-white/50 transition-all pr-12"
+            />
+            {isLoadingStock && (
+              <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+              </div>
+            )}
+          </div>
 
           {onDiagnosis && (
             <button

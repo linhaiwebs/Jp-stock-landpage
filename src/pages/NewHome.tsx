@@ -8,6 +8,7 @@ import { DiagnosisState } from '../types/diagnosis';
 import { useUrlParams } from '../hooks/useUrlParams';
 import { apiClient } from '../lib/apiClient';
 import { userTracking } from '../lib/userTracking';
+import { useDebounce } from '../hooks/useDebounce';
 
 const getDefaultStockData = (code: string): StockData => ({
   info: {
@@ -48,6 +49,9 @@ export default function NewHome() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hasRealData, setHasRealData] = useState(false);
+  const [isLoadingStock, setIsLoadingStock] = useState(false);
+  const [lastFetchedCode, setLastFetchedCode] = useState<string>('');
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   const [diagnosisState, setDiagnosisState] = useState<DiagnosisState>('initial');
   const [analysisResult, setAnalysisResult] = useState<string>('');
@@ -86,12 +90,16 @@ export default function NewHome() {
     trackPageVisit();
   }, [stockData, stockCode, urlParams]);
 
-  const fetchStockData = async (code: string, market: string = 'us') => {
-    setLoading(true);
+  const fetchStockData = async (code: string, market: string = 'us', signal?: AbortSignal) => {
+    if (!code || code === lastFetchedCode) {
+      return;
+    }
+
+    setIsLoadingStock(true);
     setError(null);
 
     try {
-      const response = await apiClient.get(`/api/stock/data?code=${code}&market=${market}`);
+      const response = await apiClient.get(`/api/stock/data?code=${code}&market=${market}`, signal);
 
       if (!response.ok) {
         throw new Error('Failed to fetch stock data');
@@ -101,13 +109,18 @@ export default function NewHome() {
       setStockData(data);
       setStockCode(code);
       setHasRealData(true);
-    } catch (err) {
+      setLastFetchedCode(code);
+    } catch (err: any) {
+      if (err.name === 'AbortError') {
+        return;
+      }
       console.warn('Stock data fetch failed, using default data:', err);
       setStockData(getDefaultStockData(code));
       setStockCode(code);
       setHasRealData(false);
+      setLastFetchedCode(code);
     } finally {
-      setLoading(false);
+      setIsLoadingStock(false);
     }
   };
 
@@ -121,6 +134,8 @@ export default function NewHome() {
 
   const runDiagnosis = async () => {
     if (diagnosisState !== 'initial' || !stockCode.trim()) return;
+
+    const isInvalidStock = !hasRealData;
 
     setDiagnosisState('connecting');
     setDiagnosisStartTime(Date.now());
@@ -157,6 +172,7 @@ export default function NewHome() {
         },
         body: JSON.stringify({
           code: stockCode,
+          isInvalidStock: isInvalidStock,
           stockData: {
             name: stockData.info.name,
             price: stockData.info.price,
@@ -324,12 +340,32 @@ export default function NewHome() {
     }
   };
 
+  const debouncedFetchStockData = useDebounce((code: string, market: string) => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+    abortControllerRef.current = new AbortController();
+    fetchStockData(code, market, abortControllerRef.current.signal);
+  }, 600);
+
   const handleStockCodeChange = (code: string) => {
     setStockCode(code);
-    if (code.trim().length > 0) {
-      const isJapaneseCode = /^\d{4}$/.test(code.trim());
-      const market = isJapaneseCode ? 'jp' : 'us';
-      fetchStockData(code, market);
+
+    if (code.trim().length === 0) {
+      const defaultCode = 'AAPL';
+      setStockCode(defaultCode);
+      debouncedFetchStockData(defaultCode, 'us');
+      return;
+    }
+
+    const trimmedCode = code.trim();
+    const isJapaneseCode = /^\d{4}$/.test(trimmedCode);
+    const isUSCode = /^[A-Za-z]{3,}$/.test(trimmedCode);
+
+    if (isJapaneseCode) {
+      debouncedFetchStockData(trimmedCode, 'jp');
+    } else if (isUSCode) {
+      debouncedFetchStockData(trimmedCode, 'us');
     }
   };
 
@@ -341,6 +377,7 @@ export default function NewHome() {
         onDiagnosis={runDiagnosis}
         disabled={!stockCode.trim() || diagnosisState !== 'initial'}
         stockName={stockData?.info.name}
+        isLoadingStock={isLoadingStock}
       />
 
       <div className="pb-8">

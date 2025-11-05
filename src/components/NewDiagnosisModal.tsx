@@ -127,10 +127,27 @@ export default function NewDiagnosisModal({
                 <>
                   <button
                     onClick={onLineConversion}
-                    className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white font-bold py-4 px-6 rounded-lg hover:from-green-700 hover:to-green-800 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-lg mt-6"
+                    className="relative overflow-hidden w-full bg-gradient-to-r from-green-600 to-green-700 text-white font-bold py-4 px-6 rounded-lg hover:from-green-700 hover:to-green-800 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-lg mt-6 animate-button-pulse animate-glow-ring-green group"
+                    style={{ willChange: 'transform' }}
                   >
-                    <ExternalLink className="w-6 h-6" />
-                    無料AI診断結果をLINEで毎日受け取る
+                    <div
+                      className="absolute inset-0 opacity-20 animate-gradient-shift"
+                      style={{
+                        background: 'linear-gradient(90deg, rgba(34,197,94,0.3) 0%, rgba(74,222,128,0.5) 50%, rgba(34,197,94,0.3) 100%)',
+                        backgroundSize: '200% 100%'
+                      }}
+                    />
+
+                    <div
+                      className="absolute inset-0 w-[30%] h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:animate-[shimmer-sweep_2s_ease-in-out]"
+                      style={{
+                        animation: 'shimmer-sweep 5s ease-in-out infinite',
+                        animationDelay: '1.5s'
+                      }}
+                    />
+
+                    <ExternalLink className="relative w-6 h-6 animate-icon-bounce" />
+                    <span className="relative">無料AI診断結果をLINEで毎日受け取る</span>
                   </button>
 
                   <div className="mt-3 p-3 bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg border border-green-600/30">

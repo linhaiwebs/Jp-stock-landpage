@@ -40,15 +40,28 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
             <button
               onClick={onDiagnosis}
               disabled={disabled}
-              className="w-full py-4 px-6 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95 transition-all duration-300"
-              style={{
-                backgroundImage: 'url(/assets/button.png)',
-                backgroundSize: '100% 100%',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
-              }}
+              className="relative group w-full py-4 px-6 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95 transition-all duration-300 overflow-hidden"
             >
-              <span className="text-red-600 font-bold text-lg drop-shadow-lg">
+              <div
+                className="absolute inset-0 animate-glow-ring"
+                style={{
+                  backgroundImage: 'url(/assets/button.png)',
+                  backgroundSize: '100% 100%',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                  willChange: 'box-shadow'
+                }}
+              />
+
+              <div
+                className="absolute inset-0 opacity-20 animate-gradient-shift"
+                style={{
+                  background: 'linear-gradient(90deg, rgba(255,140,66,0.3) 0%, rgba(255,167,38,0.5) 50%, rgba(255,140,66,0.3) 100%)',
+                  backgroundSize: '200% 100%'
+                }}
+              />
+
+              <span className="relative text-red-600 font-bold text-lg drop-shadow-lg">
                 {hasStockData ? `【${stockName}】` : '銘柄'}無料診断
               </span>
             </button>

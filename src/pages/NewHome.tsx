@@ -389,9 +389,17 @@ export default function NewHome() {
                   setDiagnosisState('initial');
                   setError(null);
                 }}
-                className="px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-accent-orange to-accent-gold text-white font-bold rounded-lg hover:from-accent-gold hover:to-accent-orange transition-all shadow-gold-glow text-sm sm:text-base touch-manipulation min-h-[44px]"
+                className="relative overflow-hidden px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-accent-orange to-accent-gold text-white font-bold rounded-lg hover:from-accent-gold hover:to-accent-orange transition-all shadow-gold-glow text-sm sm:text-base touch-manipulation min-h-[44px] animate-shake-subtle animate-glow-ring group"
+                style={{ willChange: 'transform' }}
               >
-                もう一度試す
+                <div
+                  className="absolute inset-0 opacity-20 animate-gradient-shift"
+                  style={{
+                    background: 'linear-gradient(90deg, rgba(255,140,66,0.3) 0%, rgba(255,167,38,0.5) 50%, rgba(255,140,66,0.3) 100%)',
+                    backgroundSize: '200% 100%'
+                  }}
+                />
+                <span className="relative">もう一度試す</span>
               </button>
             </div>
           </div>

@@ -28,7 +28,7 @@ function App() {
     <div
       className="min-h-screen"
       style={{
-        backgroundImage: 'url(/assets/back copy copy copy copy.png)',
+        backgroundImage: 'url(/assets/background.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'

@@ -4,54 +4,54 @@ import { Link } from 'react-router-dom';
 export default function Press() {
   const pressReleases = [
     {
-      date: '2025年1月15日',
-      title: 'AI株式診断サービス、正式版をリリース',
-      summary: '最新のAI技術を活用した株式診断サービスの正式版を公開いたしました。無料でご利用いただけます。',
-      category: 'サービス'
+      date: 'January 15, 2025',
+      title: 'AI Stock Diagnosis Service Launches Official Version',
+      summary: 'We have officially released our AI-powered stock diagnosis service featuring cutting-edge technology. The service is free to use.',
+      category: 'Service'
     },
     {
-      date: '2025年1月10日',
-      title: '株価データ提供範囲を拡大、全上場銘柄に対応',
-      summary: '日本の主要市場の全上場銘柄に対応し、より幅広い銘柄の分析が可能になりました。',
-      category: '機能追加'
+      date: 'January 10, 2025',
+      title: 'Expanded Stock Data Coverage: Now Supports All Listed Stocks',
+      summary: 'We now support comprehensive coverage of listed stocks across major markets, enabling analysis of a wider range of securities.',
+      category: 'Feature Update'
     },
     {
-      date: '2024年12月20日',
-      title: 'ベータ版リリースのお知らせ',
-      summary: 'AI株式診断サービスのベータ版を公開し、一般ユーザー向けのテストを開始いたしました。',
-      category: 'サービス'
+      date: 'December 20, 2024',
+      title: 'Beta Version Launch Announcement',
+      summary: 'We have released the beta version of our AI Stock Diagnosis Service and begun testing with general users.',
+      category: 'Service'
     },
     {
-      date: '2024年12月1日',
-      title: 'AI株式診断サービス開発開始のお知らせ',
-      summary: '投資情報の民主化を目指し、AIを活用した株式診断サービスの開発を開始いたしました。',
-      category: '企業'
+      date: 'December 1, 2024',
+      title: 'AI Stock Diagnosis Service Development Begins',
+      summary: 'We have begun development of our AI-powered stock diagnosis service, aimed at democratizing investment information.',
+      category: 'Company'
     }
   ];
 
   const mediaKits = [
     {
-      title: '会社概要',
-      description: 'サービスの概要、ミッション、ビジョンなど',
+      title: 'Company Overview',
+      description: 'Service overview, mission, vision, and more',
       format: 'PDF'
     },
     {
-      title: 'ロゴ素材',
-      description: 'ロゴデータ（PNG、SVG形式）',
+      title: 'Logo Assets',
+      description: 'Logo files (PNG and SVG formats)',
       format: 'ZIP'
     },
     {
-      title: 'サービス紹介資料',
-      description: '機能説明、利用方法など',
+      title: 'Service Information',
+      description: 'Feature descriptions and usage guides',
       format: 'PDF'
     }
   ];
 
   const mediaContact = {
-    department: '広報担当',
+    department: 'Media Relations',
     email: 'press@ai-stock-diagnosis.example.com',
-    phone: '03-XXXX-XXXX',
-    hours: '平日 9:00 - 18:00'
+    phone: '+81-80-3376-0625',
+    hours: 'Weekdays 9:00 AM - 6:00 PM JST'
   };
 
   return (
@@ -62,7 +62,7 @@ export default function Press() {
           className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
-          トップページに戻る
+          Back to Home
         </Link>
 
         <div className="bg-white rounded-xl shadow-lg p-8">
@@ -70,16 +70,15 @@ export default function Press() {
             <div className="bg-blue-100 p-3 rounded-lg">
               <Newspaper className="w-6 h-6 text-blue-700" />
             </div>
-            <h1 className="text-3xl font-bold text-gray-900">プレスリリース</h1>
+            <h1 className="text-3xl font-bold text-gray-900">Press Releases</h1>
           </div>
 
           <p className="text-gray-700 leading-relaxed mb-8">
-            AI株式診断サービスに関するプレスリリース、メディア掲載情報、
-            ニュースなどを掲載しています。
+            Press releases, media coverage, and news about our AI Stock Diagnosis Service.
           </p>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">最新のプレスリリース</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Latest Press Releases</h2>
             <div className="space-y-4">
               {pressReleases.map((release, index) => (
                 <div
@@ -100,7 +99,7 @@ export default function Press() {
                     {release.summary}
                   </p>
                   <button className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 text-sm font-semibold">
-                    詳細を見る <ExternalLink className="w-4 h-4" />
+                    Read More <ExternalLink className="w-4 h-4" />
                   </button>
                 </div>
               ))}
@@ -108,26 +107,26 @@ export default function Press() {
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">メディア掲載</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Media Coverage</h2>
             <div className="bg-slate-50 rounded-lg p-6 border border-slate-200">
               <p className="text-gray-700 leading-relaxed mb-4">
-                現在、メディア掲載情報はありません。
-                今後、掲載があり次第、こちらに掲載いたします。
+                No media coverage is currently available.
+                We will update this section as coverage becomes available.
               </p>
               <div className="bg-blue-50 rounded-lg p-4">
                 <p className="text-sm text-blue-800">
-                  <strong>メディア関係者の方へ：</strong>
-                  取材のご依頼、サービスに関するお問い合わせは、下記のメディア窓口までご連絡ください。
+                  <strong>For Media Inquiries:</strong>
+                  Interview requests and service inquiries can be directed to our media contact below.
                 </p>
               </div>
             </div>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">メディアキット</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Media Kit</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              報道関係者向けの資料をご用意しております。
-              ダウンロードしてご利用ください。
+              We provide press materials for media professionals.
+              Please download and use as needed.
             </p>
             <div className="grid sm:grid-cols-3 gap-4">
               {mediaKits.map((kit, index) => (
@@ -144,59 +143,59 @@ export default function Press() {
                   <p className="text-sm text-gray-700 mb-4">{kit.description}</p>
                   <button className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 text-sm font-semibold">
                     <Download className="w-4 h-4" />
-                    ダウンロード
+                    Download
                   </button>
                 </div>
               ))}
             </div>
             <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
               <p className="text-sm text-amber-800">
-                <strong>注意：</strong> メディアキットのダウンロード機能は現在準備中です。
-                資料が必要な場合は、メディア窓口までお問い合わせください。
+                <strong>Note:</strong> Media kit downloads are currently being prepared.
+                For immediate needs, please contact our media relations team.
               </p>
             </div>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">メディア窓口</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Media Contact</h2>
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border-2 border-blue-200">
               <p className="text-gray-700 leading-relaxed mb-4">
-                取材のご依頼、プレスリリースに関するお問い合わせは、
-                以下の窓口までご連絡ください。
+                For interview requests and press release inquiries,
+                please contact us at the following:
               </p>
               <div className="bg-white rounded-lg p-5 space-y-3">
                 <div className="flex items-start gap-3">
-                  <span className="font-semibold text-gray-900 w-24 flex-shrink-0">部署：</span>
+                  <span className="font-semibold text-gray-900 w-24 flex-shrink-0">Department:</span>
                   <span className="text-gray-700">{mediaContact.department}</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="font-semibold text-gray-900 w-24 flex-shrink-0">Email：</span>
+                  <span className="font-semibold text-gray-900 w-24 flex-shrink-0">Email:</span>
                   <span className="text-blue-600">{mediaContact.email}</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="font-semibold text-gray-900 w-24 flex-shrink-0">電話：</span>
+                  <span className="font-semibold text-gray-900 w-24 flex-shrink-0">Phone:</span>
                   <span className="text-gray-700">{mediaContact.phone}</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="font-semibold text-gray-900 w-24 flex-shrink-0">受付時間：</span>
+                  <span className="font-semibold text-gray-900 w-24 flex-shrink-0">Hours:</span>
                   <span className="text-gray-700">{mediaContact.hours}</span>
                 </div>
               </div>
               <p className="text-sm text-gray-600 mt-4">
-                ※土日祝日、年末年始を除く。お問い合わせ内容により、
-                回答までに数日かかる場合がございます。
+                *Excluding weekends, holidays, and year-end/New Year period. Responses to inquiries
+                may take several days depending on the nature of the request.
               </p>
             </div>
           </section>
 
           <div className="bg-slate-100 rounded-lg p-6 border border-slate-200">
-            <h3 className="font-bold text-gray-900 mb-3">免責事項</h3>
+            <h3 className="font-bold text-gray-900 mb-3">Disclaimer</h3>
             <p className="text-sm text-gray-700 leading-relaxed">
-              本プレスリリースに記載された情報は、発表日現在のものです。
-              発表日以降の業務上の理由、諸般の事情により、
-              内容が変更される場合がありますので、あらかじめご了承ください。
-              また、本プレスリリースに記載されている内容について、
-              当社は一切の責任を負いません。
+              Information contained in press releases is accurate as of the publication date.
+              Due to business reasons and various circumstances following the publication date,
+              content may be subject to change. Please note that we assume no responsibility
+              for the accuracy of information after the publication date or for actions taken
+              based on press release content.
             </p>
           </div>
         </div>

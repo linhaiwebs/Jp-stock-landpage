@@ -64,7 +64,7 @@ export default function Footer() {
                   <span>080-3376-0625</span>
                 </li>
                 <li className="text-gray-400 text-xs">
-                  Hours: Weekdays 9:00 AM - 6:00 PM JST
+                  Hours: Weekdays 9:00 AM - 6:00 PM JST (International)
                 </li>
               </ul>
             </div>

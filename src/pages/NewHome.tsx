@@ -328,13 +328,18 @@ export default function NewHome() {
     }
   };
 
+  const handleStockCodeChange = (code: string) => {
+    setStockCode(code);
+    if (code.length >= 4) {
+      fetchStockData(code);
+    }
+  };
+
   return (
     <div className="min-h-screen relative">
       <HeroSection
         stockCode={stockCode}
-        stockName={stockData?.info.name}
-        onDiagnosis={runDiagnosis}
-        disabled={!hasRealData || diagnosisState !== 'initial'}
+        onStockCodeChange={handleStockCodeChange}
       />
 
       <div className="pb-8">

@@ -57,7 +57,7 @@ export default function FeaturesSection({ onDiagnosis, disabled = false, stockNa
             <div
               className="relative text-white font-bold text-lg py-5 pl-8 pr-24 rounded-full transform transition-all duration-300 group-hover:scale-105 group-active:scale-95 text-left"
               style={{
-                backgroundImage: 'url(/assets/button.png)',
+                backgroundImage: 'url(/assets/button\\ copy.png)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               }}

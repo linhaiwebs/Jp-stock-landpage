@@ -28,10 +28,11 @@ function App() {
     <div
       className="min-h-screen"
       style={{
-        backgroundImage: 'url(/assets/back.png)',
+        backgroundImage: 'url(/assets/background.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
       }}
     >
       <Routes>

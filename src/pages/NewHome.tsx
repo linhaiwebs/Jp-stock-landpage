@@ -63,8 +63,7 @@ export default function NewHome() {
     } else {
       const defaultCode = 'AAPL';
       setStockCode(defaultCode);
-      setStockData(getDefaultStockData(defaultCode));
-      setHasRealData(false);
+      fetchStockData(defaultCode, 'us');
     }
   }, [urlParams.code, urlParams.market]);
 
@@ -87,7 +86,7 @@ export default function NewHome() {
     trackPageVisit();
   }, [stockData, stockCode, urlParams]);
 
-  const fetchStockData = async (code: string, market: string = 'jp') => {
+  const fetchStockData = async (code: string, market: string = 'us') => {
     setLoading(true);
     setError(null);
 

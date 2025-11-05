@@ -55,11 +55,9 @@ export default function FeaturesSection({ onDiagnosis, disabled = false, stockNa
             className="relative group disabled:opacity-50 disabled:cursor-not-allowed w-full"
           >
             <div
-              className="relative text-white font-bold text-lg py-5 pl-8 pr-24 rounded-full transform transition-all duration-300 group-hover:scale-105 group-active:scale-95 text-left"
+              className="relative text-white font-bold text-lg py-5 pl-8 pr-24 rounded-full transform transition-all duration-300 group-hover:scale-105 group-active:scale-95 text-left overflow-hidden"
               style={{
-                backgroundImage: 'url(/assets/button\\ copy.png)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
+                background: 'linear-gradient(90deg, #a855f7 0%, #ec4899 50%, #3b82f6 100%)'
               }}
             >
               <span className="drop-shadow-lg">

@@ -18,7 +18,7 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
         <div
           className="relative overflow-hidden"
           style={{
-            backgroundImage: 'url(/assets/top2.png)',
+            backgroundImage: 'url(/assets/top2 copy.png)',
             backgroundSize: '100% 100%',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',

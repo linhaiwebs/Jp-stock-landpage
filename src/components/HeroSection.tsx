@@ -22,11 +22,16 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
           <span className="text-blue-500 font-medium text-2xl md:text-3xl">銘柄基本</span>
         </h1>
 
-        <img
-          src="/assets/logo2.png"
-          alt="Frame"
-          className="w-full max-w-3xl h-auto"
-        />
+        <div className="relative w-full max-w-3xl">
+          <img
+            src="/assets/logo2.png"
+            alt="Frame"
+            className="w-full h-auto"
+          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-red-600 font-bold text-2xl md:text-3xl lg:text-4xl">銘柄無料診断</span>
+          </div>
+        </div>
       </div>
 
       {onDiagnosis && (

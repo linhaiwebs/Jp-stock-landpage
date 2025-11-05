@@ -1,12 +1,13 @@
 interface HeroSectionProps {
   stockCode?: string;
-  onStockCodeChange?: (code: string) => void;
+  stockName?: string;
   onDiagnosis?: () => void;
   disabled?: boolean;
-  stockName?: string;
 }
 
-export default function HeroSection({ stockCode = '', onStockCodeChange, onDiagnosis, disabled = false, stockName = '' }: HeroSectionProps) {
+export default function HeroSection({ stockCode = '----', stockName = '', onDiagnosis, disabled = false }: HeroSectionProps) {
+  const hasStockData = stockCode !== '----' && stockName;
+
   return (
     <div className="relative w-full">
       <div className="w-full px-4 py-6">
@@ -25,38 +26,24 @@ export default function HeroSection({ stockCode = '', onStockCodeChange, onDiagn
         />
       </div>
 
-      <div className="px-4 py-6">
-        <div className="max-w-lg mx-auto space-y-4">
-          <input
-            type="text"
-            value={stockCode}
-            onChange={(e) => onStockCodeChange?.(e.target.value)}
-            placeholder="株式コードを入力"
-            className="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-2xl text-white text-lg placeholder-white/50 focus:outline-none focus:border-white/50 transition-all"
-          />
-
-          {onDiagnosis && (
+      {onDiagnosis && (
+        <div className="px-4 py-6">
+          <div className="max-w-lg mx-auto">
             <button
               onClick={onDiagnosis}
               disabled={disabled}
-              className="relative group disabled:opacity-50 disabled:cursor-not-allowed w-full"
+              className="w-full text-white font-bold text-lg py-4 px-6 rounded-2xl shadow-neon-gold hover:shadow-gold-glow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95 animate-pulse-gold"
+              style={{
+                backgroundImage: 'url(/assets/组 34.png)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
             >
-              <div
-                className="relative text-white font-bold text-lg py-5 pl-8 pr-24 rounded-full transform transition-all duration-300 group-hover:scale-105 group-active:scale-95 text-left"
-                style={{
-                  backgroundImage: 'url(/assets/button.png)',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-              >
-                <span className="drop-shadow-lg">
-                  {stockName ? `【${stockName}】を今すぐ診断` : '今すぐAI診断を開始'}
-                </span>
-              </div>
+              {hasStockData ? `【${stockName}】` : '銘柄'}無料診断
             </button>
-          )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import HeroSection from '../components/HeroSection';
-import FeaturesSection from '../components/FeaturesSection';
+import SplitStockCard from '../components/SplitStockCard';
+import PulsingButton from '../components/PulsingButton';
+import ScrollingHistoryData from '../components/ScrollingHistoryData';
+import CircularAnalysisNav from '../components/CircularAnalysisNav';
 import DiagnosisLoadingOverlay from '../components/DiagnosisLoadingOverlay';
 import NewDiagnosisModal from '../components/NewDiagnosisModal';
 import { StockData } from '../types/stock';
@@ -325,21 +328,13 @@ export default function NewHome() {
     }
   };
 
-  const handleStockCodeChange = (code: string) => {
-    setStockCode(code);
-    if (code.length >= 4) {
-      fetchStockData(code);
-    }
-  };
-
   return (
     <div className="min-h-screen relative">
       <HeroSection
         stockCode={stockCode}
-        onStockCodeChange={handleStockCodeChange}
+        stockName={stockData?.info.name}
         onDiagnosis={runDiagnosis}
         disabled={!hasRealData || diagnosisState !== 'initial'}
-        stockName={stockData?.info.name}
       />
 
       <div className="pb-8">
@@ -350,8 +345,32 @@ export default function NewHome() {
           </div>
         )}
 
-        {diagnosisState === 'initial' && (
-          <FeaturesSection />
+        {stockData && diagnosisState === 'initial' && (
+          <>
+            <SplitStockCard
+              info={stockData.info}
+              latestPrice={stockData.prices[0]}
+            />
+
+            <PulsingButton
+              onClick={runDiagnosis}
+              stockName={stockData.info.name}
+              disabled={!hasRealData}
+            />
+
+            <ScrollingHistoryData
+              prices={stockData.prices}
+              stockName={stockData.info.name}
+            />
+
+            <PulsingButton
+              onClick={runDiagnosis}
+              stockName={stockData.info.name}
+              disabled={!hasRealData}
+            />
+
+            <CircularAnalysisNav />
+          </>
         )}
 
         <DiagnosisLoadingOverlay

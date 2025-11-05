@@ -21,16 +21,26 @@ export default function PulsingButton({ onClick, stockName = '', disabled = fals
           disabled={disabled}
           className="relative group disabled:opacity-50 disabled:cursor-not-allowed w-full"
         >
+          <div className="absolute inset-0 bg-gradient-to-r from-accent-orange via-accent-gold to-accent-orange rounded-2xl blur-xl opacity-60 group-hover:opacity-90 animate-pulse-gold"></div>
+
           <div
-            className="relative text-white font-bold text-lg py-5 pl-8 pr-24 rounded-full transform transition-all duration-300 group-hover:scale-105 group-active:scale-95 text-left"
+            className="relative text-white font-black text-lg px-8 py-5 rounded-2xl shadow-neon-gold transform transition-all duration-300 group-hover:scale-105 group-active:scale-95 animate-pulse-gold border-2 border-accent-gold-light/50"
             style={{
-              backgroundImage: 'url(/assets/button.png)',
+              backgroundImage: 'url(/assets/组 34.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}
           >
-            <span className="drop-shadow-lg">{buttonText}</span>
+            <div className="flex items-center justify-center gap-3">
+              <Sparkles className="w-6 h-6 animate-spin" style={{ animationDuration: '3s' }} />
+              <span className="drop-shadow-lg">{buttonText}</span>
+              <Zap className="w-6 h-6" />
+            </div>
           </div>
+
+          <div className="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent rounded-2xl pointer-events-none"></div>
+
+          <div className="absolute -inset-1 bg-gradient-to-r from-accent-orange via-accent-gold to-accent-orange rounded-2xl opacity-0 group-hover:opacity-20 blur-2xl transition-opacity"></div>
         </button>
       </div>
     </div>

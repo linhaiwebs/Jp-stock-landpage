@@ -32,7 +32,6 @@ export function initializeDatabase() {
     CREATE TABLE IF NOT EXISTS diagnosis_cache (
       id TEXT PRIMARY KEY,
       stock_code TEXT NOT NULL,
-      market TEXT DEFAULT 'jp',
       stock_data TEXT NOT NULL,
       diagnosis_result TEXT NOT NULL,
       model_used TEXT DEFAULT 'qwen2.5-7b-instruct',
@@ -43,7 +42,7 @@ export function initializeDatabase() {
     );
 
     CREATE INDEX IF NOT EXISTS idx_diagnosis_cache_lookup
-      ON diagnosis_cache(stock_code, market, expires_at);
+      ON diagnosis_cache(stock_code, expires_at);
 
     CREATE INDEX IF NOT EXISTS idx_diagnosis_cache_expires
       ON diagnosis_cache(expires_at);
@@ -101,7 +100,6 @@ export function initializeDatabase() {
       session_id TEXT UNIQUE NOT NULL,
       stock_code TEXT,
       stock_name TEXT,
-      market TEXT DEFAULT 'jp',
       url_params TEXT DEFAULT '{}',
       first_visit_at TEXT DEFAULT (datetime('now')),
       last_activity_at TEXT DEFAULT (datetime('now')),

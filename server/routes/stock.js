@@ -1,5 +1,4 @@
 import express from 'express';
-import { getUSStockData } from '../utils/usStockScraper.js';
 
 const router = express.Router();
 
@@ -96,59 +95,10 @@ function parseStockPrices(html) {
 
 router.get('/data', async (req, res) => {
   try {
-    const { code, market = 'jp' } = req.query;
+    const { code } = req.query;
 
     if (!code) {
       return res.status(400).json({ error: 'Stock code is required' });
-    }
-
-    if (market.toLowerCase() === 'us') {
-      console.log(`[Stock API] Fetching US stock data for code: ${code}`);
-      const usStockData = await getUSStockData(code);
-
-      if (!usStockData) {
-        console.error(`[Stock API] Failed to fetch US stock data for ${code}`);
-        return res.status(404).json({ error: 'Failed to fetch US stock data', details: `Unable to retrieve data for ${code}` });
-      }
-
-      console.log(`[Stock API] Successfully fetched US stock data for ${code}`);
-
-      const formattedData = {
-        info: {
-          code: code.toUpperCase(),
-          name: usStockData.stockName || code.toUpperCase(),
-          subName: usStockData.stockSubName || '',
-          market: 'US',
-          price: usStockData.stockPrice || '0',
-          change: usStockData.adjClose || '0',
-          changePercent: usStockData.change || '0%',
-          timestamp: usStockData.stockDate || new Date().toLocaleDateString('en-US'),
-          per: '',
-          pbr: '',
-          dividend: '',
-          industry: '',
-          marketCap: '',
-          unit: '',
-          creditRatio: '',
-        },
-        prices: (usStockData.historicalData || []).map(item => ({
-          date: item.date || '',
-          open: item.open || '0',
-          high: item.high || '0',
-          low: item.low || '0',
-          close: item.close || '0',
-          adjClose: item.adjClose || item.close || '0',
-          volume: item.volume || '0',
-          change: '0',
-          changePercent: item.changePercent || '0%',
-          per: '',
-          pbr: '',
-          dividend: '',
-        })),
-      };
-
-      console.log(`[Stock API] Returning formatted data with ${formattedData.prices.length} price records`);
-      return res.json(formattedData);
     }
 
     const stockUrl = `https://kabutan.jp/stock/kabuka?code=${code}`;

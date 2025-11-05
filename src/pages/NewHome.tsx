@@ -3,18 +3,16 @@ import HeroSection from '../components/HeroSection';
 import FeaturesSection from '../components/FeaturesSection';
 import DiagnosisLoadingOverlay from '../components/DiagnosisLoadingOverlay';
 import NewDiagnosisModal from '../components/NewDiagnosisModal';
-import StockDataCard from '../components/StockDataCard';
 import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
 import { useUrlParams } from '../hooks/useUrlParams';
 import { apiClient } from '../lib/apiClient';
 import { userTracking } from '../lib/userTracking';
-import { useDebounce } from '../hooks/useDebounce';
 
 const getDefaultStockData = (code: string): StockData => ({
   info: {
-    code: code || 'AAPL',
-    name: 'Loading data...',
+    code: code || '----',
+    name: 'データ取得中...',
     price: '---',
     change: '0.0',
     changePercent: '0.00%',
@@ -23,12 +21,12 @@ const getDefaultStockData = (code: string): StockData => ({
     dividend: 'N/A',
     industry: 'N/A',
     marketCap: 'N/A',
-    market: 'US',
-    timestamp: new Date().toLocaleString('en-US'),
+    market: 'N/A',
+    timestamp: new Date().toLocaleString('ja-JP'),
   },
   prices: [
     {
-      date: new Date().toLocaleDateString('en-US'),
+      date: new Date().toLocaleDateString('ja-JP'),
       open: '---',
       high: '---',
       low: '---',
@@ -50,9 +48,6 @@ export default function NewHome() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hasRealData, setHasRealData] = useState(false);
-  const [isLoadingStock, setIsLoadingStock] = useState(false);
-  const [lastFetchedCode, setLastFetchedCode] = useState<string>('');
-  const abortControllerRef = useRef<AbortController | null>(null);
 
   const [diagnosisState, setDiagnosisState] = useState<DiagnosisState>('initial');
   const [analysisResult, setAnalysisResult] = useState<string>('');
@@ -64,13 +59,14 @@ export default function NewHome() {
   useEffect(() => {
     if (urlParams.code) {
       setStockCode(urlParams.code);
-      fetchStockData(urlParams.code, urlParams.market);
+      fetchStockData(urlParams.code);
     } else {
-      const defaultCode = 'AAPL';
+      const defaultCode = '----';
       setStockCode(defaultCode);
-      fetchStockData(defaultCode, 'us');
+      setStockData(getDefaultStockData(defaultCode));
+      setHasRealData(false);
     }
-  }, [urlParams.code, urlParams.market]);
+  }, [urlParams.code]);
 
   useEffect(() => {
     const trackPageVisit = async () => {
@@ -91,37 +87,28 @@ export default function NewHome() {
     trackPageVisit();
   }, [stockData, stockCode, urlParams]);
 
-  const fetchStockData = async (code: string, market: string = 'us', signal?: AbortSignal) => {
-    if (!code || code === lastFetchedCode) {
-      return;
-    }
-
-    setIsLoadingStock(true);
+  const fetchStockData = async (code: string) => {
+    setLoading(true);
     setError(null);
 
     try {
-      const response = await apiClient.get(`/api/stock/data?code=${code}&market=${market}`, signal);
+      const response = await apiClient.get(`/api/stock/data?code=${code}`);
 
       if (!response.ok) {
-        throw new Error('Failed to fetch stock data');
+        throw new Error('株価データの取得に失敗しました');
       }
 
       const data = await response.json();
       setStockData(data);
       setStockCode(code);
       setHasRealData(true);
-      setLastFetchedCode(code);
-    } catch (err: any) {
-      if (err.name === 'AbortError') {
-        return;
-      }
+    } catch (err) {
       console.warn('Stock data fetch failed, using default data:', err);
       setStockData(getDefaultStockData(code));
       setStockCode(code);
       setHasRealData(false);
-      setLastFetchedCode(code);
     } finally {
-      setIsLoadingStock(false);
+      setLoading(false);
     }
   };
 
@@ -134,9 +121,7 @@ export default function NewHome() {
   }, []);
 
   const runDiagnosis = async () => {
-    if (diagnosisState !== 'initial' || !stockCode.trim()) return;
-
-    const isInvalidStock = !hasRealData;
+    if (diagnosisState !== 'initial' || !stockData || !hasRealData) return;
 
     setDiagnosisState('connecting');
     setDiagnosisStartTime(Date.now());
@@ -173,7 +158,6 @@ export default function NewHome() {
         },
         body: JSON.stringify({
           code: stockCode,
-          isInvalidStock: isInvalidStock,
           stockData: {
             name: stockData.info.name,
             price: stockData.info.price,
@@ -196,7 +180,7 @@ export default function NewHome() {
       }
 
       if (!response.ok) {
-        throw new Error('AI diagnosis failed');
+        throw new Error('AI診断に失敗しました');
       }
 
       setDiagnosisState('processing');
@@ -210,7 +194,7 @@ export default function NewHome() {
         let firstChunk = true;
 
         if (!reader) {
-          throw new Error('Failed to read stream');
+          throw new Error('ストリーム読み取りに失敗しました');
         }
 
         while (true) {
@@ -269,7 +253,7 @@ export default function NewHome() {
         const result = await response.json();
 
         if (!result.analysis || result.analysis.trim() === '') {
-          throw new Error('No diagnosis results generated');
+          throw new Error('診断結果が生成されませんでした');
         }
 
         setAnalysisResult(result.analysis);
@@ -284,11 +268,11 @@ export default function NewHome() {
       }
     } catch (err) {
       console.error('Diagnosis error:', err);
-      let errorMessage = 'An error occurred during analysis';
+      let errorMessage = '診断中にエラーが発生しました';
 
       if (err instanceof Error) {
         if (err.name === 'AbortError') {
-          errorMessage = 'Request timed out. Please try again.';
+          errorMessage = 'リクエストがタイムアウトしました';
         } else {
           errorMessage = err.message;
         }
@@ -333,40 +317,18 @@ export default function NewHome() {
         window.location.href = data.link.redirect_url;
       } else {
         console.error('No redirect link available:', data.error);
-        alert('Failed to get redirect link. Please configure redirect links in admin panel.');
+        alert('分流链接获取失败，请在后台管理界面配置分流链接。');
       }
     } catch (error) {
       console.error('Failed to get LINE redirect:', error);
-      alert('Network error. Unable to get redirect link.');
+      alert('网络错误，无法获取跳转链接。');
     }
   };
 
-  const debouncedFetchStockData = useDebounce((code: string, market: string) => {
-    if (abortControllerRef.current) {
-      abortControllerRef.current.abort();
-    }
-    abortControllerRef.current = new AbortController();
-    fetchStockData(code, market, abortControllerRef.current.signal);
-  }, 600);
-
   const handleStockCodeChange = (code: string) => {
     setStockCode(code);
-
-    if (code.trim().length === 0) {
-      setStockData(null);
-      setHasRealData(false);
-      setLastFetchedCode('');
-      return;
-    }
-
-    const trimmedCode = code.trim();
-    const isJapaneseCode = /^\d{4}$/.test(trimmedCode);
-    const isUSCode = /^[A-Za-z]{3,}$/.test(trimmedCode);
-
-    if (isJapaneseCode) {
-      debouncedFetchStockData(trimmedCode, 'jp');
-    } else if (isUSCode) {
-      debouncedFetchStockData(trimmedCode, 'us');
+    if (code.length >= 4) {
+      fetchStockData(code);
     }
   };
 
@@ -376,29 +338,22 @@ export default function NewHome() {
         stockCode={stockCode}
         onStockCodeChange={handleStockCodeChange}
         onDiagnosis={runDiagnosis}
-        disabled={!stockCode.trim() || diagnosisState !== 'initial'}
+        disabled={!hasRealData || diagnosisState !== 'initial'}
         stockName={stockData?.info.name}
-        isLoadingStock={isLoadingStock}
       />
-
-      {stockData && hasRealData && !isLoadingStock && (
-        <div className="px-4">
-          <StockDataCard stockData={stockData} />
-        </div>
-      )}
 
       <div className="pb-8">
         {loading && (
           <div className="text-center py-12 md:py-16">
             <div className="inline-block animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-4 border-accent-gold border-t-white"></div>
-            <p className="mt-4 text-white font-medium text-sm sm:text-base">Loading stock data...</p>
+            <p className="mt-4 text-white font-medium text-sm sm:text-base">株価データを読み込んでいます...</p>
           </div>
         )}
 
         {diagnosisState === 'initial' && (
           <FeaturesSection
             onDiagnosis={runDiagnosis}
-            disabled={!stockCode.trim()}
+            disabled={!hasRealData}
             stockName={stockData?.info.name}
           />
         )}
@@ -412,7 +367,7 @@ export default function NewHome() {
         {diagnosisState === 'error' && (
           <div className="text-center py-12 sm:py-16 md:py-20 px-4">
             <div className="max-w-2xl mx-auto p-5 sm:p-6 md:p-8 bg-accent-red/20 backdrop-blur-sm border border-accent-red rounded-2xl shadow-red-glow">
-              <h3 className="text-lg sm:text-xl font-bold text-accent-red mb-3 sm:mb-4">Analysis Error</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-accent-red mb-3 sm:mb-4">診断エラー</h3>
               <p className="text-sm sm:text-base text-gray-300 font-semibold mb-5 sm:mb-6">{error}</p>
               <button
                 onClick={() => {
@@ -421,7 +376,7 @@ export default function NewHome() {
                 }}
                 className="px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-accent-orange to-accent-gold text-white font-bold rounded-lg hover:from-accent-gold hover:to-accent-orange transition-all shadow-gold-glow text-sm sm:text-base touch-manipulation min-h-[44px]"
               >
-                Try Again
+                もう一度試す
               </button>
             </div>
           </div>

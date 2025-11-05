@@ -12,9 +12,9 @@ router.post('/diagnosis', async (req, res) => {
   const startTime = Date.now();
 
   try {
-    const { code, stockData, isInvalidStock } = req.body;
+    const { code, stockData } = req.body;
 
-    console.log('Diagnosis request received for stock:', code, 'Invalid stock:', isInvalidStock);
+    console.log('Diagnosis request received for stock:', code);
 
     if (!code || !stockData) {
       console.error('Missing required parameters:', { code, hasStockData: !!stockData });
@@ -42,7 +42,7 @@ router.post('/diagnosis', async (req, res) => {
     if (!apiKeysString) {
       console.warn('SILICONFLOW_API_KEY not configured, using mock response');
 
-      const mockAnalysis = `Stock Analysis for ${stockData.name} (${code})\n\nThank you for analyzing ${stockData.name} using our AI-powered stock analysis platform.\n\nCurrent Price: ${stockData.price}\nPrice Change: ${stockData.change} (${stockData.changePercent})\n\nTo receive comprehensive analysis reports and real-time market insights, please add our LINE account "AI Stock Assistant".\n\nOnce added, send the stock code "${code}" or "${stockData.name}" to instantly receive:\n- Detailed technical analysis\n- Market momentum indicators\n- AI-powered investment insights\n- Real-time price alerts\n\nAdd us on LINE now to unlock your complete AI analysis report!\n\nDisclaimer: This information is for educational purposes only and does not constitute financial advice. Always conduct your own research before making investment decisions.`;
+      const mockAnalysis = `【${stockData.name}（${code}）の市場分析】\n\n現在の株価は${stockData.price}円で、前日比${stockData.change}円（${stockData.changePercent}%）の変動となっています。\n\n■ テクニカル指標\nPER: ${stockData.per}倍\nPBR: ${stockData.pbr}倍\n配当利回り: ${stockData.dividend}%\n\n■ 業種分析\n${stockData.industry}セクターに属しており、時価総額は${stockData.marketCap}億円です。\n\n■ 市場動向\n本銘柄は現在の市場環境において、一定の注目を集めています。テクニカル指標から見ると、${parseFloat(stockData.per) > 15 ? "やや割高" : "適正水準"}の評価となっています。\n\n※本分析は情報提供のみを目的としており、投資の推奨や助言ではありません。投資判断は必ずご自身の責任で行ってください。`;
 
       await saveDiagnosisToCache(code, stockData, mockAnalysis, 'mock');
       const responseTime = Date.now() - startTime;
@@ -56,60 +56,32 @@ router.post('/diagnosis', async (req, res) => {
     console.log('SiliconFlow API Key selected, making streaming API request...');
     console.log('Using model:', siliconflowModel);
 
-    let prompt;
+    const prompt = `あなたは日本の株式市場アナリストです。以下の株式データに基づいて、指定されたフォーマットで診断結果を日本語で作成してください。
 
-    if (isInvalidStock) {
-      prompt = `Generate a professional error message in the following format:
+株式情報：
+銘柄名: ${stockData.name}
+コード: ${code}
+現在株価: ${stockData.price}円
+前日比: ${stockData.change}円 (${stockData.changePercent})
+PER: ${stockData.per}倍
+PBR: ${stockData.pbr}倍
+配当利回り: ${stockData.dividend}%
+業種: ${stockData.industry}
+時価総額: ${stockData.marketCap}億円
 
-Thank you for using our AI-powered stock analysis platform.
+必ず以下のフォーマットで出力してください：
 
-We encountered an issue processing your request:
+ご入力いただいた ${stockData.name} について、モメンタム分析・リアルタイムデータ・AIロジックをもとに診断を行いました。
 
-股票代码有误，请与人工联系。
-(Invalid stock code. Please contact support for assistance.)
+現在の株価は ${stockData.price} 円、前日比 ${stockData.change} 円（${stockData.changePercent}）
 
-To get help with:
-- Verifying the correct stock code
-- Understanding stock code formats (US: 3+ characters, JP: 4 digits)
-- Receiving personalized assistance
+私たちのスタッフ、「AI 株式 アシスタント」のLINEアカウントを追加してください。
 
-Please add our LINE account "AI Stock Assistant" and send your inquiry. Our team will respond promptly to help you.
+追加が完了しましたら、詳細な診断レポートを受け取るために、銘柄コード「${stockData.name}」または「${code}」と送信してください。
 
-IMPORTANT: Follow this format strictly.`;
-    } else {
-      prompt = `You are a professional stock market analyst. Based on the following stock data, create an analysis report in the specified format below.
+メッセージを送信した瞬間にAI診断が始まり、最新レポートが即座に届きます。
 
-Stock Information:
-Company Name: ${stockData.name}
-Stock Code: ${code}
-Current Price: ${stockData.price}
-Price Change: ${stockData.change} (${stockData.changePercent})
-P/E Ratio: ${stockData.per}
-P/B Ratio: ${stockData.pbr}
-Dividend Yield: ${stockData.dividend}%
-Industry: ${stockData.industry}
-Market Cap: ${stockData.marketCap}
-
-You must output EXACTLY in the following format:
-
-Thank you for analyzing ${stockData.name} using our AI-powered platform. We have performed comprehensive analysis using momentum indicators, real-time market data, and advanced AI algorithms.
-
-Current Price: ${stockData.price}
-Price Change: ${stockData.change} (${stockData.changePercent})
-
-To receive your complete detailed analysis report, please add our LINE account "AI Stock Assistant".
-
-Once you have added our account, send the stock code "${code}" or the company name "${stockData.name}" to receive:
-
-- Comprehensive technical analysis
-- Market momentum insights
-- Real-time price alerts
-- AI-powered investment recommendations
-
-Your personalized AI analysis report will be delivered instantly upon sending your message.
-
-IMPORTANT: Follow this format strictly and do not include any other analysis content.`;
-    }
+重要: このフォーマットを厳密に守り、他の分析内容は含めないでください。`;
 
     res.setHeader('Content-Type', 'text/event-stream');
     res.setHeader('Cache-Control', 'no-cache');
@@ -153,7 +125,7 @@ IMPORTANT: Follow this format strictly and do not include any other analysis con
         console.error('Request timeout after 45 seconds');
         const responseTime = Date.now() - startTime;
         await recordUsageStats({ cacheHit: false, apiCall: true, error: true, responseTime });
-        res.write(`data: ${JSON.stringify({ error: 'Request timed out. Please try again.' })}\n\n`);
+        res.write(`data: ${JSON.stringify({ error: 'リクエストがタイムアウトしました。もう一度お試しください。' })}\n\n`);
         res.end();
         return;
       }
@@ -236,12 +208,12 @@ IMPORTANT: Follow this format strictly and do not include any other analysis con
 
     if (!res.headersSent) {
       res.status(500).json({
-        error: 'An error occurred during analysis',
+        error: '診断中にエラーが発生しました',
         details: error.message,
         type: error.name,
       });
     } else {
-      res.write(`data: ${JSON.stringify({ error: 'An error occurred during analysis', details: error.message })}\n\n`);
+      res.write(`data: ${JSON.stringify({ error: '診断中にエラーが発生しました', details: error.message })}\n\n`);
       res.end();
     }
   }

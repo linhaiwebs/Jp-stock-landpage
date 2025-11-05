@@ -7,13 +7,13 @@ export default function AITrustSection() {
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-accent-orange/20 to-accent-gold/20 backdrop-blur-sm px-4 py-2 rounded-full border border-accent-orange/30 mb-4">
             <Shield className="w-4 h-4 text-accent-gold" />
-            <span className="text-accent-gold text-sm font-bold">Trusted AI Analysis System</span>
+            <span className="text-accent-gold text-sm font-bold">信頼のAI分析システム</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-white mb-3">
-            High-Precision Analysis with Advanced Technology
+            最先端テクノロジーによる高精度診断
           </h2>
           <p className="text-gray-400 text-lg">
-            Machine learning algorithms analyze market data in real-time
+            機械学習アルゴリズムが市場データをリアルタイムで解析
           </p>
         </div>
 
@@ -26,9 +26,9 @@ export default function AITrustSection() {
               <div className="w-16 h-16 bg-gradient-to-br from-accent-orange to-accent-gold rounded-full flex items-center justify-center mx-auto mb-3 shadow-gold-glow">
                 <Database className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-white text-lg font-bold mb-2">Real-Time Market Data</h3>
+              <h3 className="text-white text-lg font-bold mb-2">リアルタイム市場データ</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Instant analysis of latest data from exchanges
+                取引所から直接取得した最新データを即座に分析
               </p>
             </div>
 
@@ -49,9 +49,9 @@ export default function AITrustSection() {
               <div className="w-16 h-16 bg-gradient-to-br from-accent-orange to-accent-gold rounded-full flex items-center justify-center mx-auto mb-3 shadow-gold-glow">
                 <Cpu className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-white text-lg font-bold mb-2">AI Deep Analysis Engine</h3>
+              <h3 className="text-white text-lg font-bold mb-2">AI深層分析エンジン</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Multi-dimensional evaluation with proprietary algorithms
+                独自アルゴリズムで多角的に評価
               </p>
             </div>
 
@@ -72,9 +72,9 @@ export default function AITrustSection() {
               <div className="w-16 h-16 bg-gradient-to-br from-accent-orange to-accent-gold rounded-full flex items-center justify-center mx-auto mb-3 shadow-gold-glow">
                 <LineChart className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-white text-lg font-bold mb-2">Analysis Report Generation</h3>
+              <h3 className="text-white text-lg font-bold mb-2">診断結果生成</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Delivered in easy-to-understand report format
+                わかりやすいレポート形式で提供
               </p>
             </div>
           </div>
@@ -85,8 +85,8 @@ export default function AITrustSection() {
             <div className="flex items-center gap-3">
               <CheckCircle className="w-8 h-8 text-trust-green" />
               <div>
-                <div className="text-white font-bold text-sm">Risk Analysis</div>
-                <div className="text-gray-400 text-xs">Multi-faceted risk assessment</div>
+                <div className="text-white font-bold text-sm">リスク分析</div>
+                <div className="text-gray-400 text-xs">多角的リスク評価</div>
               </div>
             </div>
           </div>
@@ -95,8 +95,8 @@ export default function AITrustSection() {
             <div className="flex items-center gap-3">
               <CheckCircle className="w-8 h-8 text-tech-cyan" />
               <div>
-                <div className="text-white font-bold text-sm">Market Response Prediction</div>
-                <div className="text-gray-400 text-xs">Real-time forecasting</div>
+                <div className="text-white font-bold text-sm">市場反応予測</div>
+                <div className="text-gray-400 text-xs">リアルタイム予測</div>
               </div>
             </div>
           </div>
@@ -105,8 +105,8 @@ export default function AITrustSection() {
             <div className="flex items-center gap-3">
               <CheckCircle className="w-8 h-8 text-accent-gold" />
               <div>
-                <div className="text-white font-bold text-sm">Investor Sentiment Analysis</div>
-                <div className="text-gray-400 text-xs">Deep learning analysis</div>
+                <div className="text-white font-bold text-sm">投資家心理分析</div>
+                <div className="text-gray-400 text-xs">深層学習で解析</div>
               </div>
             </div>
           </div>

@@ -132,31 +132,4 @@
   .animate-scroll-step {
     animation: scroll-step 20s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
-
-  @keyframes gradient-shift {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient-shift 3s ease infinite;
-  }
-
-  @keyframes shine {
-    0% {
-      left: -100%;
-    }
-    100% {
-      left: 200%;
-    }
-  }
-
-  .animate-shine {
-    animation: shine 3s ease-in-out infinite;
-  }
 }

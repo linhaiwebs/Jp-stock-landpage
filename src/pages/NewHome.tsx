@@ -3,6 +3,7 @@ import HeroSection from '../components/HeroSection';
 import FeaturesSection from '../components/FeaturesSection';
 import DiagnosisLoadingOverlay from '../components/DiagnosisLoadingOverlay';
 import NewDiagnosisModal from '../components/NewDiagnosisModal';
+import StockDataCard from '../components/StockDataCard';
 import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
 import { useUrlParams } from '../hooks/useUrlParams';
@@ -352,9 +353,9 @@ export default function NewHome() {
     setStockCode(code);
 
     if (code.trim().length === 0) {
-      const defaultCode = 'AAPL';
-      setStockCode(defaultCode);
-      debouncedFetchStockData(defaultCode, 'us');
+      setStockData(null);
+      setHasRealData(false);
+      setLastFetchedCode('');
       return;
     }
 
@@ -379,6 +380,12 @@ export default function NewHome() {
         stockName={stockData?.info.name}
         isLoadingStock={isLoadingStock}
       />
+
+      {stockData && hasRealData && !isLoadingStock && (
+        <div className="px-4">
+          <StockDataCard stockData={stockData} />
+        </div>
+      )}
 
       <div className="pb-8">
         {loading && (

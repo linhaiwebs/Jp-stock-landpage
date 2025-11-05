@@ -25,6 +25,7 @@ export interface StockPrice {
   high: string;
   low: string;
   close: string;
+  adjClose?: string;
   change: string;
   changePercent: string;
   volume: string;

@@ -63,11 +63,12 @@ export default function HeroSection({ stockCode = '', onStockCodeChange, onDiagn
               className="relative group disabled:opacity-50 disabled:cursor-not-allowed w-full"
             >
               <div
-                className="relative text-white font-bold text-lg py-5 pl-8 pr-24 rounded-full transform transition-all duration-300 group-hover:scale-105 group-active:scale-95 text-left"
+                className="relative text-white font-bold text-lg py-6 px-8 rounded-full transform transition-all duration-300 group-hover:scale-105 group-active:scale-95 text-left min-h-[70px] flex items-center"
                 style={{
                   backgroundImage: 'url(/assets/button.png)',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
+                  backgroundSize: '100% 100%',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat'
                 }}
               >
                 <span className="drop-shadow-lg">

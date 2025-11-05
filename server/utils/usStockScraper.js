@@ -1,5 +1,5 @@
 export async function getUSStockData(stockCode) {
-  const url = `https://stockanalysis.com/stocks/${stockCode.toLowerCase()}/history/`;
+  const url = `https://stocknear.com/stocks/${stockCode.toLowerCase()}/history`;
 
   console.log(`[US Stock Scraper] Fetching data for ${stockCode} from ${url}`);
 
@@ -47,82 +47,19 @@ function parseStockInfo(html, stockCode) {
     let stockName = null;
     let stockSubName = null;
 
-    const namePatterns = [
-      /<div[^>]*class="[^"]*mb-0[^"]*text-2xl[^"]*font-bold[^"]*text-default[^"]*sm:text-\[26px\][^"]*"[^>]*>([^<]+)<\/div>/,
-      /<div[^>]*class="[^"]*mb-0.*?text-2xl.*?font-bold[^"]*"[^>]*>([^<]+)<\/div>/,
-      /<h1[^>]*class="[^"]*text-2xl[^"]*"[^>]*>([^<]+)<\/h1>/,
-    ];
+    const namePattern = /<h1[^>]*class="[^"]*text-xl[^"]*sm:text-2xl[^"]*font-bold[^"]*"[^>]*>([^<]+)<span[^>]*>\(([A-Z]+)\)<\/span><\/h1>/;
+    const nameMatch = html.match(namePattern);
 
-    for (const pattern of namePatterns) {
-      const match = html.match(pattern);
-      if (match && match[1]) {
-        const fullName = match[1].trim();
-        console.log(`[US Stock Scraper] Found stock name: ${fullName}`);
-        if (fullName.includes('(') && fullName.includes(')')) {
-          const parts = fullName.split('(');
-          stockName = parts[0].trim();
-          stockSubName = parts[1].replace(')', '').trim();
-        } else {
-          stockName = fullName;
-        }
-        break;
-      }
-    }
-
-    const pricePatterns = [
-      /<div[^>]*class="[^"]*text-4xl[^"]*font-bold[^"]*transition-colors[^"]*duration-300[^"]*inline-block[^"]*"[^>]*>\$?([0-9,.]+)<\/div>/,
-      /<div[^>]*class="[^"]*text-4xl[^"]*font-bold[^"]*"[^>]*>\$?([0-9,.]+)<\/div>/,
-      /class="[^"]*text-4xl[^"]*"[^>]*>([0-9,.]+)<\/div>/,
-    ];
-
-    let stockPrice = null;
-    for (const pattern of pricePatterns) {
-      const match = html.match(pattern);
-      if (match && match[1]) {
-        stockPrice = match[1];
-        console.log(`[US Stock Scraper] Found stock price: ${stockPrice}`);
-        break;
-      }
-    }
-
-    const changePatterns = [
-      /<div[^>]*class="[^"]*font-semibold[^"]*inline-block[^"]*text-2xl[^"]*text-(?:green-vivid|red-vivid)[^"]*"[^>]*>([^<]+)<\/div>/,
-      /<div[^>]*class="[^"]*font-semibold[^"]*text-2xl[^"]*text-(?:green|red)[^"]*"[^>]*>([^<]+)<\/div>/,
-    ];
-
-    let adjClose = null;
-    let change = null;
-
-    for (const pattern of changePatterns) {
-      const match = html.match(pattern);
-      if (match && match[1]) {
-        const changeFull = match[1].trim();
-        console.log(`[US Stock Scraper] Found change info: ${changeFull}`);
-        if (changeFull.includes('(') && changeFull.includes(')')) {
-          const parts = changeFull.split('(');
-          adjClose = parts[0].trim();
-          change = parts[1].replace(')', '').trim();
-        } else {
-          adjClose = changeFull;
-          change = '0%';
-        }
-        break;
-      }
-    }
-
-    const datePatterns = [
-      /<div[^>]*class="[^"]*mt-1[^"]*flex[^"]*items-center[^"]*text-sm[^"]*text-faded[^"]*"[^>]*>([^<]+)<\/div>/,
-      /<time[^>]*>([^<]+)<\/time>/,
-      /(\w{3}\s+\d{1,2},\s+\d{4})/,
-    ];
-
-    let stockDate = null;
-    for (const pattern of datePatterns) {
-      const match = html.match(pattern);
-      if (match && match[1]) {
-        stockDate = match[1].trim();
-        console.log(`[US Stock Scraper] Found date: ${stockDate}`);
-        break;
+    if (nameMatch) {
+      stockName = nameMatch[1].trim();
+      stockSubName = nameMatch[2].trim();
+      console.log(`[US Stock Scraper] Found stock name: ${stockName} (${stockSubName})`);
+    } else {
+      const simpleNamePattern = /<h1[^>]*class="[^"]*text-xl[^"]*sm:text-2xl[^"]*font-bold[^"]*"[^>]*>([^<]+)<\/h1>/;
+      const simpleMatch = html.match(simpleNamePattern);
+      if (simpleMatch) {
+        stockName = simpleMatch[1].trim();
+        console.log(`[US Stock Scraper] Found stock name: ${stockName}`);
       }
     }
 
@@ -131,19 +68,37 @@ function parseStockInfo(html, stockCode) {
       return null;
     }
 
-    if (!stockPrice) {
-      console.error(`[US Stock Scraper] Stock price not found for ${stockCode}`);
+    if (stockName.toLowerCase().includes('stock price history') || stockName.toLowerCase().includes(stockCode.toLowerCase() + ' stock')) {
+      console.error(`[US Stock Scraper] Invalid stock page detected for ${stockCode}: ${stockName}`);
+      return null;
+    }
+
+    const historicalData = parseHistoricalData(html, stockCode);
+    let stockPrice = '0';
+    let adjClose = '0';
+    let change = '0%';
+    let stockDate = new Date().toLocaleDateString('en-US');
+
+    if (historicalData.length > 0) {
+      const latestData = historicalData[0];
+      stockPrice = latestData.close;
+      adjClose = latestData.close;
+      change = latestData.changePercent || '0%';
+      stockDate = latestData.date;
+      console.log(`[US Stock Scraper] Using latest data: price=${stockPrice}, date=${stockDate}`);
+    } else {
+      console.error(`[US Stock Scraper] No historical data found for ${stockCode}`);
       return null;
     }
 
     console.log(`[US Stock Scraper] Successfully parsed stock info for ${stockCode}`);
     return {
       stockName: stockName || stockCode.toUpperCase(),
-      stockSubName: stockSubName || '',
-      stockPrice: stockPrice || '0',
-      adjClose: adjClose || '0',
-      change: change || '0%',
-      stockDate: stockDate || new Date().toLocaleDateString('en-US')
+      stockSubName: stockSubName || stockCode.toUpperCase(),
+      stockPrice: stockPrice,
+      adjClose: adjClose,
+      change: change,
+      stockDate: stockDate
     };
   } catch (error) {
     console.error(`[US Stock Scraper] Error parsing stock info for ${stockCode}:`, error);
@@ -156,28 +111,9 @@ function parseHistoricalData(html, stockCode) {
   console.log(`[US Stock Scraper] Parsing historical data for ${stockCode}`);
 
   try {
-    const tablePatterns = [
-      /<table[^>]*class="[^"]*svelte-[^"]*"[^>]*>([\s\S]*?)<\/table>/,
-      /<table[^>]*>([\s\S]*?)<\/table>/,
-    ];
-
-    let tableMatch = null;
-    for (const pattern of tablePatterns) {
-      tableMatch = html.match(pattern);
-      if (tableMatch) {
-        console.log(`[US Stock Scraper] Found table with pattern`);
-        break;
-      }
-    }
-
-    if (!tableMatch) {
-      console.log(`[US Stock Scraper] No table found in HTML for ${stockCode}`);
-      return [];
-    }
-
-    const tbodyMatch = tableMatch[0].match(/<tbody[^>]*>([\s\S]*?)<\/tbody>/);
+    const tbodyMatch = html.match(/<tbody[^>]*>([\s\S]*?)<\/tbody>/);
     if (!tbodyMatch) {
-      console.log(`[US Stock Scraper] No tbody found in table for ${stockCode}`);
+      console.log(`[US Stock Scraper] No tbody found for ${stockCode}`);
       return [];
     }
 
@@ -193,23 +129,28 @@ function parseHistoricalData(html, stockCode) {
       while ((cellMatch = cellRegex.exec(rowMatch[1])) !== null) {
         let text = cellMatch[1];
 
-        text = text.replace(/<!--[\s\S]*?-->/g, '');
-        text = text.replace(/<span[^>]*class="[^"]*r[rg][^"]*"[^>]*>/g, '');
         text = text.replace(/<[^>]*>/g, '');
         text = text.replace(/\s+/g, ' ').trim();
-        text = text.replace(/\$/g, '');
+        text = text.replace(/&nbsp;/g, ' ');
+        text = text.replace(/&amp;/g, '&');
+        text = text.replace(/&lt;/g, '<');
+        text = text.replace(/&gt;/g, '>');
 
         cells.push(text);
       }
 
-      if (cells.length >= 6) {
+      if (cells.length >= 8) {
+        const changePercent = cells[6].replace('+', '').trim();
+
         const row = {
           date: cells[0] || '',
-          open: cells[1] || '0',
-          high: cells[2] || '0',
-          low: cells[3] || '0',
-          close: cells[4] || '0',
-          volume: cells[7] || cells[5] || '0'
+          open: cells[1].replace(/,/g, '') || '0',
+          high: cells[2].replace(/,/g, '') || '0',
+          low: cells[3].replace(/,/g, '') || '0',
+          close: cells[4].replace(/,/g, '') || '0',
+          adjClose: cells[5].replace(/,/g, '') || '0',
+          changePercent: changePercent || '0%',
+          volume: cells[7].replace(/,/g, '') || '0'
         };
         rows.push(row);
       }

@@ -24,7 +24,7 @@ export default function PulsingButton({ onClick, stockName = '', disabled = fals
           <div
             className="relative px-8 py-5"
             style={{
-              backgroundImage: 'url(/assets/图层 1.png)',
+              backgroundImage: 'url(/assets/button.png)',
               backgroundSize: '100% 100%',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat'

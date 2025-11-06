@@ -25,8 +25,8 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
           />
           <div className="absolute inset-0 flex items-center justify-center">
             <h1 className="text-center" style={{ fontFamily: "'Kozuka Gothic Pr6N', 'Noto Sans JP', sans-serif" }}>
-              <span className="text-yellow-400 font-bold text-2xl md:text-3xl lg:text-4xl">情報</span>
-              <span className="text-blue-500 font-medium text-xl md:text-2xl lg:text-3xl">銘柄基本</span>
+              <span className="text-yellow-400 font-bold text-2xl md:text-3xl lg:text-4xl">銘柄情報</span>
+              <span className="text-blue-500 font-medium text-xl md:text-2xl lg:text-3xl">表示ツール</span>
             </h1>
           </div>
         </div>
@@ -61,9 +61,9 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
 
               <div className="relative flex flex-col items-center gap-1">
                 <span className="text-red-600 font-bold text-lg drop-shadow-lg">
-                  {hasStockData ? `【${stockName}】` : '銘柄'}情報分析
+                  {hasStockData ? `【${stockName}】` : '銘柄'}の情報を見る
                 </span>
-                <span className="text-xs text-red-700 font-semibold">※参考情報として提供</span>
+                <span className="text-xs text-red-700 font-semibold">※教育・学習用の情報表示ツール</span>
               </div>
             </button>
           </div>

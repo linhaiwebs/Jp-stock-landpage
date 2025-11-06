@@ -7,13 +7,13 @@ export default function AITrustSection() {
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-accent-orange/20 to-accent-gold/20 backdrop-blur-sm px-4 py-2 rounded-full border border-accent-orange/30 mb-4">
             <Shield className="w-4 h-4 text-accent-gold" />
-            <span className="text-accent-gold text-sm font-bold">AI技術による市場データ分析</span>
+<span className="text-accent-gold text-sm font-bold">公開市場データの表示ツール</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-white mb-3">
-            AI技術による市場情報分析
+            銘柄情報表示ツール
           </h2>
           <p className="text-gray-400 text-lg">
-            公開市場データを活用した参考情報の提供
+            公開市場データを見やすく表示（教育・学習用）
           </p>
         </div>
 
@@ -26,9 +26,9 @@ export default function AITrustSection() {
               <div className="w-16 h-16 bg-gradient-to-br from-accent-orange to-accent-gold rounded-full flex items-center justify-center mx-auto mb-3 shadow-gold-glow">
                 <Database className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-white text-lg font-bold mb-2">市場データ収集</h3>
+              <h3 className="text-white text-lg font-bold mb-2">データ取得</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                公開市場データを収集・分析（参考情報）
+                公開市場データの取得
               </p>
             </div>
 
@@ -49,9 +49,9 @@ export default function AITrustSection() {
               <div className="w-16 h-16 bg-gradient-to-br from-accent-orange to-accent-gold rounded-full flex items-center justify-center mx-auto mb-3 shadow-gold-glow">
                 <Cpu className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-white text-lg font-bold mb-2">AI情報分析</h3>
+              <h3 className="text-white text-lg font-bold mb-2">情報整理</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                AIアルゴリズムによる分析（参考情報）
+                データの整理と表示
               </p>
             </div>
 
@@ -72,9 +72,9 @@ export default function AITrustSection() {
               <div className="w-16 h-16 bg-gradient-to-br from-accent-orange to-accent-gold rounded-full flex items-center justify-center mx-auto mb-3 shadow-gold-glow">
                 <LineChart className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-white text-lg font-bold mb-2">情報レポート提供</h3>
+              <h3 className="text-white text-lg font-bold mb-2">情報表示</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                参考資料としてレポート提供
+                読みやすい形式で表示
               </p>
             </div>
           </div>
@@ -85,8 +85,8 @@ export default function AITrustSection() {
             <div className="flex items-center gap-3">
               <CheckCircle className="w-8 h-8 text-trust-green" />
               <div>
-                <div className="text-white font-bold text-sm">データ分析</div>
-                <div className="text-gray-400 text-xs">市場データの分析</div>
+                <div className="text-white font-bold text-sm">データ表示</div>
+                <div className="text-gray-400 text-xs">市場データの表示</div>
               </div>
             </div>
           </div>
@@ -95,8 +95,8 @@ export default function AITrustSection() {
             <div className="flex items-center gap-3">
               <CheckCircle className="w-8 h-8 text-tech-cyan" />
               <div>
-                <div className="text-white font-bold text-sm">情報提供</div>
-                <div className="text-gray-400 text-xs">参考情報の提供</div>
+                <div className="text-white font-bold text-sm">学習ツール</div>
+                <div className="text-gray-400 text-xs">教育目的のツール</div>
               </div>
             </div>
           </div>
@@ -105,8 +105,8 @@ export default function AITrustSection() {
             <div className="flex items-center gap-3">
               <CheckCircle className="w-8 h-8 text-accent-gold" />
               <div>
-                <div className="text-white font-bold text-sm">データ解析</div>
-                <div className="text-gray-400 text-xs">市場動向の解析</div>
+                <div className="text-white font-bold text-sm">情報整理</div>
+                <div className="text-gray-400 text-xs">データの整理表示</div>
               </div>
             </div>
           </div>

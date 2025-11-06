@@ -7,19 +7,19 @@ export default function SocialProofSection() {
       name: '田中 健一',
       role: '個人投資家',
       rating: 5,
-      comment: 'AIの分析情報が参考になり、市場の動きを把握しやすくなりました。投資判断は自己責任で行っています。',
+      comment: '銘柄情報を見やすく表示してくれるので、学習の参考にしています。投資判断は自分で行っています。',
     },
     {
       name: '佐藤 美咲',
       role: '会社員',
       rating: 5,
-      comment: '初心者でも理解しやすい情報提供で、参考にさせていただいています。最終判断は自分で行っています。',
+      comment: '初心者でも使いやすい情報表示ツールです。投資の勉強に役立っています。',
     },
     {
       name: '山田 雄太',
       role: 'デイトレーダー',
       rating: 5,
-      comment: '市場データの分析情報が役立っています。投資判断の参考として活用させていただいています。',
+      comment: 'データをまとめて見れるのが便利です。市場の勉強用ツールとして使っています。',
     },
   ];
 
@@ -39,33 +39,33 @@ export default function SocialProofSection() {
         <div className="text-center mb-4">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-trust-green/20 to-trust-green/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-trust-green/30 mb-3">
             <BadgeCheck className="w-3 h-3 text-trust-green" />
-<span className="text-trust-green text-xs font-bold">情報提供サービス（参考資料）</span>
+<span className="text-trust-green text-xs font-bold">教育・学習用ツール</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-white mb-2">
-            情報提供サービスとして多数の方にご利用いただいています
+            投資学習ツールとして多数の方にご利用いただいています
           </h2>
           <p className="text-gray-400 text-base">
-            市場分析情報の参考資料として
+            市場データの学習・研究用ツール
           </p>
         </div>
 
         <div className="flex gap-2 mb-8 justify-center">
           <div className="bg-gradient-to-br from-dark-card to-dark-tech rounded-lg p-3 border border-accent-orange/30 text-center hover:shadow-orange-glow transition-all flex-shrink-0">
             <Users className="w-6 h-6 text-accent-gold mx-auto mb-1" />
-            <div className="text-xl font-black text-white mb-0.5">情報提供</div>
-            <div className="text-gray-400 text-xs font-medium">サービス</div>
+            <div className="text-xl font-black text-white mb-0.5">教育ツール</div>
+            <div className="text-gray-400 text-xs font-medium">学習用</div>
           </div>
 
           <div className="bg-gradient-to-br from-dark-card to-dark-tech rounded-lg p-3 border border-accent-orange/30 text-center hover:shadow-orange-glow transition-all flex-shrink-0">
             <TrendingUp className="w-6 h-6 text-trust-green mx-auto mb-1" />
             <div className="text-xl font-black text-white mb-0.5">公開データ</div>
-            <div className="text-gray-400 text-xs font-medium">活用分析</div>
+            <div className="text-gray-400 text-xs font-medium">表示機能</div>
           </div>
 
           <div className="bg-gradient-to-br from-dark-card to-dark-tech rounded-lg p-3 border border-accent-orange/30 text-center hover:shadow-orange-glow transition-all flex-shrink-0">
             <Star className="w-6 h-6 text-accent-gold mx-auto mb-1" />
-            <div className="text-xl font-black text-white mb-0.5">参考情報</div>
-            <div className="text-gray-400 text-xs font-medium">として提供</div>
+            <div className="text-xl font-black text-white mb-0.5">無料利用</div>
+            <div className="text-gray-400 text-xs font-medium">基本機能</div>
           </div>
 
           <div className="bg-gradient-to-br from-dark-card to-dark-tech rounded-lg p-3 border border-accent-orange/30 text-center hover:shadow-orange-glow transition-all flex-shrink-0">
@@ -139,14 +139,14 @@ export default function SocialProofSection() {
                 <BadgeCheck className="w-8 h-8 text-white" />
               </div>
               <div>
-                <div className="text-white font-bold text-lg mb-1">情報提供サービス</div>
-                <div className="text-gray-400 text-sm">株式市場の参考情報を提供</div>
+                <div className="text-white font-bold text-lg mb-1">教育・学習用ツール</div>
+                <div className="text-gray-400 text-sm">株式市場の学習・研究用</div>
               </div>
             </div>
 
             <div className="flex items-center gap-2 bg-dark-card/50 px-4 py-2 rounded-lg border border-trust-green/30">
               <Shield className="w-5 h-5 text-trust-green" />
-              <span className="text-trust-green text-sm font-semibold">安全な情報提供</span>
+              <span className="text-trust-green text-sm font-semibold">安全なツール</span>
             </div>
           </div>
         </div>
@@ -157,7 +157,7 @@ export default function SocialProofSection() {
               <span className="text-accent-gold font-semibold">データ:</span> 公開市場情報を活用
             </p>
             <p className="text-xs text-gray-500">
-              本サービスは情報提供のみを目的としており、投資助言・勧誘ではありません。投資判断は自己責任で行ってください。
+              本ツールは教育・学習目的の情報表示ツールであり、投資助言・勧誘ではありません。投資判断は必ずご自身で行ってください。
             </p>
           </div>
         </div>

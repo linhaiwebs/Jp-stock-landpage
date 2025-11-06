@@ -26,15 +26,11 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
           }}
         >
           <div className="text-center pt-4 pb-2">
-            <h2 className="text-2xl font-bold text-white">履歴データトレンド</h2>
+            <h2 className="text-2xl font-bold text-neon-green">{stockName} ({prices[0]?.code || '----'})</h2>
           </div>
           <div className="relative z-10 px-6 py-2 h-full overflow-hidden">
             <div className="animate-scroll-step">
               {doubledPrices.map((price, index) => {
-                const isPositive = price.change && (price.change.includes('+') || parseFloat(price.change) > 0);
-                const isNegative = price.change && parseFloat(price.change) < 0;
-                const changeColor = isPositive ? 'text-neon-green' : isNegative ? 'text-accent-red' : 'text-gray-400';
-
                 return (
                   <div
                     key={`${price.date}-${index}`}
@@ -42,9 +38,9 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
                   >
                     <div className="text-center mb-1">
                       <div className="flex items-center justify-center gap-3 text-sm mb-1">
-                        <span className="text-gray-300 font-semibold">{price.date}</span>
+                        <span className="text-neon-green font-semibold">{price.date}</span>
                         <span className="text-gray-400">•</span>
-                        <span className="text-gray-400 text-xs">{price.volume || 'N/A'}株</span>
+                        <span className="text-accent-red text-xs font-semibold">{price.volume || 'N/A'}株</span>
                       </div>
                     </div>
 
@@ -52,30 +48,30 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
                       <div className="flex items-center justify-center gap-4 text-sm">
                         <div className="flex items-center gap-1.5">
                           <span className="text-neon-green font-bold">始値</span>
-                          <span className="text-white text-xs">{price.open}</span>
+                          <span className="text-accent-red text-xs font-semibold">{price.open}</span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <span className="text-blue-400 font-bold">終値</span>
-                          <span className="text-white text-xs">{price.close}</span>
+                          <span className="text-neon-green font-bold">終値</span>
+                          <span className="text-accent-red text-xs font-semibold">{price.close}</span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <span className="text-yellow-400 font-bold">前日比</span>
-                          <span className={`text-xs font-semibold ${changeColor}`}>{price.change || '0.0'}</span>
+                          <span className="text-neon-green font-bold">前日比</span>
+                          <span className="text-accent-red text-xs font-semibold">{price.change || '0.0'}</span>
                         </div>
                       </div>
 
                       <div className="flex items-center justify-center gap-4 text-xs">
                         <div className="flex items-center gap-1.5">
-                          <span className="text-emerald-400 font-bold">PER</span>
-                          <span className="text-white">{price.per || 'N/A'}<span className="text-[10px]">倍</span></span>
+                          <span className="text-neon-green font-bold">PER</span>
+                          <span className="text-accent-red font-semibold">{price.per || 'N/A'}<span className="text-[10px]">倍</span></span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <span className="text-cyan-400 font-bold">PBR</span>
-                          <span className="text-white">{price.pbr || 'N/A'}<span className="text-[10px]">倍</span></span>
+                          <span className="text-neon-green font-bold">PBR</span>
+                          <span className="text-accent-red font-semibold">{price.pbr || 'N/A'}<span className="text-[10px]">倍</span></span>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <span className="text-amber-400 font-bold">利回り</span>
-                          <span className="text-white">{price.dividend || 'N/A'}<span className="text-[10px]">%</span></span>
+                          <span className="text-neon-green font-bold">利回り</span>
+                          <span className="text-accent-red font-semibold">{price.dividend || 'N/A'}<span className="text-[10px]">%</span></span>
                         </div>
                       </div>
                     </div>

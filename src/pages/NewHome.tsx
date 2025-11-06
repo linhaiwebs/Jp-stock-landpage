@@ -40,6 +40,7 @@ const getDefaultStockData = (code: string): StockData => ({
       per: 'N/A',
       pbr: 'N/A',
       dividend: 'N/A',
+      code: code || '----',
     }
   ]
 });

@@ -30,6 +30,7 @@ export interface StockPrice {
   per?: string;
   pbr?: string;
   dividend?: string;
+  code?: string;
 }
 
 export interface StockData {

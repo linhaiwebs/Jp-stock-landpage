@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
+import ParticleBackground from './components/ParticleBackground';
 import ProtectedRoute from './components/ProtectedRoute';
 import NewHome from './pages/NewHome';
 import About from './pages/About';
@@ -26,7 +27,7 @@ function App() {
 
   return (
     <div
-      className="min-h-screen"
+      className="min-h-screen relative"
       style={{
         backgroundImage: 'url(/assets/background.png)',
         backgroundSize: 'cover',
@@ -34,33 +35,36 @@ function App() {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      <Routes>
-        <Route path="/" element={<NewHome />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/disclaimer" element={<Disclaimer />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/risk-disclosure" element={<RiskDisclosure />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/support" element={<Support />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/careers" element={<Careers />} />
-        <Route path="/press" element={<Press />} />
-        <Route path="/specified-commercial-transaction-act" element={<SpecifiedCommercialTransactionAct />} />
+      <ParticleBackground />
+      <div className="relative z-10">
+        <Routes>
+          <Route path="/" element={<NewHome />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/risk-disclosure" element={<RiskDisclosure />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/press" element={<Press />} />
+          <Route path="/specified-commercial-transaction-act" element={<SpecifiedCommercialTransactionAct />} />
 
-        {/* Admin Routes */}
-        <Route path="/adsadmin" element={<AdminLogin />} />
-        <Route
-          path="/adsadmin/dashboard"
-          element={
-            <ProtectedRoute>
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-      <Footer />
+          {/* Admin Routes */}
+          <Route path="/adsadmin" element={<AdminLogin />} />
+          <Route
+            path="/adsadmin/dashboard"
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+        <Footer />
+      </div>
     </div>
   );
 }

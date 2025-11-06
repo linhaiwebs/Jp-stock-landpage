@@ -48,9 +48,9 @@ export default function PulsingButton({ onClick, stockName = '', disabled = fals
             />
 
             <div className="relative flex items-center justify-center gap-3">
-              <Sparkles className="w-6 h-6 animate-spin text-red-600 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]" style={{ animationDuration: '3s' }} />
-              <span className="font-black text-lg text-red-600 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">{buttonText}</span>
-              <Zap className="w-6 h-6 text-red-600 animate-icon-bounce drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]" />
+              <Sparkles className="w-6 h-6 animate-spin text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]" style={{ animationDuration: '3s' }} />
+              <span className="font-black text-lg text-red-600 drop-shadow-lg">{buttonText}</span>
+              <Zap className="w-6 h-6 text-red-500 animate-icon-bounce drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
             </div>
           </div>
         </button>

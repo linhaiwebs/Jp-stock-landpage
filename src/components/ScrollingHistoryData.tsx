@@ -81,6 +81,14 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
             </div>
           </div>
         </div>
+        <div className="mt-3 text-center">
+          <p className="text-xs text-gray-400">
+            データ出典: 公開市場情報 | 更新: 準リアルタイム
+          </p>
+          <p className="text-xs text-gray-500 mt-1">
+            ※過去のデータは将来の結果を保証するものではありません
+          </p>
+        </div>
       </div>
     </div>
   );

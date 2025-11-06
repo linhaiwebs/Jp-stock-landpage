@@ -39,27 +39,27 @@ export default function SocialProofSection() {
         <div className="text-center mb-4">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-trust-green/20 to-trust-green/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-trust-green/30 mb-3">
             <BadgeCheck className="w-3 h-3 text-trust-green" />
-<span className="text-trust-green text-xs font-bold">AI株式情報サービス</span>
+<span className="text-trust-green text-xs font-bold">情報提供サービス（参考資料）</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-white mb-2">
-            多くの投資家が利用中
+            情報提供サービスとして多数の方にご利用いただいています
           </h2>
           <p className="text-gray-400 text-base">
-            AI 株式情報サービス
+            市場分析情報の参考資料として
           </p>
         </div>
 
         <div className="flex gap-2 mb-8 justify-center">
           <div className="bg-gradient-to-br from-dark-card to-dark-tech rounded-lg p-3 border border-accent-orange/30 text-center hover:shadow-orange-glow transition-all flex-shrink-0">
             <Users className="w-6 h-6 text-accent-gold mx-auto mb-1" />
-            <div className="text-xl font-black text-white mb-0.5">多数</div>
-            <div className="text-gray-400 text-xs font-medium">利用者</div>
+            <div className="text-xl font-black text-white mb-0.5">情報提供</div>
+            <div className="text-gray-400 text-xs font-medium">サービス</div>
           </div>
 
           <div className="bg-gradient-to-br from-dark-card to-dark-tech rounded-lg p-3 border border-accent-orange/30 text-center hover:shadow-orange-glow transition-all flex-shrink-0">
             <TrendingUp className="w-6 h-6 text-trust-green mx-auto mb-1" />
-            <div className="text-xl font-black text-white mb-0.5">AI分析</div>
-            <div className="text-gray-400 text-xs font-medium">情報提供</div>
+            <div className="text-xl font-black text-white mb-0.5">公開データ</div>
+            <div className="text-gray-400 text-xs font-medium">活用分析</div>
           </div>
 
           <div className="bg-gradient-to-br from-dark-card to-dark-tech rounded-lg p-3 border border-accent-orange/30 text-center hover:shadow-orange-glow transition-all flex-shrink-0">
@@ -102,6 +102,9 @@ export default function SocialProofSection() {
 
                       <p className="text-gray-300 text-sm leading-relaxed mb-4">
                         「{testimonial.comment}」
+                      </p>
+                      <p className="text-xs text-gray-500 italic">
+                        ※個人の感想であり、投資成果を保証するものではありません
                       </p>
 
                       <div className="pt-4 border-t border-accent-orange/20">

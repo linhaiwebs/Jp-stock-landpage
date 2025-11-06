@@ -25,7 +25,7 @@ export async function generateDiagnosisReport(data: ReportData): Promise<void> {
         properties: {},
         children: [
           new Paragraph({
-            text: 'AI株式分析レポート',
+            text: 'AI市場分析レポート（参考資料）',
             heading: HeadingLevel.HEADING_1,
             alignment: AlignmentType.CENTER,
             spacing: { after: 400 }
@@ -44,7 +44,7 @@ export async function generateDiagnosisReport(data: ReportData): Promise<void> {
           }),
 
           new Paragraph({
-            text: '分析対象銘柄',
+            text: '分析対象情報',
             heading: HeadingLevel.HEADING_2,
             spacing: { before: 400, after: 200 }
           }),
@@ -88,7 +88,7 @@ export async function generateDiagnosisReport(data: ReportData): Promise<void> {
           }),
 
           new Paragraph({
-            text: '詳細な分析を毎日受け取る',
+            text: '市場分析情報を受け取る（参考資料）',
             heading: HeadingLevel.HEADING_2,
             spacing: { before: 400, after: 200 }
           }),
@@ -96,7 +96,7 @@ export async function generateDiagnosisReport(data: ReportData): Promise<void> {
           new Paragraph({
             children: [
               new TextRun({
-                text: 'LINEで登録すると、毎日最新の株式分析レポートをお届けします。',
+                text: 'LINEで登録すると、参考資料として市場分析レポートをお届けします。※投資助言ではありません。',
                 size: 22
               })
             ],
@@ -133,7 +133,7 @@ export async function generateDiagnosisReport(data: ReportData): Promise<void> {
           new Paragraph({
             children: [
               new TextRun({
-                text: '本分析は公開されている市場データに基づく情報提供のみを目的としており、特定の投資判断を推奨または助言するものではありません。株式投資には価格変動リスク、信用リスク、流動性リスクなどが伴い、投資元本を割り込む可能性があります。最終的な投資判断は、必ずご自身の責任において行ってください。',
+                text: 'データ出典: 公開市場情報（準リアルタイム）。本分析は参考資料として提供されており、投資助言または特定の投資判断を推奨するものではありません。株式投資には価格変動リスク、信用リスク、流動性リスクなどが伴い、投資元本を割り込む可能性があります。最終的な投資判断は、必ずご自身の責任において行ってください。',
                 size: 20,
                 color: '666666'
               })
@@ -146,7 +146,7 @@ export async function generateDiagnosisReport(data: ReportData): Promise<void> {
   });
 
   const blob = await doc.toBlob();
-  saveAs(blob, `AI株式分析レポート_${data.stockCode}_${new Date().getTime()}.docx`);
+  saveAs(blob, `AI市場分析レポート_${data.stockCode}_${new Date().getTime()}.docx`);
 }
 
 interface AnalysisSection {

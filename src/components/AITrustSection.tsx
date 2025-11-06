@@ -7,13 +7,13 @@ export default function AITrustSection() {
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-accent-orange/20 to-accent-gold/20 backdrop-blur-sm px-4 py-2 rounded-full border border-accent-orange/30 mb-4">
             <Shield className="w-4 h-4 text-accent-gold" />
-            <span className="text-accent-gold text-sm font-bold">信頼のAI分析システム</span>
+            <span className="text-accent-gold text-sm font-bold">AI技術による市場データ分析</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-white mb-3">
-            AI技術による株式分析
+            AI技術による市場情報分析
           </h2>
           <p className="text-gray-400 text-lg">
-            機械学習を活用した参考情報の提供
+            公開市場データを活用した参考情報の提供
           </p>
         </div>
 
@@ -26,9 +26,9 @@ export default function AITrustSection() {
               <div className="w-16 h-16 bg-gradient-to-br from-accent-orange to-accent-gold rounded-full flex items-center justify-center mx-auto mb-3 shadow-gold-glow">
                 <Database className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-white text-lg font-bold mb-2">市場データ分析</h3>
+              <h3 className="text-white text-lg font-bold mb-2">市場データ収集</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                公開されている市場データを分析
+                公開市場データを収集・分析（参考情報）
               </p>
             </div>
 
@@ -49,9 +49,9 @@ export default function AITrustSection() {
               <div className="w-16 h-16 bg-gradient-to-br from-accent-orange to-accent-gold rounded-full flex items-center justify-center mx-auto mb-3 shadow-gold-glow">
                 <Cpu className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-white text-lg font-bold mb-2">AI分析システム</h3>
+              <h3 className="text-white text-lg font-bold mb-2">AI情報分析</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                アルゴリズムによる情報分析
+                AIアルゴリズムによる分析（参考情報）
               </p>
             </div>
 
@@ -72,9 +72,9 @@ export default function AITrustSection() {
               <div className="w-16 h-16 bg-gradient-to-br from-accent-orange to-accent-gold rounded-full flex items-center justify-center mx-auto mb-3 shadow-gold-glow">
                 <LineChart className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-white text-lg font-bold mb-2">分析結果提供</h3>
+              <h3 className="text-white text-lg font-bold mb-2">情報レポート提供</h3>
               <p className="text-gray-400 text-sm leading-relaxed">
-                参考情報としてレポート形式で提供
+                参考資料としてレポート提供
               </p>
             </div>
           </div>

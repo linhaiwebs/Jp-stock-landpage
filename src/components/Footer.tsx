@@ -21,9 +21,9 @@ export default function Footer() {
       borderColor: 'border-red-500'
     },
     {
-      title: '【情報の正確性について】',
-      content: '提供される情報は、信頼できると判断した情報源から取得していますが、その正確性、完全性、適時性を保証するものではありません。AI分析結果は参考情報として提供されるものであり、絶対的な投資判断基準ではありません。',
-      highlight: '',
+      title: '【データ出典と情報の正確性】',
+      content: 'データ出典: 公開市場情報（準リアルタイム）。提供される情報の正確性、完全性、適時性を保証するものではありません。',
+      highlight: 'AI分析結果は参考情報として提供されるものであり、投資助言または推奨ではありません。',
       borderColor: 'border-blue-500'
     },
     {
@@ -78,11 +78,13 @@ export default function Footer() {
                 </div>
 
                 <div className="bg-white/70 rounded p-3 border-l-4 border-blue-500">
-                  <p className="font-bold text-blue-900 mb-2">【情報の正確性について】</p>
+                  <p className="font-bold text-blue-900 mb-2">【データ出典と情報の正確性】</p>
+                  <p className="mb-2">
+                    <strong>データ出典:</strong> 公開市場情報（準リアルタイム）
+                  </p>
                   <p>
-                    提供される情報は、信頼できると判断した情報源から取得していますが、
-                    その正確性、完全性、適時性を保証するものではありません。
-                    AI分析結果は参考情報として提供されるものであり、絶対的な投資判断基準ではありません。
+                    提供される情報の正確性、完全性、適時性を保証するものではありません。
+                    <strong className="text-blue-700">AI分析結果は参考情報として提供されるものであり、投資助言または推奨ではありません。</strong>
                   </p>
                 </div>
 

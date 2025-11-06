@@ -7,7 +7,7 @@ interface PulsingButtonProps {
 }
 
 export default function PulsingButton({ onClick, stockName = '', disabled = false }: PulsingButtonProps) {
-  const buttonText = stockName ? `【${stockName}】を今すぐ診断` : '今すぐAI診断を開始';
+  const buttonText = stockName ? `【${stockName}】の分析レポートを見る` : 'AI市場分析レポートを見る';
 
   const handleClick = () => {
     onClick();
@@ -47,10 +47,13 @@ export default function PulsingButton({ onClick, stockName = '', disabled = fals
               }}
             />
 
-            <div className="relative flex items-center justify-center gap-3">
-              <Sparkles className="w-6 h-6 animate-spin text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]" style={{ animationDuration: '3s' }} />
-              <span className="font-black text-lg text-red-600 drop-shadow-lg">{buttonText}</span>
-              <Zap className="w-6 h-6 text-red-500 animate-icon-bounce drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+            <div className="relative flex flex-col items-center justify-center gap-2">
+              <div className="flex items-center gap-3">
+                <Sparkles className="w-6 h-6 animate-spin text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]" style={{ animationDuration: '3s' }} />
+                <span className="font-black text-lg text-red-600 drop-shadow-lg">{buttonText}</span>
+                <Zap className="w-6 h-6 text-red-500 animate-icon-bounce drop-shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+              </div>
+              <span className="text-xs text-red-700 font-semibold">※投資判断の参考情報です</span>
             </div>
           </div>
         </button>

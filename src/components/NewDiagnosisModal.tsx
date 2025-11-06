@@ -88,7 +88,7 @@ export default function NewDiagnosisModal({
           <div className="relative sticky top-0 bg-gradient-to-r from-orange-500 to-amber-500 px-3 py-2 sm:px-5 sm:py-3 flex items-center justify-between border-b-4 border-orange-400 backdrop-blur-sm z-10 shadow-lg">
           <div className="flex-1 text-center pr-8">
             <h2 className="text-base sm:text-lg md:text-xl font-bold text-white drop-shadow-lg">
-              {stockName}（{stockCode}）AI銘柄診断レポート
+              {stockName}（{stockCode}）AI市場分析レポート（参考資料）
             </h2>
           </div>
           <button
@@ -102,7 +102,10 @@ export default function NewDiagnosisModal({
 
         <div className="relative overflow-y-auto max-h-[calc(95vh-180px)] sm:max-h-[calc(95vh-200px)] px-3 py-3 sm:px-5 sm:py-4 space-y-3 sm:space-y-4 bg-gradient-to-br from-orange-50 to-amber-50">
 
-          <h3 className="text-lg sm:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600 text-center mb-4">AI診断結果</h3>
+          <h3 className="text-lg sm:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600 text-center mb-2">AI分析レポート（参考情報）</h3>
+          <p className="text-xs text-center text-gray-600 mb-3">
+            データ出典: 公開市場情報 | 本レポートは参考資料であり、投資助言ではありません
+          </p>
 
           <div className="relative bg-white/80 backdrop-blur-xl rounded-lg sm:rounded-xl p-4 sm:p-5 border-2 border-orange-200 overflow-hidden shadow-xl">
             <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-orange-200/30 to-amber-200/30 rounded-full blur-3xl pointer-events-none"></div>
@@ -113,7 +116,7 @@ export default function NewDiagnosisModal({
                 <div className="text-xs sm:text-sm text-gray-700 leading-relaxed space-y-2">
                   {isConnecting ? (
                     <div className="text-center py-4">
-                      <p className="text-orange-600 font-bold">AI分析エンジン接続中...</p>
+                      <p className="text-orange-600 font-bold">市場データ分析中...</p>
                     </div>
                   ) : (
                     <>
@@ -150,12 +153,12 @@ export default function NewDiagnosisModal({
                     />
 
                     <ExternalLink className="relative w-6 h-6 animate-icon-bounce" />
-                    <span className="relative">無料AI診断結果をLINEで毎日受け取る</span>
+                    <span className="relative">市場分析情報をLINEで受け取る（参考情報）</span>
                   </button>
 
                   <div className="mt-3 p-3 bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg border border-green-600/30">
                     <p className="text-xs text-green-200 leading-relaxed">
-                      LINEで登録すると、毎日最新の株式分析レポートをお届けします
+                      LINEで登録すると、参考情報として市場分析レポートをお届けします。※投資助言ではありません
                     </p>
                   </div>
                 </>

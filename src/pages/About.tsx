@@ -137,6 +137,24 @@ export default function About() {
             </section>
 
             <section className="mb-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">データ提供について</h2>
+              <div className="bg-blue-50 rounded-lg p-6 mb-6">
+                <h3 className="font-bold text-gray-900 mb-3">データ出典</h3>
+                <p className="text-gray-700 leading-relaxed mb-2">
+                  当サービスで提供される株式情報は、以下の公開市場情報を基に構成されています：
+                </p>
+                <ul className="list-disc list-inside text-gray-700 space-y-1 ml-4">
+                  <li>東京証券取引所等の公開市場データ（準リアルタイム）</li>
+                  <li>各種財務指標（PER、PBR、配当利回り等）</li>
+                  <li>出来高、株価推移等の取引データ</li>
+                </ul>
+                <p className="text-sm text-gray-600 mt-3">
+                  ※データ更新頻度: 準リアルタイム（数分遅延の可能性があります）
+                </p>
+              </div>
+            </section>
+
+            <section className="mb-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">会社概要</h2>
               <div className="bg-slate-50 rounded-lg p-6">
                 <dl className="space-y-3">

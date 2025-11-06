@@ -7,8 +7,6 @@ import CircularAnalysisNav from '../components/CircularAnalysisNav';
 import DiagnosisLoadingOverlay from '../components/DiagnosisLoadingOverlay';
 import NewDiagnosisModal from '../components/NewDiagnosisModal';
 import RiskAcknowledgmentModal from '../components/RiskAcknowledgmentModal';
-import DataSourceNotice from '../components/DataSourceNotice';
-import CompanyInfoBanner from '../components/CompanyInfoBanner';
 import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
 import { useUrlParams } from '../hooks/useUrlParams';
@@ -356,8 +354,6 @@ export default function NewHome() {
 
         {stockData && diagnosisState === 'initial' && (
           <>
-            <DataSourceNotice />
-
             <SplitStockCard
               info={stockData.info}
               latestPrice={stockData.prices[0]}
@@ -381,8 +377,6 @@ export default function NewHome() {
             />
 
             <CircularAnalysisNav />
-
-            <CompanyInfoBanner />
           </>
         )}
 

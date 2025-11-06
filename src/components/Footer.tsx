@@ -233,7 +233,7 @@ export default function Footer() {
 
             {/* Contact */}
             <div>
-              <h4 className="font-bold text-gray-100 mb-3 flex items-center gap-2 text-sm">
+              <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2 text-sm">
                 <Mail className="w-4 h-4" />
                 お問い合わせ
               </h4>
@@ -274,12 +274,12 @@ export default function Footer() {
 
             {/* Service Information */}
             <div>
-              <h4 className="font-bold text-gray-100 mb-3 flex items-center gap-2 text-sm">
+              <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2 text-sm">
                 <Info className="w-4 h-4" />
                 サービス情報
               </h4>
-              <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
-                <li>株式会社結禾テクノロジーズ</li>
+              <ul className="space-y-2 text-xs sm:text-sm text-gray-800">
+                <li>株式会社金融グループ</li>
                 <li>AI株式診断サービス</li>
                 <li>リアルタイム株価情報</li>
                 <li>テクニカル分析</li>
@@ -290,7 +290,7 @@ export default function Footer() {
 
             {/* Company Information */}
             <div>
-              <h4 className="font-bold text-gray-100 mb-3 flex items-center gap-2 text-sm">
+              <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2 text-sm">
                 <Building className="w-4 h-4" />
                 運営会社
               </h4>

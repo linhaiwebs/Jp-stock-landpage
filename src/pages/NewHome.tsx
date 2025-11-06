@@ -6,8 +6,6 @@ import ScrollingHistoryData from '../components/ScrollingHistoryData';
 import CircularAnalysisNav from '../components/CircularAnalysisNav';
 import DiagnosisLoadingOverlay from '../components/DiagnosisLoadingOverlay';
 import NewDiagnosisModal from '../components/NewDiagnosisModal';
-import RiskAcknowledgmentModal from '../components/RiskAcknowledgmentModal';
-import DataSourceNotice from '../components/DataSourceNotice';
 import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
 import { useUrlParams } from '../hooks/useUrlParams';
@@ -60,7 +58,6 @@ export default function NewHome() {
   const [diagnosisStartTime, setDiagnosisStartTime] = useState<number>(0);
   const [loadingProgress, setLoadingProgress] = useState<number>(0);
   const [showLoadingOverlay, setShowLoadingOverlay] = useState<boolean>(false);
-  const [showRiskModal, setShowRiskModal] = useState<boolean>(false);
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -127,12 +124,8 @@ export default function NewHome() {
     };
   }, []);
 
-  const initiateAnalysis = () => {
-    if (diagnosisState !== 'initial' || !stockData || !hasRealData) return;
-    setShowRiskModal(true);
-  };
-
   const runDiagnosis = async () => {
+    if (diagnosisState !== 'initial' || !stockData || !hasRealData) return;
 
     setDiagnosisState('connecting');
     setDiagnosisStartTime(Date.now());
@@ -360,10 +353,8 @@ export default function NewHome() {
               latestPrice={stockData.prices[0]}
             />
 
-            <DataSourceNotice />
-
             <PulsingButton
-              onClick={initiateAnalysis}
+              onClick={runDiagnosis}
               stockName={stockData.info.name}
               disabled={!hasRealData}
             />
@@ -373,10 +364,8 @@ export default function NewHome() {
               stockName={stockData.info.name}
             />
 
-            <DataSourceNotice />
-
             <PulsingButton
-              onClick={initiateAnalysis}
+              onClick={runDiagnosis}
               stockName={stockData.info.name}
               disabled={!hasRealData}
             />
@@ -416,16 +405,6 @@ export default function NewHome() {
             </div>
           </div>
         )}
-
-        <RiskAcknowledgmentModal
-          isOpen={showRiskModal}
-          onAccept={() => {
-            setShowRiskModal(false);
-            runDiagnosis();
-          }}
-          onCancel={() => setShowRiskModal(false)}
-          stockName={stockData?.info.name || ''}
-        />
 
         <NewDiagnosisModal
           isOpen={diagnosisState === 'streaming' || diagnosisState === 'results'}

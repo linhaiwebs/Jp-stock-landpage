@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
 import ProtectedRoute from './components/ProtectedRoute';
-import ComplianceButton from './components/ComplianceButton';
-import ComplianceCenter from './components/ComplianceCenter';
 import NewHome from './pages/NewHome';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -23,8 +21,6 @@ import AdminDashboard from './pages/AdminDashboard';
 import { initializeGoogleTracking } from './lib/googleTracking';
 
 function App() {
-  const [showComplianceCenter, setShowComplianceCenter] = useState(false);
-
   useEffect(() => {
     initializeGoogleTracking();
   }, []);
@@ -40,8 +36,6 @@ function App() {
       }}
     >
       <ParticleBackground />
-      <ComplianceButton onClick={() => setShowComplianceCenter(true)} />
-      <ComplianceCenter isOpen={showComplianceCenter} onClose={() => setShowComplianceCenter(false)} />
       <div className="relative z-10">
         <Routes>
           <Route path="/" element={<NewHome />} />

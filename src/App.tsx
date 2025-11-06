@@ -36,6 +36,7 @@ function App() {
         backgroundAttachment: 'fixed'
       }}
     >
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40 z-0"></div>
       <ParticleBackground />
       <div className="relative z-10">
         <Routes>

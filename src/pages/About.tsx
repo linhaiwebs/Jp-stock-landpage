@@ -142,23 +142,19 @@ export default function About() {
                 <dl className="space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-start">
                     <dt className="font-semibold text-gray-900 w-32 flex-shrink-0">会社名</dt>
-                    <dd className="text-gray-700">株式会社結禾テクノロジーズ</dd>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:items-start">
-                    <dt className="font-semibold text-gray-900 w-32 flex-shrink-0">運営責任者</dt>
-                    <dd className="text-gray-700">永田治史</dd>
+                    <dd className="text-gray-700">株式会社金融グループ<br />Financial Group Inc</dd>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-start">
                     <dt className="font-semibold text-gray-900 w-32 flex-shrink-0">所在地</dt>
-                    <dd className="text-gray-700">東京都渋谷区神南1-12-4 神南ビル6F</dd>
+                    <dd className="text-gray-700">〒100-0004<br />東京都千代田区大手町2-6-1<br />2-6-1 Otemachi, Chiyoda-ku, Tokyo</dd>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-start">
                     <dt className="font-semibold text-gray-900 w-32 flex-shrink-0">電話番号</dt>
-                    <dd className="text-gray-700">080-3376-0625</dd>
+                    <dd className="text-gray-700">+81 3-5555-1234</dd>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-start">
                     <dt className="font-semibold text-gray-900 w-32 flex-shrink-0">メールアドレス</dt>
-                    <dd className="text-gray-700">ahuang2025123123@gmail.com</dd>
+                    <dd className="text-gray-700">contact@financialgroup.jp</dd>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-start">
                     <dt className="font-semibold text-gray-900 w-32 flex-shrink-0">事業内容</dt>

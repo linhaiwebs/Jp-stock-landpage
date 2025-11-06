@@ -6,6 +6,9 @@ import ScrollingHistoryData from '../components/ScrollingHistoryData';
 import CircularAnalysisNav from '../components/CircularAnalysisNav';
 import DiagnosisLoadingOverlay from '../components/DiagnosisLoadingOverlay';
 import NewDiagnosisModal from '../components/NewDiagnosisModal';
+import RiskAcknowledgmentModal from '../components/RiskAcknowledgmentModal';
+import DataSourceNotice from '../components/DataSourceNotice';
+import CompanyInfoBanner from '../components/CompanyInfoBanner';
 import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
 import { useUrlParams } from '../hooks/useUrlParams';
@@ -58,6 +61,7 @@ export default function NewHome() {
   const [diagnosisStartTime, setDiagnosisStartTime] = useState<number>(0);
   const [loadingProgress, setLoadingProgress] = useState<number>(0);
   const [showLoadingOverlay, setShowLoadingOverlay] = useState<boolean>(false);
+  const [showRiskModal, setShowRiskModal] = useState<boolean>(false);
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -124,8 +128,12 @@ export default function NewHome() {
     };
   }, []);
 
-  const runDiagnosis = async () => {
+  const initiateAnalysis = () => {
     if (diagnosisState !== 'initial' || !stockData || !hasRealData) return;
+    setShowRiskModal(true);
+  };
+
+  const runDiagnosis = async () => {
 
     setDiagnosisState('connecting');
     setDiagnosisStartTime(Date.now());
@@ -348,13 +356,15 @@ export default function NewHome() {
 
         {stockData && diagnosisState === 'initial' && (
           <>
+            <DataSourceNotice />
+
             <SplitStockCard
               info={stockData.info}
               latestPrice={stockData.prices[0]}
             />
 
             <PulsingButton
-              onClick={runDiagnosis}
+              onClick={initiateAnalysis}
               stockName={stockData.info.name}
               disabled={!hasRealData}
             />
@@ -365,12 +375,14 @@ export default function NewHome() {
             />
 
             <PulsingButton
-              onClick={runDiagnosis}
+              onClick={initiateAnalysis}
               stockName={stockData.info.name}
               disabled={!hasRealData}
             />
 
             <CircularAnalysisNav />
+
+            <CompanyInfoBanner />
           </>
         )}
 
@@ -405,6 +417,16 @@ export default function NewHome() {
             </div>
           </div>
         )}
+
+        <RiskAcknowledgmentModal
+          isOpen={showRiskModal}
+          onAccept={() => {
+            setShowRiskModal(false);
+            runDiagnosis();
+          }}
+          onCancel={() => setShowRiskModal(false)}
+          stockName={stockData?.info.name || ''}
+        />
 
         <NewDiagnosisModal
           isOpen={diagnosisState === 'streaming' || diagnosisState === 'results'}

@@ -3,6 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
 import ProtectedRoute from './components/ProtectedRoute';
+import RiskDisclaimerBanner from './components/RiskDisclaimerBanner';
+import CookieConsentBanner from './components/CookieConsentBanner';
+import LegalLinksHeader from './components/LegalLinksHeader';
 import NewHome from './pages/NewHome';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -36,6 +39,9 @@ function App() {
       }}
     >
       <ParticleBackground />
+      <RiskDisclaimerBanner />
+      <LegalLinksHeader />
+      <CookieConsentBanner />
       <div className="relative z-10">
         <Routes>
           <Route path="/" element={<NewHome />} />

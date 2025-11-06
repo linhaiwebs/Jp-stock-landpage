@@ -88,7 +88,7 @@ export default function NewDiagnosisModal({
           <div className="relative sticky top-0 bg-gradient-to-r from-orange-500 to-amber-500 px-3 py-2 sm:px-5 sm:py-3 flex items-center justify-between border-b-4 border-orange-400 backdrop-blur-sm z-10 shadow-lg">
           <div className="flex-1 text-center pr-8">
             <h2 className="text-base sm:text-lg md:text-xl font-bold text-white drop-shadow-lg">
-              {stockName}（{stockCode}）AI銘柄診断レポート
+              {stockName}（{stockCode}）AI情報レポート
             </h2>
           </div>
           <button
@@ -102,7 +102,16 @@ export default function NewDiagnosisModal({
 
         <div className="relative overflow-y-auto max-h-[calc(95vh-180px)] sm:max-h-[calc(95vh-200px)] px-3 py-3 sm:px-5 sm:py-4 space-y-3 sm:space-y-4 bg-gradient-to-br from-orange-50 to-amber-50">
 
-          <h3 className="text-lg sm:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600 text-center mb-4">AI診断結果</h3>
+          <div className="bg-red-50 border-2 border-red-400 rounded-lg p-3 mb-4">
+            <p className="text-red-900 font-bold text-xs sm:text-sm mb-1">
+              【重要】この情報は投資助言ではありません
+            </p>
+            <p className="text-red-800 text-xs leading-relaxed">
+              本情報は参考資料です。投資判断はご自身の責任で行ってください。過去の実績は将来の成果を保証しません。
+            </p>
+          </div>
+
+          <h3 className="text-lg sm:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600 text-center mb-4">AI情報レポート</h3>
 
           <div className="relative bg-white/80 backdrop-blur-xl rounded-lg sm:rounded-xl p-4 sm:p-5 border-2 border-orange-200 overflow-hidden shadow-xl">
             <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-orange-200/30 to-amber-200/30 rounded-full blur-3xl pointer-events-none"></div>
@@ -155,7 +164,7 @@ export default function NewDiagnosisModal({
 
                   <div className="mt-3 p-3 bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg border border-green-600/30">
                     <p className="text-xs text-green-200 leading-relaxed">
-                      LINEで登録すると、毎日最新の株式分析レポートをお届けします
+                      LINEで登録すると、毎日最新の株式情報レポートをお届けします（情報提供のみ、投資助言ではありません）
                     </p>
                   </div>
                 </>

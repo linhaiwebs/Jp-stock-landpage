@@ -7,7 +7,7 @@ interface PulsingButtonProps {
 }
 
 export default function PulsingButton({ onClick, stockName = '', disabled = false }: PulsingButtonProps) {
-  const buttonText = stockName ? `【${stockName}】を今すぐ診断` : '今すぐAI診断を開始';
+  const buttonText = stockName ? `【${stockName}】情報を確認` : '無料AI情報レポート';
 
   const handleClick = () => {
     onClick();

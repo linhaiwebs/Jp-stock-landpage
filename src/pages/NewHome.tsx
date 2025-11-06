@@ -338,7 +338,7 @@ export default function NewHome() {
         disabled={!hasRealData || diagnosisState !== 'initial'}
       />
 
-      <div className="pb-8">
+      <div className="pb-4">
         {loading && (
           <div className="text-center py-12 md:py-16">
             <div className="inline-block animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-4 border-accent-gold border-t-white"></div>

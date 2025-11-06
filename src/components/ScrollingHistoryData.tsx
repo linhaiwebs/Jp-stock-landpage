@@ -13,7 +13,7 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
   const doubledPrices = [...prices.slice(0, 10), ...prices.slice(0, 10)];
 
   return (
-    <div className="px-4 py-8">
+    <div className="px-4 py-3">
       <div className="max-w-lg mx-auto">
         <div
           className="relative overflow-hidden"
@@ -26,7 +26,7 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
           }}
         >
           <div className="text-center pt-4 pb-2">
-            <h2 className="text-2xl font-bold text-neon-green">{stockName} ({prices[0]?.code || '----'})</h2>
+            <h2 className="text-2xl font-bold text-transparent select-none">&nbsp;</h2>
           </div>
           <div className="relative z-10 px-6 py-2 h-full overflow-hidden">
             <div className="animate-scroll-step">

@@ -10,17 +10,12 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
 
   return (
     <div className="relative w-full">
-      <div className="w-full px-4 py-8 flex flex-col items-center">
+      <div className="w-full px-4 py-4 flex flex-col items-center">
         <img
           src="/assets/logo.png"
           alt="AI Logo"
-          className="w-32 h-32 mb-6"
+          className="w-32 h-32 mb-3"
         />
-
-        <h1 className="text-center mb-6" style={{ fontFamily: "'Kozuka Gothic Pr6N', 'Noto Sans JP', sans-serif" }}>
-          <span className="text-yellow-400 font-bold text-4xl md:text-5xl">情報</span>
-          <span className="text-blue-500 font-medium text-2xl md:text-3xl">銘柄基本</span>
-        </h1>
 
         <div className="relative w-full max-w-3xl">
           <img
@@ -29,13 +24,16 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
             className="w-full h-auto"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-red-600 font-bold text-2xl md:text-3xl lg:text-4xl" style={{ fontFamily: "'Kozuka Gothic Pr6N', 'Noto Sans JP', sans-serif" }}>市場データ分析</span>
+            <h1 className="text-center" style={{ fontFamily: "'Kozuka Gothic Pr6N', 'Noto Sans JP', sans-serif" }}>
+              <span className="text-yellow-400 font-bold text-2xl md:text-3xl lg:text-4xl">情報</span>
+              <span className="text-blue-500 font-medium text-xl md:text-2xl lg:text-3xl">銘柄基本</span>
+            </h1>
           </div>
         </div>
       </div>
 
       {onDiagnosis && (
-        <div className="px-4 py-6">
+        <div className="px-4 py-3">
           <div className="max-w-lg mx-auto">
             <button
               onClick={onDiagnosis}

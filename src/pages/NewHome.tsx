@@ -7,6 +7,7 @@ import CircularAnalysisNav from '../components/CircularAnalysisNav';
 import DiagnosisLoadingOverlay from '../components/DiagnosisLoadingOverlay';
 import NewDiagnosisModal from '../components/NewDiagnosisModal';
 import RiskAcknowledgmentModal from '../components/RiskAcknowledgmentModal';
+import DataSourceNotice from '../components/DataSourceNotice';
 import { StockData } from '../types/stock';
 import { DiagnosisState } from '../types/diagnosis';
 import { useUrlParams } from '../hooks/useUrlParams';
@@ -359,6 +360,8 @@ export default function NewHome() {
               latestPrice={stockData.prices[0]}
             />
 
+            <DataSourceNotice />
+
             <PulsingButton
               onClick={initiateAnalysis}
               stockName={stockData.info.name}
@@ -369,6 +372,8 @@ export default function NewHome() {
               prices={stockData.prices}
               stockName={stockData.info.name}
             />
+
+            <DataSourceNotice />
 
             <PulsingButton
               onClick={initiateAnalysis}

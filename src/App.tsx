@@ -3,8 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
 import ProtectedRoute from './components/ProtectedRoute';
-import RiskDisclaimerBanner from './components/RiskDisclaimerBanner';
-import CookieConsentBanner from './components/CookieConsentBanner';
 import ComplianceButton from './components/ComplianceButton';
 import ComplianceCenter from './components/ComplianceCenter';
 import NewHome from './pages/NewHome';
@@ -42,8 +40,6 @@ function App() {
       }}
     >
       <ParticleBackground />
-      <RiskDisclaimerBanner />
-      <CookieConsentBanner />
       <ComplianceButton onClick={() => setShowComplianceCenter(true)} />
       <ComplianceCenter isOpen={showComplianceCenter} onClose={() => setShowComplianceCenter(false)} />
       <div className="relative z-10">

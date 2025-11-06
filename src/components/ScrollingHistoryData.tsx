@@ -22,16 +22,16 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
             backgroundSize: '100% 100%',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
-            height: '300px'
+            height: '260px'
           }}
         >
-          <div className="relative z-10 px-6 py-6 h-full overflow-hidden">
-            <div className="animate-scroll-step">
+          <div className="relative z-10 px-6 h-full overflow-hidden flex items-end" style={{ paddingBottom: '20px' }}>
+            <div className="animate-scroll-step w-full">
               {doubledPrices.map((price, index) => {
                 return (
                   <div
                     key={`${price.date}-${index}`}
-                    className="h-[110px] flex flex-col justify-center"
+                    className="h-[100px] flex flex-col justify-center"
                   >
                     <div className="text-center mb-1">
                       <div className="flex items-center justify-center gap-3 text-sm mb-1">

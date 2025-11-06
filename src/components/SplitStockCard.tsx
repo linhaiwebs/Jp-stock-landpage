@@ -34,10 +34,10 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
                 </div>
               </div>
 
-              <div className="grid gap-6" style={{ gridTemplateColumns: '40% 60%' }}>
+              <div className="grid gap-1" style={{ gridTemplateColumns: '40% 60%' }}>
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <div className="text-3xl text-accent-red font-black">
+                    <div className="text-2xl text-accent-red font-black">
                       ¥{info.price}
                     </div>
                     <TrendIcon className="w-6 h-6 text-accent-red" />

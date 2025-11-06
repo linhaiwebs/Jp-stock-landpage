@@ -18,8 +18,8 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
         />
 
         <h1 className="text-center mb-6" style={{ fontFamily: "'Kozuka Gothic Pr6N', 'Noto Sans JP', sans-serif" }}>
-          <span className="text-yellow-400 font-bold text-4xl md:text-5xl">情報</span>
-          <span className="text-blue-500 font-medium text-2xl md:text-3xl">銘柄基本</span>
+          <span className="text-yellow-400 font-bold text-4xl md:text-5xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">情報</span>
+          <span className="text-blue-400 font-medium text-2xl md:text-3xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">銘柄基本</span>
         </h1>
 
         <div className="relative w-full max-w-3xl">
@@ -29,7 +29,7 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
             className="w-full h-auto"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-red-600 font-bold text-2xl md:text-3xl lg:text-4xl" style={{ fontFamily: "'Kozuka Gothic Pr6N', 'Noto Sans JP', sans-serif" }}>銘柄無料診断</span>
+            <span className="text-red-600 font-bold text-2xl md:text-3xl lg:text-4xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]" style={{ fontFamily: "'Kozuka Gothic Pr6N', 'Noto Sans JP', sans-serif" }}>銘柄無料診断</span>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
                 }}
               />
 
-              <span className="relative text-red-600 font-bold text-lg drop-shadow-lg">
+              <span className="relative text-red-600 font-bold text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                 {hasStockData ? `【${stockName}】` : '銘柄'}無料診断
               </span>
             </button>

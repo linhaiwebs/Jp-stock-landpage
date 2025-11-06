@@ -26,10 +26,10 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
           <div className="relative z-10 px-4 py-6">
             <div>
               <div className="text-center pt-18 pb-2">
-                <div className="text-white text-xl font-bold mb-1">
+                <div className="text-white text-xl font-bold mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                   {info.name} ({info.code})
                 </div>
-                <div className="text-gray-300 text-sm">
+                <div className="text-gray-200 text-sm drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
                   {info.timestamp}
                 </div>
               </div>
@@ -37,41 +37,41 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
               <div className="grid gap-6" style={{ gridTemplateColumns: '40% 60%' }}>
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <div className="text-3xl text-white font-black">
+                    <div className="text-3xl text-white font-black drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
                       ¥{info.price}
                     </div>
-                    <TrendIcon className={`w-6 h-6 ${changeColor}`} />
+                    <TrendIcon className={`w-6 h-6 ${changeColor} drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]`} />
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className={`text-sm ${changeColor}`}>{info.change}</span>
-                    <span className={`text-sm ${changeColor}`}>{info.changePercent}</span>
+                    <span className={`text-sm ${changeColor} drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] font-semibold`}>{info.change}</span>
+                    <span className={`text-sm ${changeColor} drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] font-semibold`}>{info.changePercent}</span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-x-3 gap-y-2 text-xs">
                   <div className="flex items-center justify-between">
-                    <span className="text-neon-green font-bold">始值</span>
-                    <span className="text-white">{latestPrice?.open || info.price}</span>
+                    <span className="text-neon-green font-bold drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">始值</span>
+                    <span className="text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] font-semibold">{latestPrice?.open || info.price}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-neon-green font-bold">高值</span>
-                    <span className="text-white">{latestPrice?.high || info.price}</span>
+                    <span className="text-neon-green font-bold drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">高值</span>
+                    <span className="text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] font-semibold">{latestPrice?.high || info.price}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-neon-green font-bold">终值</span>
-                    <span className="text-white">{latestPrice?.close || info.price}</span>
+                    <span className="text-neon-green font-bold drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">终值</span>
+                    <span className="text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] font-semibold">{latestPrice?.close || info.price}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-neon-green font-bold">安值</span>
-                    <span className="text-white">{latestPrice?.low || info.price}</span>
+                    <span className="text-neon-green font-bold drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">安值</span>
+                    <span className="text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] font-semibold">{latestPrice?.low || info.price}</span>
                   </div>
                   <div className="flex items-center justify-between pt-1 border-t border-gray-600/30">
-                    <span className="text-neon-green font-bold">前日比</span>
-                    <span className={`${changeColor}`}>{info.changePercent}</span>
+                    <span className="text-neon-green font-bold drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">前日比</span>
+                    <span className={`${changeColor} drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] font-semibold`}>{info.changePercent}</span>
                   </div>
                   <div className="flex items-center justify-between pt-1 border-t border-gray-600/30">
-                    <span className="text-neon-green font-bold">売買高</span>
-                    <span className="text-white">{latestPrice?.volume || 'N/A'}</span>
+                    <span className="text-neon-green font-bold drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">売買高</span>
+                    <span className="text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] font-semibold">{latestPrice?.volume || 'N/A'}</span>
                   </div>
                 </div>
               </div>

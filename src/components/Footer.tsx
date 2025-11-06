@@ -183,7 +183,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6">
             {/* Legal Documents */}
             <div>
-              <h4 className="font-bold text-white mb-3 flex items-center gap-2 text-sm">
+              <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2 text-sm">
                 <FileText className="w-4 h-4" />
                 法的文書
               </h4>
@@ -199,7 +199,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/privacy"
-                    className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
+                    className="text-gray-700 hover:text-gray-900 hover:underline flex items-center gap-1"
                   >
                     プライバシーポリシー <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -207,7 +207,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/disclaimer"
-                    className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
+                    className="text-gray-700 hover:text-gray-900 hover:underline flex items-center gap-1"
                   >
                     免責事項 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -215,7 +215,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/risk-disclosure"
-                    className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
+                    className="text-gray-700 hover:text-gray-900 hover:underline flex items-center gap-1"
                   >
                     リスク開示書面 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -241,7 +241,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/contact"
-                    className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
+                    className="text-gray-700 hover:text-gray-900 hover:underline flex items-center gap-1"
                   >
                     お問い合わせフォーム <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -249,7 +249,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/faq"
-                    className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
+                    className="text-gray-700 hover:text-gray-900 hover:underline flex items-center gap-1"
                   >
                     よくある質問 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -257,16 +257,16 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/support"
-                    className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
+                    className="text-gray-700 hover:text-gray-900 hover:underline flex items-center gap-1"
                   >
                     サポート <ExternalLink className="w-3 h-3" />
                   </Link>
                 </li>
-                <li className="flex items-center gap-1 text-gray-300">
+                <li className="flex items-center gap-1 text-gray-800">
                   <Phone className="w-3 h-3" />
-                  <span>080-3376-0625</span>
+                  <span>+81 3-5555-1234</span>
                 </li>
-                <li className="text-gray-400 text-xs">
+                <li className="text-gray-700 text-xs">
                   受付時間: 平日 9:00-18:00
                 </li>
               </ul>
@@ -298,7 +298,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/about"
-                    className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
+                    className="text-gray-700 hover:text-gray-900 hover:underline flex items-center gap-1"
                   >
                     会社概要 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -306,7 +306,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/team"
-                    className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
+                    className="text-gray-700 hover:text-gray-900 hover:underline flex items-center gap-1"
                   >
                     チーム紹介 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -314,7 +314,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/careers"
-                    className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
+                    className="text-gray-700 hover:text-gray-900 hover:underline flex items-center gap-1"
                   >
                     採用情報 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -322,7 +322,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/press"
-                    className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
+                    className="text-gray-700 hover:text-gray-900 hover:underline flex items-center gap-1"
                   >
                     プレスリリース <ExternalLink className="w-3 h-3" />
                   </Link>

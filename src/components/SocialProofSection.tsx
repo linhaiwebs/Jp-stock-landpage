@@ -7,19 +7,19 @@ export default function SocialProofSection() {
       name: '田中 健一',
       role: '個人投資家',
       rating: 5,
-      comment: 'AIの分析精度が高く、投資判断が明確になりました。毎日のレポートで市場の動きを素早く把握できています。',
+      comment: 'AIの分析情報が参考になり、市場の動きを把握しやすくなりました。投資判断は自己責任で行っています。',
     },
     {
       name: '佐藤 美咲',
       role: '会社員',
       rating: 5,
-      comment: '初心者でも理解しやすい診断結果で、安心して投資を始められました。LINEで届くので確認も簡単です。',
+      comment: '初心者でも理解しやすい情報提供で、参考にさせていただいています。最終判断は自分で行っています。',
     },
     {
       name: '山田 雄太',
       role: 'デイトレーダー',
       rating: 5,
-      comment: 'リアルタイムの分析が非常に役立っています。買い時・売り時のタイミングを逃さなくなりました。',
+      comment: '市場データの分析情報が役立っています。投資判断の参考として活用させていただいています。',
     },
   ];
 
@@ -39,33 +39,33 @@ export default function SocialProofSection() {
         <div className="text-center mb-4">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-trust-green/20 to-trust-green/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-trust-green/30 mb-3">
             <BadgeCheck className="w-3 h-3 text-trust-green" />
-            <span className="text-trust-green text-xs font-bold">公式認証サービス</span>
+<span className="text-trust-green text-xs font-bold">AI株式情報サービス</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-black text-white mb-2">
-            10万人以上の投資家が利用
+            多くの投資家が利用中
           </h2>
           <p className="text-gray-400 text-base">
-            信頼と実績の AI 株式診断サービス
+            AI 株式情報サービス
           </p>
         </div>
 
         <div className="flex gap-2 mb-8 justify-center">
           <div className="bg-gradient-to-br from-dark-card to-dark-tech rounded-lg p-3 border border-accent-orange/30 text-center hover:shadow-orange-glow transition-all flex-shrink-0">
             <Users className="w-6 h-6 text-accent-gold mx-auto mb-1" />
-            <div className="text-xl font-black text-white mb-0.5">100,000+</div>
-            <div className="text-gray-400 text-xs font-medium">利用者数</div>
+            <div className="text-xl font-black text-white mb-0.5">多数</div>
+            <div className="text-gray-400 text-xs font-medium">利用者</div>
           </div>
 
           <div className="bg-gradient-to-br from-dark-card to-dark-tech rounded-lg p-3 border border-accent-orange/30 text-center hover:shadow-orange-glow transition-all flex-shrink-0">
             <TrendingUp className="w-6 h-6 text-trust-green mx-auto mb-1" />
-            <div className="text-xl font-black text-white mb-0.5">98%</div>
-            <div className="text-gray-400 text-xs font-medium">分析精度</div>
+            <div className="text-xl font-black text-white mb-0.5">AI分析</div>
+            <div className="text-gray-400 text-xs font-medium">情報提供</div>
           </div>
 
           <div className="bg-gradient-to-br from-dark-card to-dark-tech rounded-lg p-3 border border-accent-orange/30 text-center hover:shadow-orange-glow transition-all flex-shrink-0">
             <Star className="w-6 h-6 text-accent-gold mx-auto mb-1" />
-            <div className="text-xl font-black text-white mb-0.5">4.8/5</div>
-            <div className="text-gray-400 text-xs font-medium">ユーザー評価</div>
+            <div className="text-xl font-black text-white mb-0.5">参考情報</div>
+            <div className="text-gray-400 text-xs font-medium">として提供</div>
           </div>
 
           <div className="bg-gradient-to-br from-dark-card to-dark-tech rounded-lg p-3 border border-accent-orange/30 text-center hover:shadow-orange-glow transition-all flex-shrink-0">
@@ -136,14 +136,14 @@ export default function SocialProofSection() {
                 <BadgeCheck className="w-8 h-8 text-white" />
               </div>
               <div>
-                <div className="text-white font-bold text-lg mb-1">公式認証アカウント</div>
-                <div className="text-gray-400 text-sm">金融情報サービスとして認定済み</div>
+                <div className="text-white font-bold text-lg mb-1">情報提供サービス</div>
+                <div className="text-gray-400 text-sm">株式市場の参考情報を提供</div>
               </div>
             </div>
 
             <div className="flex items-center gap-2 bg-dark-card/50 px-4 py-2 rounded-lg border border-trust-green/30">
               <Shield className="w-5 h-5 text-trust-green" />
-              <span className="text-trust-green text-sm font-semibold">セキュリティ認証取得</span>
+              <span className="text-trust-green text-sm font-semibold">安全な情報提供</span>
             </div>
           </div>
         </div>
@@ -151,10 +151,10 @@ export default function SocialProofSection() {
         <div className="mt-6 bg-gradient-to-br from-dark-card to-dark-tech rounded-xl p-6 border border-accent-orange/20">
           <div className="text-center text-gray-400 text-sm leading-relaxed">
             <p className="mb-2">
-              <span className="text-accent-gold font-semibold">データ提供元:</span> 東京証券取引所、日本経済新聞社、Bloomberg
+              <span className="text-accent-gold font-semibold">データ:</span> 公開市場情報を活用
             </p>
             <p className="text-xs text-gray-500">
-              本サービスは金融商品取引法に基づく情報提供サービスです。投資助言業ではありません。
+              本サービスは情報提供のみを目的としており、投資助言・勧誘ではありません。投資判断は自己責任で行ってください。
             </p>
           </div>
         </div>

@@ -18,10 +18,10 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
           <div className="relative z-10 px-4 py-6">
             <div>
               <div className="text-center pt-18 pb-2">
-                <div className="text-neon-green text-xl font-bold mb-1">
+                <div className="text-soft-cyan text-xl font-bold mb-1">
                   {info.name} ({info.code})
                 </div>
-                <div className="text-neon-green text-sm">
+                <div className="text-soft-cyan text-sm">
                   {info.timestamp}
                 </div>
               </div>
@@ -35,35 +35,35 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
                     <TrendIcon className="w-6 h-6 text-accent-red" />
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-sm text-neon-green">{info.change}</span>
-                    <span className="text-sm text-neon-green">{info.changePercent}</span>
+                    <span className="text-sm text-soft-cyan">{info.change}</span>
+                    <span className="text-sm text-soft-cyan">{info.changePercent}</span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-x-3 gap-y-2 text-xs">
                   <div className="flex items-center justify-between">
-                    <span className="text-neon-green font-bold">始值</span>
-                    <span className="text-accent-red">{latestPrice?.open || info.price}</span>
+                    <span className="text-soft-cyan font-bold">始值</span>
+                    <span className="text-accent-orange">{latestPrice?.open || info.price}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-neon-green font-bold">高值</span>
-                    <span className="text-accent-red">{latestPrice?.high || info.price}</span>
+                    <span className="text-soft-cyan font-bold">高值</span>
+                    <span className="text-accent-orange">{latestPrice?.high || info.price}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-neon-green font-bold">终值</span>
-                    <span className="text-accent-red">{latestPrice?.close || info.price}</span>
+                    <span className="text-soft-cyan font-bold">终值</span>
+                    <span className="text-accent-orange">{latestPrice?.close || info.price}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-neon-green font-bold">安值</span>
-                    <span className="text-accent-red">{latestPrice?.low || info.price}</span>
+                    <span className="text-soft-cyan font-bold">安值</span>
+                    <span className="text-accent-orange">{latestPrice?.low || info.price}</span>
                   </div>
                   <div className="flex items-center justify-between pt-1 border-t border-gray-600/30">
-                    <span className="text-neon-green font-bold">前日比</span>
-                    <span className="text-neon-green">{info.changePercent}</span>
+                    <span className="text-soft-cyan font-bold">前日比</span>
+                    <span className="text-soft-cyan">{info.changePercent}</span>
                   </div>
                   <div className="flex items-center justify-between pt-1 border-t border-gray-600/30">
-                    <span className="text-neon-green font-bold">売買高</span>
-                    <span className="text-accent-red">{latestPrice?.volume || 'N/A'}</span>
+                    <span className="text-soft-cyan font-bold">売買高</span>
+                    <span className="text-accent-orange">{latestPrice?.volume || 'N/A'}</span>
                   </div>
                 </div>
               </div>

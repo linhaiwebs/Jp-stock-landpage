@@ -15,7 +15,7 @@ export default function ModernBackground({ children, className = "" }: ModernBac
       <div
         className="absolute inset-0 opacity-30 animate-gradient-shift-slow"
         style={{
-          background: 'radial-gradient(ellipse at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 70%, rgba(255, 167, 38, 0.1) 0%, transparent 50%)',
+          background: 'radial-gradient(ellipse at 20% 30%, rgba(59, 130, 246, 0.12) 0%, transparent 50%), radial-gradient(ellipse at 80% 70%, rgba(249, 115, 22, 0.08) 0%, transparent 50%)',
           backgroundSize: '200% 200%',
         }}
       />
@@ -48,8 +48,8 @@ export default function ModernBackground({ children, className = "" }: ModernBac
       <svg className="absolute top-8 left-8 w-24 h-24 opacity-15 animate-float" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: '#ffa726', stopOpacity: 0.6 }} />
-            <stop offset="100%" style={{ stopColor: '#ff8c42', stopOpacity: 0.3 }} />
+            <stop offset="0%" style={{ stopColor: '#f59e0b', stopOpacity: 0.6 }} />
+            <stop offset="100%" style={{ stopColor: '#f97316', stopOpacity: 0.3 }} />
           </linearGradient>
         </defs>
         <circle cx="12" cy="12" r="4" fill="url(#grad1)" />
@@ -84,7 +84,7 @@ export default function ModernBackground({ children, className = "" }: ModernBac
       <svg className="absolute bottom-24 right-8 w-32 h-32 opacity-10 animate-float" style={{ animationDelay: '0.5s' }} xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: '#fbbf24', stopOpacity: 0.5 }} />
+            <stop offset="0%" style={{ stopColor: '#fbbf24', stopOpacity: 0.4 }} />
             <stop offset="100%" style={{ stopColor: '#f59e0b', stopOpacity: 0.2 }} />
           </linearGradient>
         </defs>
@@ -98,7 +98,7 @@ export default function ModernBackground({ children, className = "" }: ModernBac
       <div
         className="absolute top-0 left-0 w-full h-1 opacity-50"
         style={{
-          background: 'linear-gradient(90deg, transparent 0%, #ffa726 50%, transparent 100%)',
+          background: 'linear-gradient(90deg, transparent 0%, #f59e0b 50%, transparent 100%)',
           animation: 'shimmer-horizontal 3s ease-in-out infinite'
         }}
       />

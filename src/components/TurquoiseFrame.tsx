@@ -14,8 +14,8 @@ export default function TurquoiseFrame({ children, className = "" }: TurquoiseFr
       >
         <defs>
           <linearGradient id="turquoiseGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#2dd4bf" />
-            <stop offset="100%" stopColor="#14b8a6" />
+            <stop offset="0%" stopColor="#38bdf8" />
+            <stop offset="100%" stopColor="#0ea5e9" />
           </linearGradient>
         </defs>
 
@@ -37,7 +37,7 @@ export default function TurquoiseFrame({ children, className = "" }: TurquoiseFr
           height="170"
           rx="6"
           fill="white"
-          stroke="#14b8a6"
+          stroke="#0ea5e9"
           strokeWidth="3"
         />
       </svg>

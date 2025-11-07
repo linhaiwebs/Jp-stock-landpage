@@ -193,7 +193,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/terms"
-                    className="text-accent-gold hover:text-accent-gold-light hover:underline flex items-center gap-1"
+                    className="text-accent-orange hover:text-accent-gold hover:underline flex items-center gap-1"
                   >
                     利用規約 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -225,7 +225,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/specified-commercial-transaction-act"
-                    className="text-gray-300 hover:text-white hover:underline flex items-center gap-1"
+                    className="text-gray-700 hover:text-gray-900 hover:underline flex items-center gap-1"
                   >
                     特定商取引法表記 <ExternalLink className="w-3 h-3" />
                   </Link>

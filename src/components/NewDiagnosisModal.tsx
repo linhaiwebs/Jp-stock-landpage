@@ -133,13 +133,19 @@ export default function NewDiagnosisModal({
                 <>
                   <button
                     onClick={onLineConversion}
-                    className="relative overflow-hidden w-full bg-gradient-to-r from-green-600 to-green-700 text-white font-bold py-4 px-6 rounded-lg hover:from-green-700 hover:to-green-800 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-lg mt-6 animate-button-pulse animate-glow-ring-green group"
-                    style={{ willChange: 'transform' }}
+                    className="relative overflow-hidden w-full text-white font-bold py-4 px-6 rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-lg mt-6 animate-button-pulse animate-glow-ring-green group"
+                    style={{
+                      willChange: 'transform',
+                      background: 'linear-gradient(135deg, #15803d 0%, #16a34a 25%, #22c55e 50%, #16a34a 75%, #15803d 100%)',
+                      backgroundSize: '200% 100%',
+                      border: '2px solid rgba(21, 128, 61, 0.6)',
+                      boxShadow: '0 8px 24px rgba(22, 163, 74, 0.5), 0 4px 12px rgba(21, 128, 61, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
+                    }}
                   >
                     <div
-                      className="absolute inset-0 opacity-20 animate-gradient-shift"
+                      className="absolute inset-0 opacity-15 animate-gradient-shift"
                       style={{
-                        background: 'linear-gradient(90deg, rgba(34,197,94,0.3) 0%, rgba(74,222,128,0.5) 50%, rgba(34,197,94,0.3) 100%)',
+                        background: 'linear-gradient(90deg, rgba(21,128,61,0.3) 0%, rgba(34,197,94,0.5) 50%, rgba(21,128,61,0.3) 100%)',
                         backgroundSize: '200% 100%'
                       }}
                     />
@@ -148,12 +154,13 @@ export default function NewDiagnosisModal({
                       className="absolute inset-0 w-[30%] h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:animate-[shimmer-sweep_2s_ease-in-out]"
                       style={{
                         animation: 'shimmer-sweep 5s ease-in-out infinite',
-                        animationDelay: '1.5s'
+                        animationDelay: '1.5s',
+                        opacity: 0.1
                       }}
                     />
 
-                    <ExternalLink className="relative w-6 h-6 animate-icon-bounce" />
-                    <span className="relative">市場分析情報をLINEで受け取る（参考情報）</span>
+                    <ExternalLink className="relative w-6 h-6 animate-icon-bounce drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]" />
+                    <span className="relative drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.4), 0 0 8px rgba(255,255,255,0.3)' }}>市場分析情報をLINEで受け取る（参考情報）</span>
                   </button>
 
                   <div className="mt-3 p-3 bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg border border-green-600/30">

@@ -306,6 +306,42 @@
     }
   }
 
+  @keyframes wave-pattern {
+    0% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-10px) scale(1.05);
+    }
+    100% {
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    25% {
+      transform: translateY(-10px) translateX(5px);
+    }
+    50% {
+      transform: translateY(-5px) translateX(-5px);
+    }
+    75% {
+      transform: translateY(-15px) translateX(3px);
+    }
+  }
+
   .animate-button-pulse {
     animation: button-pulse 2s ease-in-out infinite;
   }
@@ -399,6 +435,18 @@
     animation: glow-pulse-ring 2s ease-in-out infinite;
   }
 
+  .animate-wave-pattern {
+    animation: wave-pattern 8s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-button-pulse,
     .animate-glow-ring,
@@ -412,7 +460,10 @@
     .animate-icon-float,
     .animate-arrow-flow,
     .animate-sparkle,
-    .animate-glow-pulse {
+    .animate-glow-pulse,
+    .animate-wave-pattern,
+    .animate-spin-slow,
+    .animate-float {
       animation: none;
     }
   }

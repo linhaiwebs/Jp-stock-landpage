@@ -33,20 +33,20 @@ export default function HeroSection({ stockCode = '----', stockName = '', onDiag
               disabled={disabled}
               className="relative group w-full disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95 transition-all duration-300"
             >
-              <GradientButton className="animate-glow-ring">
+              <GradientButton className="animate-glow-ring-blue">
                 <div
                   className="absolute inset-0 opacity-20 animate-gradient-shift"
                   style={{
-                    background: 'linear-gradient(90deg, rgba(255,140,66,0.3) 0%, rgba(255,167,38,0.5) 50%, rgba(255,140,66,0.3) 100%)',
+                    background: 'linear-gradient(90deg, rgba(59,130,246,0.3) 0%, rgba(96,165,250,0.5) 50%, rgba(59,130,246,0.3) 100%)',
                     backgroundSize: '200% 100%'
                   }}
                 />
 
                 <div className="relative flex flex-col items-center gap-1 py-4 px-6">
-                  <span className="text-red-600 font-bold text-lg drop-shadow-lg">
+                  <span className="text-white font-bold text-lg drop-shadow-lg">
                     {hasStockData ? `【${stockName}】` : '銘柄'}の情報を見る
                   </span>
-                  <span className="text-xs text-red-700 font-semibold">※教育・学習用の情報表示ツール</span>
+                  <span className="text-xs text-blue-100 font-semibold">※教育・学習用の情報表示ツール</span>
                 </div>
               </GradientButton>
             </button>

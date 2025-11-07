@@ -331,21 +331,6 @@ export default function NewHome() {
 
   return (
     <div className="min-h-screen relative">
-      <div className="bg-amber-50 border-l-4 border-accent-gold p-3 mx-4 mt-2 mb-2">
-        <div className="flex items-start">
-          <div className="flex-shrink-0">
-            <svg className="h-5 w-5 text-accent-orange" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-            </svg>
-          </div>
-          <div className="ml-3">
-            <p className="text-sm text-amber-900 font-medium">
-              <strong>教育・学習用ツール：</strong>本ツールは投資教育・学習目的の情報表示ツールです。投資助言・勧誘ではありません。投資判断は必ずご自身の責任で行ってください。
-            </p>
-          </div>
-        </div>
-      </div>
-
       <HeroSection
         stockCode={stockCode}
         stockName={stockData?.info.name}
@@ -405,13 +390,13 @@ export default function NewHome() {
                   setDiagnosisState('initial');
                   setError(null);
                 }}
-                className="relative overflow-hidden px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-accent-orange to-accent-gold text-white font-bold rounded-lg hover:from-accent-gold hover:to-accent-orange transition-all shadow-gold-glow text-sm sm:text-base touch-manipulation min-h-[44px] animate-shake-subtle animate-glow-ring group"
+                className="relative overflow-hidden px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-bold rounded-lg hover:from-blue-500 hover:to-blue-400 transition-all shadow-blue-glow text-sm sm:text-base touch-manipulation min-h-[44px] animate-shake-subtle animate-glow-ring-blue group"
                 style={{ willChange: 'transform' }}
               >
                 <div
                   className="absolute inset-0 opacity-20 animate-gradient-shift"
                   style={{
-                    background: 'linear-gradient(90deg, rgba(255,140,66,0.3) 0%, rgba(255,167,38,0.5) 50%, rgba(255,140,66,0.3) 100%)',
+                    background: 'linear-gradient(90deg, rgba(59,130,246,0.3) 0%, rgba(96,165,250,0.5) 50%, rgba(59,130,246,0.3) 100%)',
                     backgroundSize: '200% 100%'
                   }}
                 />

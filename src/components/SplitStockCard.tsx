@@ -17,7 +17,7 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
         <TurquoiseCard>
           <div className="relative z-10 px-4 py-6">
             <div>
-              <div className="text-center pb-4">
+              <div className="text-center pt-4 pb-4">
                 <div className="text-cyan-200 text-xl font-bold mb-1">
                   {info.name} ({info.code})
                 </div>

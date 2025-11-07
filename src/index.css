@@ -127,19 +127,19 @@
       transform: translateY(0);
     }
     20%, 35% {
-      transform: translateY(-80px);
+      transform: translateY(-110px);
     }
     40%, 55% {
-      transform: translateY(-160px);
+      transform: translateY(-220px);
     }
     60%, 75% {
-      transform: translateY(-240px);
+      transform: translateY(-330px);
     }
     80%, 95% {
-      transform: translateY(-320px);
+      transform: translateY(-440px);
     }
     100% {
-      transform: translateY(-400px);
+      transform: translateY(-550px);
     }
   }
 

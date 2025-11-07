@@ -8,20 +8,19 @@ export default function GradientButton({ children, className = "" }: GradientBut
     <div
       className={`relative ${className}`}
       style={{
-        background: 'linear-gradient(135deg, #15803d 0%, #22c55e 25%, #4ade80 50%, #22c55e 75%, #15803d 100%)',
+        background: 'linear-gradient(135deg, #16a34a 0%, #22c55e 50%, #16a34a 100%)',
         backgroundSize: '200% 100%',
-        borderRadius: '12px',
-        border: '3px solid #22c55e',
-        boxShadow: '0 4px 14px 0 rgba(34, 197, 94, 0.5), 0 0 20px rgba(74, 222, 128, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.2)',
-        willChange: 'box-shadow'
+        borderRadius: '14px',
+        border: '2px solid rgba(74, 222, 128, 0.5)',
+        boxShadow: '0 8px 24px rgba(34, 197, 94, 0.4), 0 4px 12px rgba(22, 163, 74, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.25)',
+        willChange: 'box-shadow, transform'
       }}
     >
       <div
-        className="absolute inset-0 rounded-lg pointer-events-none"
+        className="absolute inset-0 rounded-xl pointer-events-none opacity-60"
         style={{
-          border: '2px solid rgba(134, 239, 172, 0.3)',
-          borderRadius: '10px',
-          margin: '2px'
+          background: 'linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 50%, rgba(0,0,0,0.1) 100%)',
+          borderRadius: '12px'
         }}
       />
       {children}

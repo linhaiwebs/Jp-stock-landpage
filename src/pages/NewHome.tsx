@@ -384,14 +384,20 @@ export default function NewHome() {
           <div className="text-center py-12 sm:py-16 md:py-20 px-4">
             <div className="max-w-2xl mx-auto p-5 sm:p-6 md:p-8 bg-accent-red/20 backdrop-blur-sm border border-accent-red rounded-2xl shadow-red-glow">
               <h3 className="text-lg sm:text-xl font-bold text-accent-red mb-3 sm:mb-4">診断エラー</h3>
-              <p className="text-sm sm:text-base text-gray-300 font-semibold mb-5 sm:mb-6">{error}</p>
+              <p className="text-sm sm:text-base text-gray-700 font-semibold mb-5 sm:mb-6">{error}</p>
               <button
                 onClick={() => {
                   setDiagnosisState('initial');
                   setError(null);
                 }}
-                className="relative overflow-hidden px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-secondary-green to-primary-green text-white font-bold rounded-lg hover:from-primary-green hover:to-accent-green transition-all shadow-green-glow text-sm sm:text-base touch-manipulation min-h-[44px] animate-shake-subtle animate-glow-ring-green group"
-                style={{ willChange: 'transform' }}
+                className="relative overflow-hidden px-6 sm:px-8 py-3 sm:py-4 text-white font-bold rounded-xl transition-all text-sm sm:text-base touch-manipulation min-h-[44px] hover:scale-105 active:scale-95 group"
+                style={{
+                  background: 'linear-gradient(135deg, #16a34a 0%, #22c55e 50%, #16a34a 100%)',
+                  backgroundSize: '200% 100%',
+                  border: '2px solid rgba(74, 222, 128, 0.5)',
+                  boxShadow: '0 8px 24px rgba(34, 197, 94, 0.4), 0 4px 12px rgba(22, 163, 74, 0.3)',
+                  willChange: 'transform'
+                }}
               >
                 <div
                   className="absolute inset-0 opacity-20 animate-gradient-shift"

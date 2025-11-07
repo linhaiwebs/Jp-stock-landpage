@@ -19,7 +19,7 @@ const formatAnalysisText = (text: string) => {
   const lines = text.split('\n');
   return lines.map((line, index) => {
     const formattedLine = line.replace(/(\d+\.?\d*%?|\d+円|[+-]\d+\.?\d*)/g, (match) => {
-      return `<span class="text-orange-600 font-semibold text-lg">${match}</span>`;
+      return `<span class="text-green-600 font-semibold text-lg">${match}</span>`;
     });
 
     const isBold = line.includes('###') || line.includes('**') || line.match(/^[\d]+\./);
@@ -71,7 +71,7 @@ export default function NewDiagnosisModal({
     <div
       className="fixed inset-0 z-[9998] flex items-center justify-center p-2 sm:p-4 backdrop-blur-md"
       style={{
-        background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.90) 0%, rgba(245, 158, 11, 0.90) 50%, rgba(251, 191, 36, 0.90) 100%)'
+        background: 'linear-gradient(135deg, rgba(22, 163, 74, 0.90) 0%, rgba(34, 197, 94, 0.90) 50%, rgba(74, 222, 128, 0.90) 100%)'
       }}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
@@ -85,7 +85,7 @@ export default function NewDiagnosisModal({
         </div>
 
         <div className="relative bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden border-4 border-white pt-12 sm:pt-16">
-          <div className="relative sticky top-0 bg-gradient-to-r from-accent-orange to-accent-gold px-3 py-2 sm:px-5 sm:py-3 flex items-center justify-between border-b-4 border-accent-orange-dark backdrop-blur-sm z-10 shadow-lg">
+          <div className="relative sticky top-0 bg-gradient-to-r from-green-600 to-emerald-600 px-3 py-2 sm:px-5 sm:py-3 flex items-center justify-between border-b-4 border-green-700 backdrop-blur-sm z-10 shadow-lg">
           <div className="flex-1 text-center pr-8">
             <h2 className="text-base sm:text-lg md:text-xl font-bold text-white drop-shadow-lg">
               {stockName}（{stockCode}）AI市場分析レポート（参考資料）
@@ -100,29 +100,29 @@ export default function NewDiagnosisModal({
           </button>
         </div>
 
-        <div className="relative overflow-y-auto max-h-[calc(95vh-180px)] sm:max-h-[calc(95vh-200px)] px-3 py-3 sm:px-5 sm:py-4 space-y-3 sm:space-y-4 bg-gradient-to-br from-orange-50 to-yellow-50">
+        <div className="relative overflow-y-auto max-h-[calc(95vh-180px)] sm:max-h-[calc(95vh-200px)] px-3 py-3 sm:px-5 sm:py-4 space-y-3 sm:space-y-4 bg-gradient-to-br from-green-50 to-emerald-50">
 
-          <h3 className="text-lg sm:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-orange to-accent-gold text-center mb-2">AI分析レポート（参考情報）</h3>
+          <h3 className="text-lg sm:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600 text-center mb-2">AI分析レポート（参考情報）</h3>
           <p className="text-xs text-center text-gray-600 mb-3">
             データ出典: 公開市場情報 | 本レポートは参考資料であり、投資助言ではありません
           </p>
 
-          <div className="relative bg-white/80 backdrop-blur-xl rounded-lg sm:rounded-xl p-4 sm:p-5 border-2 border-orange-200 overflow-hidden shadow-xl">
-            <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-orange-200/30 to-amber-200/30 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-36 sm:h-36 bg-gradient-to-tr from-orange-200/30 to-amber-200/30 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="relative bg-white/80 backdrop-blur-xl rounded-lg sm:rounded-xl p-4 sm:p-5 border-2 border-green-200 overflow-hidden shadow-xl">
+            <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-green-200/30 to-emerald-200/30 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-36 sm:h-36 bg-gradient-to-tr from-green-200/30 to-emerald-200/30 rounded-full blur-3xl pointer-events-none"></div>
 
             <div className="relative space-y-2 sm:space-y-3">
-              <div className="bg-white rounded-lg p-3 sm:p-4 border-2 border-orange-200 backdrop-blur-sm shadow-lg">
+              <div className="bg-white rounded-lg p-3 sm:p-4 border-2 border-green-200 backdrop-blur-sm shadow-lg">
                 <div className="text-xs sm:text-sm text-gray-700 leading-relaxed space-y-2">
                   {isConnecting ? (
                     <div className="text-center py-4">
-                      <p className="text-orange-600 font-bold">市場データ分析中...</p>
+                      <p className="text-green-600 font-bold">市場データ分析中...</p>
                     </div>
                   ) : (
                     <>
                       <div dangerouslySetInnerHTML={{ __html: formatAnalysisText(analysis) }} />
                       {isStreaming && (
-                        <span className="inline-block w-2 h-4 bg-gradient-to-r from-accent-orange to-accent-gold animate-pulse ml-1"></span>
+                        <span className="inline-block w-2 h-4 bg-gradient-to-r from-green-600 to-emerald-600 animate-pulse ml-1"></span>
                       )}
                     </>
                   )}

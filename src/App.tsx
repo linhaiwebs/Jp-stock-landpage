@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
+import DataSourceDisclaimer from './components/DataSourceDisclaimer';
 import ParticleBackground from './components/ParticleBackground';
 import ModernBackground from './components/ModernBackground';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -56,6 +57,7 @@ function App() {
             }
           />
         </Routes>
+        <DataSourceDisclaimer />
         <Footer />
       </div>
     </ModernBackground>

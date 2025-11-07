@@ -80,11 +80,7 @@ export default function NewDiagnosisModal({
       }}
     >
       <div className="relative w-full max-w-3xl max-h-[95vh] z-[9999]" onClick={(e) => e.stopPropagation()}>
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-[60%] z-[10000] scale-75 sm:scale-100 pointer-events-none">
-          <RobotScholarIcon />
-        </div>
-
-        <div className="relative bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden border-4 border-white pt-12 sm:pt-16">
+        <div className="relative bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden border-4 border-white">
           <div className="relative sticky top-0 bg-gradient-to-r from-green-600 to-emerald-600 px-3 py-2 sm:px-5 sm:py-3 flex items-center justify-between border-b-4 border-green-700 backdrop-blur-sm z-10 shadow-lg">
           <div className="flex-1 text-center pr-8">
             <h2 className="text-base sm:text-lg md:text-xl font-bold text-white drop-shadow-lg">
@@ -100,9 +96,8 @@ export default function NewDiagnosisModal({
           </button>
         </div>
 
-        <div className="relative overflow-y-auto max-h-[calc(95vh-180px)] sm:max-h-[calc(95vh-200px)] px-3 py-3 sm:px-5 sm:py-4 space-y-3 sm:space-y-4 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div className="relative overflow-y-auto max-h-[calc(95vh-120px)] sm:max-h-[calc(95vh-140px)] px-3 py-3 sm:px-5 sm:py-4 space-y-3 sm:space-y-4 bg-gradient-to-br from-green-50 to-emerald-50">
 
-          <h3 className="text-lg sm:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600 text-center mb-2">AI分析レポート（参考情報）</h3>
           <p className="text-xs text-center text-gray-600 mb-3">
             データ出典: 公開市場情報 | 本レポートは参考資料であり、投資助言ではありません
           </p>
@@ -133,7 +128,7 @@ export default function NewDiagnosisModal({
                 <>
                   <button
                     onClick={onLineConversion}
-                    className="relative overflow-hidden w-full text-white font-bold py-4 px-6 rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-3 text-lg mt-6 animate-button-pulse animate-glow-ring-green group"
+                    className="relative overflow-hidden w-full text-white font-bold py-3 px-5 rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-sm sm:text-base mt-6 animate-button-pulse animate-glow-ring-green group"
                     style={{
                       willChange: 'transform',
                       background: 'linear-gradient(135deg, #15803d 0%, #16a34a 25%, #22c55e 50%, #16a34a 75%, #15803d 100%)',
@@ -159,7 +154,7 @@ export default function NewDiagnosisModal({
                       }}
                     />
 
-                    <ExternalLink className="relative w-6 h-6 animate-icon-bounce drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]" />
+                    <ExternalLink className="relative w-5 h-5 animate-icon-bounce drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]" />
                     <span className="relative drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.4), 0 0 8px rgba(255,255,255,0.3)' }}>市場分析情報をLINEで受け取る（参考情報）</span>
                   </button>
 

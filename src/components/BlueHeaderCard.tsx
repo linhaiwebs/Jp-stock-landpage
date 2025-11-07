@@ -10,18 +10,18 @@ export default function BlueHeaderCard({ children, headerText = "三井金″株
     <div
       className={`relative overflow-hidden ${className}`}
       style={{
-        background: 'linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(29, 78, 216, 0.35) 100%)',
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 253, 244, 0.9) 100%)',
         backdropFilter: 'blur(10px)',
-        border: '2px solid rgba(59, 130, 246, 0.5)',
+        border: '2px solid rgba(34, 197, 94, 0.5)',
         borderRadius: '12px',
-        boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 0 30px rgba(59, 130, 246, 0.1)',
+        boxShadow: '0 8px 32px 0 rgba(34, 197, 94, 0.15), inset 0 0 30px rgba(134, 239, 172, 0.1)',
         ...style
       }}
     >
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          border: '1px solid rgba(96, 165, 250, 0.2)',
+          border: '1px solid rgba(74, 222, 128, 0.2)',
           borderRadius: '11px',
           margin: '4px'
         }}
@@ -30,9 +30,9 @@ export default function BlueHeaderCard({ children, headerText = "三井金″株
       <div
         className="relative z-10"
         style={{
-          background: 'linear-gradient(90deg, #3b82f6 0%, #2563eb 100%)',
+          background: 'linear-gradient(90deg, #22c55e 0%, #16a34a 100%)',
           padding: '12px 20px',
-          borderBottom: '3px solid #1e40af'
+          borderBottom: '3px solid #15803d'
         }}
       >
         <h2 className="text-white font-bold text-lg md:text-xl text-center tracking-wide">

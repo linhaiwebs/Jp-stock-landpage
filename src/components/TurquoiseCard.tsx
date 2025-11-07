@@ -8,18 +8,19 @@ export default function TurquoiseCard({ children, className = "" }: TurquoiseCar
     <div
       className={`relative overflow-hidden ${className}`}
       style={{
-        background: 'linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%)',
-        border: '4px solid #0ea5e9',
-        borderRadius: '8px',
-        boxShadow: '0 4px 6px -1px rgba(14, 165, 233, 0.3), 0 2px 4px -1px rgba(14, 165, 233, 0.2), inset 0 0 20px rgba(14, 165, 233, 0.1)'
+        background: 'linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(29, 78, 216, 0.35) 100%)',
+        backdropFilter: 'blur(10px)',
+        border: '2px solid rgba(59, 130, 246, 0.4)',
+        borderRadius: '12px',
+        boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 0 30px rgba(59, 130, 246, 0.1)'
       }}
     >
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          border: '2px solid rgba(14, 165, 233, 0.4)',
-          borderRadius: '6px',
-          margin: '6px'
+          border: '1px solid rgba(96, 165, 250, 0.2)',
+          borderRadius: '11px',
+          margin: '4px'
         }}
       />
       {children}

@@ -10,19 +10,20 @@ export default function BlueHeaderCard({ children, headerText = "三井金″株
     <div
       className={`relative overflow-hidden ${className}`}
       style={{
-        background: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)',
-        border: '5px solid #3b82f6',
-        borderRadius: '8px',
-        boxShadow: '0 4px 6px -1px rgba(59, 130, 246, 0.3), 0 2px 4px -1px rgba(59, 130, 246, 0.2), inset 0 0 20px rgba(59, 130, 246, 0.1)',
+        background: 'linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(29, 78, 216, 0.35) 100%)',
+        backdropFilter: 'blur(10px)',
+        border: '2px solid rgba(59, 130, 246, 0.5)',
+        borderRadius: '12px',
+        boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 0 30px rgba(59, 130, 246, 0.1)',
         ...style
       }}
     >
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          border: '2px solid rgba(59, 130, 246, 0.4)',
-          borderRadius: '6px',
-          margin: '8px'
+          border: '1px solid rgba(96, 165, 250, 0.2)',
+          borderRadius: '11px',
+          margin: '4px'
         }}
       />
 

@@ -4,14 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        'dark-primary': '#0a0e1a',
-        'dark-secondary': '#1a1f2e',
-        'dark-card': '#151923',
+        'dark-primary': '#0d1b2a',
+        'dark-secondary': '#1b263b',
+        'dark-card': '#1e293b',
         'dark-navy': '#0f1419',
         'dark-tech': '#141b24',
         'dark-deep': '#0d1117',
         'pure-black': '#000000',
-        'dark-glass': 'rgba(0, 0, 0, 0.6)',
+        'dark-glass': 'rgba(13, 27, 42, 0.6)',
+        'dark-glass-blue': 'rgba(30, 58, 138, 0.4)',
         'accent-red': '#ef4444',
         'accent-red-dark': '#dc2626',
         'accent-orange': '#f97316',

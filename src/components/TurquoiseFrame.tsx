@@ -14,8 +14,12 @@ export default function TurquoiseFrame({ children, className = "" }: TurquoiseFr
       >
         <defs>
           <linearGradient id="turquoiseGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#38bdf8" />
-            <stop offset="100%" stopColor="#0ea5e9" />
+            <stop offset="0%" stopColor="#60a5fa" />
+            <stop offset="100%" stopColor="#3b82f6" />
+          </linearGradient>
+          <linearGradient id="frameFill" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="rgba(30, 58, 138, 0.6)" />
+            <stop offset="100%" stopColor="rgba(29, 78, 216, 0.5)" />
           </linearGradient>
         </defs>
 
@@ -24,10 +28,10 @@ export default function TurquoiseFrame({ children, className = "" }: TurquoiseFr
           y="5"
           width="690"
           height="190"
-          rx="8"
+          rx="12"
           fill="none"
           stroke="url(#turquoiseGradient)"
-          strokeWidth="10"
+          strokeWidth="6"
         />
 
         <rect
@@ -35,10 +39,10 @@ export default function TurquoiseFrame({ children, className = "" }: TurquoiseFr
           y="15"
           width="670"
           height="170"
-          rx="6"
-          fill="white"
-          stroke="#0ea5e9"
-          strokeWidth="3"
+          rx="8"
+          fill="url(#frameFill)"
+          stroke="rgba(59, 130, 246, 0.4)"
+          strokeWidth="2"
         />
       </svg>
       {children && (

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
-import LightBlueBackground from './components/LightBlueBackground';
+import ModernBackground from './components/ModernBackground';
 import ProtectedRoute from './components/ProtectedRoute';
 import NewHome from './pages/NewHome';
 import About from './pages/About';
@@ -27,7 +27,7 @@ function App() {
   }, []);
 
   return (
-    <LightBlueBackground>
+    <ModernBackground>
       <ParticleBackground />
       <div className="relative z-10">
         <Routes>
@@ -58,7 +58,7 @@ function App() {
         </Routes>
         <Footer />
       </div>
-    </LightBlueBackground>
+    </ModernBackground>
   );
 }
 

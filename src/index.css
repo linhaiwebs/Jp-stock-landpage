@@ -250,6 +250,43 @@
     }
   }
 
+  @keyframes gradient-shift-slow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes shimmer-horizontal {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+
   .animate-button-pulse {
     animation: button-pulse 2s ease-in-out infinite;
   }
@@ -261,6 +298,10 @@
   .animate-gradient-shift {
     animation: gradient-shift 3s ease infinite;
     background-size: 200% 200%;
+  }
+
+  .animate-gradient-shift-slow {
+    animation: gradient-shift-slow 8s ease infinite;
   }
 
   .animate-icon-bounce {
@@ -275,13 +316,19 @@
     animation: glow-ring-green 2s ease-in-out infinite;
   }
 
+  .animate-pulse-slow {
+    animation: pulse-slow 6s ease-in-out infinite;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-button-pulse,
     .animate-glow-ring,
     .animate-gradient-shift,
+    .animate-gradient-shift-slow,
     .animate-icon-bounce,
     .animate-shake-subtle,
-    .animate-glow-ring-green {
+    .animate-glow-ring-green,
+    .animate-pulse-slow {
       animation: none;
     }
   }

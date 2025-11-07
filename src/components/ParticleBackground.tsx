@@ -26,56 +26,81 @@ export default function ParticleBackground() {
     fpsLimit: 60,
     particles: {
       number: {
-        value: 80,
+        value: 60,
         density: {
           enable: true
         }
       },
       color: {
-        value: ['#a8d8ea', '#b3e5fc', '#81d4fa', '#4fc3f7', '#ffffff']
+        value: ['#60a5fa', '#3b82f6', '#ffa726', '#ff8c42', '#ffffff', '#94a3b8']
       },
       shape: {
-        type: 'circle'
+        type: ['circle', 'triangle', 'square']
       },
       opacity: {
-        value: { min: 0.1, max: 0.5 },
+        value: { min: 0.15, max: 0.6 },
         animation: {
           enable: true,
-          speed: 0.5,
+          speed: 0.3,
           sync: false
         }
       },
       size: {
-        value: { min: 1, max: 5 },
+        value: { min: 2, max: 6 },
         animation: {
           enable: true,
-          speed: 2,
+          speed: 1.5,
           sync: false
         }
       },
       move: {
         enable: true,
-        speed: 0.5,
-        direction: 'none',
+        speed: { min: 0.3, max: 0.8 },
+        direction: 'top',
         random: true,
         straight: false,
         outModes: {
-          default: 'out'
+          default: 'out',
+          top: 'out',
+          bottom: 'out'
+        },
+        attract: {
+          enable: true,
+          rotate: {
+            x: 600,
+            y: 1200
+          }
         }
       },
       links: {
-        enable: false
+        enable: true,
+        distance: 150,
+        color: '#3b82f6',
+        opacity: 0.15,
+        width: 1,
+        triangles: {
+          enable: false
+        }
+      },
+      shadow: {
+        enable: true,
+        blur: 5,
+        color: '#ffa726',
+        offset: {
+          x: 0,
+          y: 0
+        }
       }
     },
     interactivity: {
       events: {
         onHover: {
           enable: true,
-          mode: 'bubble',
+          mode: ['grab', 'bubble'],
           parallax: {
             enable: true,
-            force: 10,
-            smooth: 20
+            force: 15,
+            smooth: 25
           }
         },
         resize: {
@@ -84,9 +109,16 @@ export default function ParticleBackground() {
         }
       },
       modes: {
+        grab: {
+          distance: 200,
+          links: {
+            opacity: 0.4,
+            color: '#ffa726'
+          }
+        },
         bubble: {
-          distance: 150,
-          size: 8,
+          distance: 200,
+          size: 10,
           duration: 2,
           opacity: 0.8
         }
@@ -99,10 +131,13 @@ export default function ParticleBackground() {
         options: {
           particles: {
             number: {
-              value: 40
+              value: 30
             },
             move: {
-              speed: 0.3
+              speed: { min: 0.2, max: 0.5 }
+            },
+            links: {
+              enable: false
             }
           }
         }

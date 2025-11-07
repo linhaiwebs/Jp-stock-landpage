@@ -31,7 +31,7 @@ export default function AIProcessFlow() {
                         <span className="text-blue-200 font-bold text-xs sm:text-sm">STEP 1</span>
                       </div>
                       <h4 className="text-white font-bold text-sm sm:text-base lg:text-lg leading-snug">
-                        智能判断<br />感兴趣的股票
+                        注目銘柄を<br />スマートに判定
                       </h4>
                       <p className="text-blue-200 text-xs sm:text-sm opacity-90">
                         AIが市場データを<br className="sm:hidden" />スキャン
@@ -64,7 +64,7 @@ export default function AIProcessFlow() {
                         <span className="text-purple-200 font-bold text-xs sm:text-sm">STEP 2</span>
                       </div>
                       <h4 className="text-white font-bold text-sm sm:text-base lg:text-lg leading-snug">
-                        AI数据整理和<br />LLM模型推演
+                        AIデータ整理と<br />LLMモデル推論
                       </h4>
                       <p className="text-purple-200 text-xs sm:text-sm opacity-90">
                         データ処理と<br className="sm:hidden" />AI分析
@@ -97,7 +97,7 @@ export default function AIProcessFlow() {
                         <span className="text-orange-200 font-bold text-xs sm:text-sm">STEP 3</span>
                       </div>
                       <h4 className="text-white font-bold text-sm sm:text-base lg:text-lg leading-snug">
-                        得出详细报告
+                        詳細レポートを<br />生成
                       </h4>
                       <p className="text-orange-200 text-xs sm:text-sm opacity-90">
                         詳細レポートを<br className="sm:hidden" />生成

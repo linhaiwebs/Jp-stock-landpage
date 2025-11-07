@@ -343,6 +343,62 @@
     animation: pulse-slow 6s ease-in-out infinite;
   }
 
+  @keyframes icon-float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes arrow-flow {
+    0%, 100% {
+      transform: translateX(0);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateX(6px);
+      opacity: 1;
+    }
+  }
+
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(0.8) rotate(0deg);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2) rotate(180deg);
+    }
+  }
+
+  @keyframes glow-pulse-ring {
+    0%, 100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .animate-icon-float {
+    animation: icon-float 3s ease-in-out infinite;
+  }
+
+  .animate-arrow-flow {
+    animation: arrow-flow 1.5s ease-in-out infinite;
+  }
+
+  .animate-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse-ring 2s ease-in-out infinite;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-button-pulse,
     .animate-glow-ring,
@@ -352,7 +408,11 @@
     .animate-icon-bounce,
     .animate-shake-subtle,
     .animate-glow-ring-green,
-    .animate-pulse-slow {
+    .animate-pulse-slow,
+    .animate-icon-float,
+    .animate-arrow-flow,
+    .animate-sparkle,
+    .animate-glow-pulse {
       animation: none;
     }
   }

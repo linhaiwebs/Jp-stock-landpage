@@ -1,4 +1,5 @@
 import { StockPrice } from '../types/stock';
+import BlueHeaderCard from './BlueHeaderCard';
 
 interface ScrollingHistoryDataProps {
   prices: StockPrice[];
@@ -15,19 +16,10 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
   return (
     <div className="px-4 py-3">
       <div className="max-w-lg mx-auto">
-        <div
-          className="relative overflow-hidden"
-          style={{
-            backgroundImage: 'url(/assets/top2.png)',
-            backgroundSize: '100% 100%',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            height: '300px'
-          }}
+        <BlueHeaderCard
+          headerText="三井金″株式″会社診断開始 ≫≫≫"
+          style={{ height: '300px' }}
         >
-          <div className="text-center pt-4 pb-2">
-            <h2 className="text-2xl font-bold text-transparent select-none">&nbsp;</h2>
-          </div>
           <div className="relative z-10 px-6 py-2 h-full overflow-hidden">
             <div className="animate-scroll-step">
               {doubledPrices.map((price, index) => {
@@ -80,7 +72,7 @@ export default function ScrollingHistoryData({ prices, stockName }: ScrollingHis
               })}
             </div>
           </div>
-        </div>
+        </BlueHeaderCard>
         <div className="mt-3 text-center">
           <p className="text-xs text-gray-400">
             データ出典: 公開市場情報 | 更新: 準リアルタイム

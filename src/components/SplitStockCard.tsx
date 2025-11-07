@@ -18,10 +18,10 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
           <div className="relative z-10 px-4 py-6">
             <div>
               <div className="text-center pt-4 pb-4">
-                <div className="text-cyan-200 text-xl font-bold mb-1">
+                <div className="text-dark-green text-xl font-bold mb-1">
                   {info.name} ({info.code})
                 </div>
-                <div className="text-blue-200 text-sm">
+                <div className="text-text-gray text-sm">
                   {info.timestamp}
                 </div>
               </div>
@@ -35,35 +35,35 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
                     <TrendIcon className="w-6 h-6 text-accent-red" />
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-sm text-blue-200">{info.change}</span>
-                    <span className="text-sm text-blue-200">{info.changePercent}</span>
+                    <span className="text-sm text-text-gray">{info.change}</span>
+                    <span className="text-sm text-text-gray">{info.changePercent}</span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-x-3 gap-y-2 text-xs">
                   <div className="flex items-center justify-between">
-                    <span className="text-cyan-200 font-bold">始值</span>
-                    <span className="text-orange-300">{latestPrice?.open || info.price}</span>
+                    <span className="text-dark-green font-bold">始値</span>
+                    <span className="text-secondary-green">{latestPrice?.open || info.price}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-cyan-200 font-bold">高值</span>
-                    <span className="text-orange-300">{latestPrice?.high || info.price}</span>
+                    <span className="text-dark-green font-bold">高値</span>
+                    <span className="text-secondary-green">{latestPrice?.high || info.price}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-cyan-200 font-bold">终值</span>
-                    <span className="text-orange-300">{latestPrice?.close || info.price}</span>
+                    <span className="text-dark-green font-bold">終値</span>
+                    <span className="text-secondary-green">{latestPrice?.close || info.price}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-cyan-200 font-bold">安值</span>
-                    <span className="text-orange-300">{latestPrice?.low || info.price}</span>
+                    <span className="text-dark-green font-bold">安値</span>
+                    <span className="text-secondary-green">{latestPrice?.low || info.price}</span>
                   </div>
-                  <div className="flex items-center justify-between pt-1 border-t border-blue-400/20">
-                    <span className="text-cyan-200 font-bold">前日比</span>
-                    <span className="text-blue-200">{info.changePercent}</span>
+                  <div className="flex items-center justify-between pt-1 border-t border-primary-green/20">
+                    <span className="text-dark-green font-bold">前日比</span>
+                    <span className="text-text-gray">{info.changePercent}</span>
                   </div>
-                  <div className="flex items-center justify-between pt-1 border-t border-blue-400/20">
-                    <span className="text-cyan-200 font-bold">売買高</span>
-                    <span className="text-orange-300">{latestPrice?.volume || 'N/A'}</span>
+                  <div className="flex items-center justify-between pt-1 border-t border-primary-green/20">
+                    <span className="text-dark-green font-bold">売買高</span>
+                    <span className="text-secondary-green">{latestPrice?.volume || 'N/A'}</span>
                   </div>
                 </div>
               </div>
@@ -72,10 +72,10 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
         </TurquoiseCard>
 
         <div className="mt-2 text-center">
-          <p className="text-xs text-blue-300">
+          <p className="text-xs text-text-gray">
             データ出典: 公開市場情報（準リアルタイム）
           </p>
-          <p className="text-xs text-blue-400 mt-1">
+          <p className="text-xs text-text-light mt-1">
             ※本情報は参考資料であり、投資助言ではありません
           </p>
         </div>

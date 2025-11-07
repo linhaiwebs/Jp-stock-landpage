@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-pale-green">
       <div className="max-w-4xl mx-auto px-4 py-8">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 mb-6"
+          className="inline-flex items-center gap-2 text-secondary-green hover:text-dark-green mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           トップページに戻る
@@ -15,8 +15,8 @@ export default function About() {
 
         <div className="bg-white rounded-xl shadow-lg p-8">
           <div className="flex items-center gap-3 mb-6">
-            <div className="bg-blue-100 p-3 rounded-lg">
-              <Building className="w-6 h-6 text-blue-700" />
+            <div className="bg-pale-green p-3 rounded-lg">
+              <Building className="w-6 h-6 text-dark-green" />
             </div>
             <h1 className="text-3xl font-bold text-gray-900">運営会社情報</h1>
           </div>
@@ -36,10 +36,10 @@ export default function About() {
 
             <section className="mb-8">
               <div className="flex items-center gap-3 mb-4">
-                <Target className="w-6 h-6 text-blue-600" />
+                <Target className="w-6 h-6 text-secondary-green" />
                 <h2 className="text-xl font-bold text-gray-900">ミッション</h2>
               </div>
-              <div className="bg-blue-50 rounded-lg p-6">
+              <div className="bg-pale-green rounded-lg p-6">
                 <p className="text-gray-800 font-semibold mb-3">
                   「AI技術で投資情報をもっと身近に、もっと分かりやすく」
                 </p>
@@ -52,32 +52,32 @@ export default function About() {
 
             <section className="mb-8">
               <div className="flex items-center gap-3 mb-4">
-                <Users className="w-6 h-6 text-blue-600" />
+                <Users className="w-6 h-6 text-secondary-green" />
                 <h2 className="text-xl font-bold text-gray-900">サービスの特徴</h2>
               </div>
               <div className="grid md:grid-cols-2 gap-4">
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-4 border border-blue-200">
+                <div className="bg-gradient-to-br from-pale-green to-green-100 rounded-lg p-4 border border-primary-green/30">
                   <h3 className="font-bold text-gray-900 mb-2">AI分析技術</h3>
                   <p className="text-sm text-gray-700 leading-relaxed">
                     最新の機械学習アルゴリズムを使用し、
                     大量の市場データから有用な情報を抽出します。
                   </p>
                 </div>
-                <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-4 border border-green-200">
+                <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg p-4 border border-accent-emerald/30">
                   <h3 className="font-bold text-gray-900 mb-2">使いやすいUI</h3>
                   <p className="text-sm text-gray-700 leading-relaxed">
                     直感的なインターフェースで、初心者からプロまで
                     誰でも簡単に利用できます。
                   </p>
                 </div>
-                <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg p-4 border border-orange-200">
+                <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-4 border border-success-green/30">
                   <h3 className="font-bold text-gray-900 mb-2">準リアルタイム</h3>
                   <p className="text-sm text-gray-700 leading-relaxed">
                     市場データを準リアルタイムで更新し、
                     常に最新の情報を提供します。
                   </p>
                 </div>
-                <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg p-4 border border-purple-200">
+                <div className="bg-gradient-to-br from-teal-50 to-teal-100 rounded-lg p-4 border border-teal-400/30">
                   <h3 className="font-bold text-gray-900 mb-2">無料で利用可能</h3>
                   <p className="text-sm text-gray-700 leading-relaxed">
                     基本機能は無料でご利用いただけます。
@@ -89,12 +89,12 @@ export default function About() {
 
             <section className="mb-8">
               <div className="flex items-center gap-3 mb-4">
-                <Award className="w-6 h-6 text-blue-600" />
+                <Award className="w-6 h-6 text-secondary-green" />
                 <h2 className="text-xl font-bold text-gray-900">私たちの価値観</h2>
               </div>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <span className="inline-block w-2 h-2 rounded-full bg-blue-600 mt-2 flex-shrink-0"></span>
+                  <span className="inline-block w-2 h-2 rounded-full bg-secondary-green mt-2 flex-shrink-0"></span>
                   <div>
                     <strong className="text-gray-900">透明性</strong>
                     <p className="text-gray-700 text-sm leading-relaxed">
@@ -104,7 +104,7 @@ export default function About() {
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="inline-block w-2 h-2 rounded-full bg-blue-600 mt-2 flex-shrink-0"></span>
+                  <span className="inline-block w-2 h-2 rounded-full bg-secondary-green mt-2 flex-shrink-0"></span>
                   <div>
                     <strong className="text-gray-900">中立性</strong>
                     <p className="text-gray-700 text-sm leading-relaxed">
@@ -114,7 +114,7 @@ export default function About() {
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="inline-block w-2 h-2 rounded-full bg-blue-600 mt-2 flex-shrink-0"></span>
+                  <span className="inline-block w-2 h-2 rounded-full bg-secondary-green mt-2 flex-shrink-0"></span>
                   <div>
                     <strong className="text-gray-900">継続的改善</strong>
                     <p className="text-gray-700 text-sm leading-relaxed">
@@ -124,7 +124,7 @@ export default function About() {
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="inline-block w-2 h-2 rounded-full bg-blue-600 mt-2 flex-shrink-0"></span>
+                  <span className="inline-block w-2 h-2 rounded-full bg-secondary-green mt-2 flex-shrink-0"></span>
                   <div>
                     <strong className="text-gray-900">コンプライアンス</strong>
                     <p className="text-gray-700 text-sm leading-relaxed">
@@ -138,7 +138,7 @@ export default function About() {
 
             <section className="mb-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">データ提供について</h2>
-              <div className="bg-blue-50 rounded-lg p-6 mb-6">
+              <div className="bg-pale-green rounded-lg p-6 mb-6">
                 <h3 className="font-bold text-gray-900 mb-3">データ出典</h3>
                 <p className="text-gray-700 leading-relaxed mb-2">
                   当サービスで提供される株式情報は、以下の公開市場情報を基に構成されています：
@@ -156,23 +156,23 @@ export default function About() {
 
             <section className="mb-8">
               <h2 className="text-xl font-bold text-gray-900 mb-4">会社概要</h2>
-              <div className="bg-slate-50 rounded-lg p-6">
+              <div className="bg-gray-50 rounded-lg p-6">
                 <dl className="space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-start">
                     <dt className="font-semibold text-gray-900 w-32 flex-shrink-0">会社名</dt>
-                    <dd className="text-gray-700">株式会社金融グループ<br />Financial Group Inc</dd>
+                    <dd className="text-gray-700">株式会社AKYI<br />Kabushikigaisha AKYI</dd>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-start">
                     <dt className="font-semibold text-gray-900 w-32 flex-shrink-0">所在地</dt>
-                    <dd className="text-gray-700">〒100-0004<br />東京都千代田区大手町2-6-1<br />2-6-1 Otemachi, Chiyoda-ku, Tokyo</dd>
+                    <dd className="text-gray-700">〒100-0064<br />東京都千代田区大手町5-7-1<br />5-7-1 Otemachi, Chiyoda-ku, Tokyo</dd>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-start">
                     <dt className="font-semibold text-gray-900 w-32 flex-shrink-0">電話番号</dt>
-                    <dd className="text-gray-700">+81 3-5555-1234</dd>
+                    <dd className="text-gray-700">+81 3-5555-1272</dd>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-start">
                     <dt className="font-semibold text-gray-900 w-32 flex-shrink-0">メールアドレス</dt>
-                    <dd className="text-gray-700">contact@financialgroup.jp</dd>
+                    <dd className="text-gray-700">contact@financidsdgroup.jp</dd>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-start">
                     <dt className="font-semibold text-gray-900 w-32 flex-shrink-0">事業内容</dt>
@@ -197,7 +197,7 @@ export default function About() {
               </div>
             </section>
 
-            <div className="bg-blue-50 rounded-lg p-6">
+            <div className="bg-pale-green rounded-lg p-6">
               <h3 className="font-bold text-gray-900 mb-3">お問い合わせ</h3>
               <p className="text-sm text-gray-700 mb-3">
                 サービスに関するご質問、ご意見、お問い合わせは、
@@ -205,7 +205,7 @@ export default function About() {
               </p>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-secondary-green text-white rounded-lg hover:bg-dark-green transition-colors text-sm"
               >
                 お問い合わせフォームへ
               </a>

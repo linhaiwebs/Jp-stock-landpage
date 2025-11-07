@@ -24,14 +24,14 @@ export default function Footer() {
       title: '【データ出典と情報の正確性】',
       content: 'データ出典: 公開市場情報（準リアルタイム）。提供される情報の正確性、完全性、適時性を保証するものではありません。',
       highlight: 'AI分析結果は参考情報として提供されるものであり、投資助言または推奨ではありません。',
-      borderColor: 'border-blue-500'
+      borderColor: 'border-primary-green'
     },
     {
       title: '【投資判断の責任】',
       content: '',
       highlight: '最終的な投資判断は、利用者ご自身の責任において行ってください。',
       extra: '本サービスの利用により生じたいかなる損害についても、当社は一切の責任を負いません。投資を行う際は、証券会社等の金融商品取引業者にご相談ください。',
-      borderColor: 'border-slate-500'
+      borderColor: 'border-gray-500'
     }
   ];
 
@@ -44,62 +44,61 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative z-20 border-t-2 border-blue-500/30 mt-12">
+    <footer className="relative z-20 border-t-2 border-primary-green/30 mt-12 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-8">
-          {/* Legal Disclosure Section - Desktop */}
-          <div className="hidden md:block bg-blue-950/40 backdrop-blur-md border-2 border-blue-500/30 rounded-lg p-6 mb-8">
+          <div className="hidden md:block bg-pale-green/40 backdrop-blur-md border-2 border-primary-green/30 rounded-lg p-6 mb-8">
           <div className="flex items-start gap-4">
-            <div className="bg-blue-900/50 p-3 rounded-lg flex-shrink-0">
-              <Shield className="w-6 h-6 text-blue-300" />
+            <div className="bg-secondary-green/20 p-3 rounded-lg flex-shrink-0">
+              <Shield className="w-6 h-6 text-dark-green" />
             </div>
             <div className="flex-1">
-              <h3 className="text-lg font-bold text-blue-100 mb-3 flex items-center gap-2">
+              <h3 className="text-lg font-bold text-dark-green mb-3 flex items-center gap-2">
                 <Scale className="w-5 h-5" />
                 金融商品取引法に基づく重要事項
               </h3>
 
-              <div className="space-y-3 text-sm leading-relaxed text-gray-200">
-                <div className="bg-blue-900/30 rounded p-3 border-l-4 border-blue-400">
-                  <p className="font-bold text-blue-200 mb-2">【サービスの性質】</p>
-                  <p className="text-gray-200">
+              <div className="space-y-3 text-sm leading-relaxed text-text-dark">
+                <div className="bg-pale-green rounded p-3 border-l-4 border-primary-green">
+                  <p className="font-bold text-dark-green mb-2">【サービスの性質】</p>
+                  <p className="text-text-dark">
                     本サービスは、AI技術を活用した株式情報の提供および分析ツールです。
-                    <strong className="text-amber-300">投資助言業務、投資一任業務、金融商品仲介業務には該当せず、特定の金融商品の売買を推奨・勧誘するものではありません。</strong>
+                    <strong className="text-amber-600">投資助言業務、投資一任業務、金融商品仲介業務には該当せず、特定の金融商品の売買を推奨・勧誘するものではありません。</strong>
                   </p>
                 </div>
 
-                <div className="bg-red-950/30 rounded p-3 border-l-4 border-red-400">
-                  <p className="font-bold text-red-300 mb-2">【投資リスクに関する警告】</p>
-                  <p className="text-gray-200">
+                <div className="bg-red-50 rounded p-3 border-l-4 border-red-400">
+                  <p className="font-bold text-red-600 mb-2">【投資リスクに関する警告】</p>
+                  <p className="text-text-dark">
                     株式投資には価格変動リスク、信用リスク、流動性リスク等が伴い、
-                    <strong className="text-amber-300">投資元本を割り込む可能性があります。</strong>
+                    <strong className="text-amber-600">投資元本を割り込む可能性があります。</strong>
                     過去の運用実績は将来の運用成果を保証するものではありません。
                     市場環境の変化により、予想外の損失が発生する可能性があります。
                   </p>
                 </div>
 
-                <div className="bg-blue-900/30 rounded p-3 border-l-4 border-blue-400">
-                  <p className="font-bold text-blue-200 mb-2">【データ出典と情報の正確性】</p>
-                  <p className="mb-2 text-gray-200">
+                <div className="bg-pale-green rounded p-3 border-l-4 border-primary-green">
+                  <p className="font-bold text-dark-green mb-2">【データ出典と情報の正確性】</p>
+                  <p className="mb-2 text-text-dark">
                     <strong>データ出典:</strong> 公開市場情報（準リアルタイム）
                   </p>
-                  <p className="text-gray-200">
+                  <p className="text-text-dark">
                     提供される情報の正確性、完全性、適時性を保証するものではありません。
-                    <strong className="text-cyan-300">AI分析結果は参考情報として提供されるものであり、投資助言または推奨ではありません。</strong>
+                    <strong className="text-secondary-green">AI分析結果は参考情報として提供されるものであり、投資助言または推奨ではありません。</strong>
                   </p>
                 </div>
 
-                <div className="bg-slate-900/30 rounded p-3 border-l-4 border-slate-400">
-                  <p className="font-bold text-slate-200 mb-2">【投資判断の責任】</p>
-                  <p className="text-gray-200">
-                    <strong className="text-amber-300">最終的な投資判断は、利用者ご自身の責任において行ってください。</strong>
+                <div className="bg-gray-50 rounded p-3 border-l-4 border-gray-400">
+                  <p className="font-bold text-gray-700 mb-2">【投資判断の責任】</p>
+                  <p className="text-text-dark">
+                    <strong className="text-amber-600">最終的な投資判断は、利用者ご自身の責任において行ってください。</strong>
                     本サービスの利用により生じたいかなる損害についても、当社は一切の責任を負いません。
                     投資を行う際は、証券会社等の金融商品取引業者にご相談ください。
                   </p>
                 </div>
 
-                <div className="bg-slate-800/30 rounded p-3 mt-4">
-                  <p className="font-bold text-slate-200 mb-1">【登録情報】</p>
-                  <p className="text-xs text-gray-300">
+                <div className="bg-gray-100 rounded p-3 mt-4">
+                  <p className="font-bold text-gray-700 mb-1">【登録情報】</p>
+                  <p className="text-xs text-text-gray">
                     当サービス提供者は金融商品取引業者（投資助言・代理業、投資運用業等）ではありません。
                     金融商品取引法第29条の登録を受けた事業者ではないため、個別の投資助言を行うことはできません。
                   </p>
@@ -109,28 +108,27 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Legal Disclosure Section - Mobile Carousel */}
-        <div className="md:hidden bg-blue-950/40 backdrop-blur-md border-2 border-blue-500/30 rounded-lg p-4 mb-6">
+        <div className="md:hidden bg-pale-green/40 backdrop-blur-md border-2 border-primary-green/30 rounded-lg p-4 mb-6">
           <div className="flex items-center gap-2 mb-3">
-            <div className="bg-blue-900/50 p-2 rounded-lg">
-              <Shield className="w-5 h-5 text-blue-300" />
+            <div className="bg-secondary-green/20 p-2 rounded-lg">
+              <Shield className="w-5 h-5 text-dark-green" />
             </div>
-            <h3 className="text-sm font-bold text-blue-100 flex items-center gap-1.5">
+            <h3 className="text-sm font-bold text-dark-green flex items-center gap-1.5">
               <Scale className="w-4 h-4" />
               重要事項
             </h3>
           </div>
 
           <div className="relative">
-            <div className={`bg-blue-900/30 rounded p-3 border-l-4 ${legalDisclosures[currentSlide].borderColor} min-h-[180px]`}>
-              <p className="font-bold text-blue-200 mb-2 text-sm">{legalDisclosures[currentSlide].title}</p>
-              <div className="text-xs leading-relaxed text-gray-200">
+            <div className={`bg-pale-green rounded p-3 border-l-4 ${legalDisclosures[currentSlide].borderColor} min-h-[180px]`}>
+              <p className="font-bold text-dark-green mb-2 text-sm">{legalDisclosures[currentSlide].title}</p>
+              <div className="text-xs leading-relaxed text-text-dark">
                 {legalDisclosures[currentSlide].content && (
                   <p className="mb-2">{legalDisclosures[currentSlide].content}</p>
                 )}
                 {legalDisclosures[currentSlide].highlight && (
                   <p className="mb-2">
-                    <strong className="text-amber-300">{legalDisclosures[currentSlide].highlight}</strong>
+                    <strong className="text-amber-600">{legalDisclosures[currentSlide].highlight}</strong>
                   </p>
                 )}
                 {legalDisclosures[currentSlide].extra && (
@@ -142,10 +140,10 @@ export default function Footer() {
             <div className="flex items-center justify-between mt-3">
               <button
                 onClick={prevSlide}
-                className="p-2 bg-blue-900/50 rounded-full shadow-md hover:bg-blue-800/50 transition-colors"
+                className="p-2 bg-secondary-green/20 rounded-full shadow-md hover:bg-secondary-green/30 transition-colors"
                 aria-label="前へ"
               >
-                <ChevronLeft className="w-4 h-4 text-blue-300" />
+                <ChevronLeft className="w-4 h-4 text-dark-green" />
               </button>
 
               <div className="flex gap-1.5">
@@ -154,7 +152,7 @@ export default function Footer() {
                     key={index}
                     onClick={() => setCurrentSlide(index)}
                     className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentSlide ? 'bg-blue-400 w-6' : 'bg-blue-600/50'
+                      index === currentSlide ? 'bg-primary-green w-6' : 'bg-secondary-green/50'
                     }`}
                     aria-label={`スライド ${index + 1}`}
                   />
@@ -163,29 +161,27 @@ export default function Footer() {
 
               <button
                 onClick={nextSlide}
-                className="p-2 bg-blue-900/50 rounded-full shadow-md hover:bg-blue-800/50 transition-colors"
+                className="p-2 bg-secondary-green/20 rounded-full shadow-md hover:bg-secondary-green/30 transition-colors"
                 aria-label="次へ"
               >
-                <ChevronRight className="w-4 h-4 text-blue-300" />
+                <ChevronRight className="w-4 h-4 text-dark-green" />
               </button>
             </div>
           </div>
 
-          <div className="bg-slate-800/30 rounded p-2.5 mt-3">
-            <p className="font-bold text-slate-200 mb-1 text-xs">【登録情報】</p>
-            <p className="text-[10px] leading-relaxed text-gray-300">
+          <div className="bg-gray-100 rounded p-2.5 mt-3">
+            <p className="font-bold text-gray-700 mb-1 text-xs">【登録情報】</p>
+            <p className="text-[10px] leading-relaxed text-text-gray">
               当サービス提供者は金融商品取引業者（投資助言・代理業、投資運用業等）ではありません。
               金融商品取引法第29条の登録を受けた事業者ではないため、個別の投資助言を行うことはできません。
             </p>
           </div>
         </div>
 
-        {/* Footer Links Section */}
-        <div className="border-t-2 border-blue-500/20 pt-6">
+        <div className="border-t-2 border-primary-green/20 pt-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6">
-            {/* Legal Documents */}
             <div>
-              <h4 className="font-bold text-blue-200 mb-3 flex items-center gap-2 text-sm">
+              <h4 className="font-bold text-dark-green mb-3 flex items-center gap-2 text-sm">
                 <FileText className="w-4 h-4" />
                 法的文書
               </h4>
@@ -193,7 +189,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/terms"
-                    className="text-orange-300 hover:text-orange-200 hover:underline flex items-center gap-1"
+                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
                   >
                     利用規約 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -201,7 +197,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/privacy"
-                    className="text-blue-300 hover:text-blue-200 hover:underline flex items-center gap-1"
+                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
                   >
                     プライバシーポリシー <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -209,7 +205,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/disclaimer"
-                    className="text-blue-300 hover:text-blue-200 hover:underline flex items-center gap-1"
+                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
                   >
                     免責事項 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -217,7 +213,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/risk-disclosure"
-                    className="text-blue-300 hover:text-blue-200 hover:underline flex items-center gap-1"
+                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
                   >
                     リスク開示書面 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -225,7 +221,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/specified-commercial-transaction-act"
-                    className="text-blue-300 hover:text-blue-200 hover:underline flex items-center gap-1"
+                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
                   >
                     特定商取引法表記 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -233,9 +229,8 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Contact */}
             <div>
-              <h4 className="font-bold text-blue-200 mb-3 flex items-center gap-2 text-sm">
+              <h4 className="font-bold text-dark-green mb-3 flex items-center gap-2 text-sm">
                 <Mail className="w-4 h-4" />
                 お問い合わせ
               </h4>
@@ -243,7 +238,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/contact"
-                    className="text-blue-300 hover:text-blue-200 hover:underline flex items-center gap-1"
+                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
                   >
                     お問い合わせフォーム <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -251,7 +246,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/faq"
-                    className="text-blue-300 hover:text-blue-200 hover:underline flex items-center gap-1"
+                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
                   >
                     よくある質問 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -259,29 +254,28 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/support"
-                    className="text-blue-300 hover:text-blue-200 hover:underline flex items-center gap-1"
+                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
                   >
                     サポート <ExternalLink className="w-3 h-3" />
                   </Link>
                 </li>
-                <li className="flex items-center gap-1 text-blue-200">
+                <li className="flex items-center gap-1 text-text-dark">
                   <Phone className="w-3 h-3" />
-                  <span>+81 3-5555-1234</span>
+                  <span>+81 3-5555-1272</span>
                 </li>
-                <li className="text-blue-300 text-xs">
+                <li className="text-text-gray text-xs">
                   受付時間: 平日 9:00-18:00
                 </li>
               </ul>
             </div>
 
-            {/* Service Information */}
             <div>
-              <h4 className="font-bold text-blue-200 mb-3 flex items-center gap-2 text-sm">
+              <h4 className="font-bold text-dark-green mb-3 flex items-center gap-2 text-sm">
                 <Info className="w-4 h-4" />
                 サービス情報
               </h4>
-              <ul className="space-y-2 text-xs sm:text-sm text-blue-300">
-                <li>株式会社金融グループ</li>
+              <ul className="space-y-2 text-xs sm:text-sm text-text-gray">
+                <li>株式会社AKYI</li>
                 <li>AI株式診断サービス</li>
                 <li>リアルタイム株価情報</li>
                 <li>テクニカル分析</li>
@@ -290,9 +284,8 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Company Information */}
             <div>
-              <h4 className="font-bold text-blue-200 mb-3 flex items-center gap-2 text-sm">
+              <h4 className="font-bold text-dark-green mb-3 flex items-center gap-2 text-sm">
                 <Building className="w-4 h-4" />
                 運営会社
               </h4>
@@ -300,7 +293,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/about"
-                    className="text-blue-300 hover:text-blue-200 hover:underline flex items-center gap-1"
+                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
                   >
                     会社概要 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -308,7 +301,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/team"
-                    className="text-blue-300 hover:text-blue-200 hover:underline flex items-center gap-1"
+                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
                   >
                     チーム紹介 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -316,7 +309,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/careers"
-                    className="text-blue-300 hover:text-blue-200 hover:underline flex items-center gap-1"
+                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
                   >
                     採用情報 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -324,7 +317,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/press"
-                    className="text-blue-300 hover:text-blue-200 hover:underline flex items-center gap-1"
+                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
                   >
                     プレスリリース <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -333,12 +326,20 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Copyright Section */}
-          <div className="border-t border-blue-500/20 pt-4 text-center">
-            <p className="text-xs sm:text-sm text-blue-300 mb-2 font-medium">
-              &copy; {currentYear} 栫式会社結禾テクノロジーズ. All rights reserved.
+          <div className="border-t border-primary-green/20 pt-4 text-center">
+            <p className="text-xs sm:text-sm text-text-dark mb-2 font-medium">
+              &copy; {currentYear} 株式会社AKYI (Kabushikigaisha AKYI). All rights reserved.
             </p>
-            <p className="text-[10px] sm:text-xs text-blue-400 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xs text-text-gray mb-2">
+              100-0064 東京都千代田区大手町5-7-1
+            </p>
+            <p className="text-xs text-text-gray mb-2">
+              5-7-1 Otemachi, Chiyoda-ku, Tokyo
+            </p>
+            <p className="text-xs text-text-gray mb-3">
+              電話: +81 3-5555-1272 | Email: contact@financidsdgroup.jp
+            </p>
+            <p className="text-[10px] sm:text-xs text-text-light leading-relaxed max-w-3xl mx-auto">
               当サイトで提供される情報は投資勧誘を目的としたものではありません。
               投資に関する最終決定は、利用者ご自身の判断でなさるようお願いいたします。
               掲載されている情報の正確性については万全を期しておりますが、その内容の正確性、安全性、有用性を保証するものではありません。

@@ -133,7 +133,7 @@ export default function GoogleTrackingTab() {
               value={config.google_ads_conversion_id}
               onChange={(e) => setConfig({ ...config, google_ads_conversion_id: e.target.value })}
               placeholder="AW-XXXXXXXXXX"
-              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none font-mono text-sm"
+              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none font-mono text-sm text-slate-900"
             />
             <p className="text-xs text-slate-500 mt-1">
               格式: AW-XXXXXXXXXX (从 Google Ads 转化跟踪页面获取)
@@ -153,7 +153,7 @@ export default function GoogleTrackingTab() {
               value={config.ga4_measurement_id}
               onChange={(e) => setConfig({ ...config, ga4_measurement_id: e.target.value })}
               placeholder="G-XXXXXXXXXX"
-              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none font-mono text-sm"
+              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none font-mono text-sm text-slate-900"
             />
             <p className="text-xs text-slate-500 mt-1">
               格式: G-XXXXXXXXXX (从 Google Analytics 4 数据流详情获取)
@@ -173,7 +173,7 @@ export default function GoogleTrackingTab() {
               value={config.conversion_action_id}
               onChange={(e) => setConfig({ ...config, conversion_action_id: e.target.value })}
               placeholder="AW-XXXXXXXXXX/YYYYYYYYYY"
-              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none font-mono text-sm"
+              className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none font-mono text-sm text-slate-900"
             />
             <p className="text-xs text-slate-500 mt-1">
               格式: AW-XXXXXXXXXX/YYYYYYYYYY (完整的转化操作 ID)

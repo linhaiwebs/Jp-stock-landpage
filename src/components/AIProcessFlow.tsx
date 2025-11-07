@@ -2,7 +2,7 @@ import { Brain, Database, FileText, ArrowRight, Sparkles, Layers, TrendingUp } f
 
 export default function AIProcessFlow() {
   return (
-    <div className="relative z-20 mt-12 mb-0">
+    <div className="relative z-20 mt-4 mb-0">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
         <div className="bg-gradient-to-br from-slate-900/80 to-blue-950/80 backdrop-blur-lg border-2 border-blue-500/40 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-2xl overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-pulse"></div>

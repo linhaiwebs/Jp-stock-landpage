@@ -18,7 +18,7 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
           <div className="relative z-10 px-4 py-6">
             <div>
               <div className="text-center pt-4 pb-4">
-                <div className="text-dark-green text-xl font-bold mb-1">
+                <div className="text-dark-red text-xl font-bold mb-1">
                   {info.name} ({info.code})
                 </div>
                 <div className="text-text-gray text-sm">
@@ -42,28 +42,28 @@ export default function SplitStockCard({ info, latestPrice }: SplitStockCardProp
 
                 <div className="grid grid-cols-2 gap-x-3 gap-y-2 text-xs">
                   <div className="flex items-center justify-between">
-                    <span className="text-dark-green font-bold">始値</span>
-                    <span className="text-secondary-green">{latestPrice?.open || info.price}</span>
+                    <span className="text-dark-red font-bold">始値</span>
+                    <span className="text-secondary-red">{latestPrice?.open || info.price}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-dark-green font-bold">高値</span>
-                    <span className="text-secondary-green">{latestPrice?.high || info.price}</span>
+                    <span className="text-dark-red font-bold">高値</span>
+                    <span className="text-secondary-red">{latestPrice?.high || info.price}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-dark-green font-bold">終値</span>
-                    <span className="text-secondary-green">{latestPrice?.close || info.price}</span>
+                    <span className="text-dark-red font-bold">終値</span>
+                    <span className="text-secondary-red">{latestPrice?.close || info.price}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-dark-green font-bold">安値</span>
-                    <span className="text-secondary-green">{latestPrice?.low || info.price}</span>
+                    <span className="text-dark-red font-bold">安値</span>
+                    <span className="text-secondary-red">{latestPrice?.low || info.price}</span>
                   </div>
-                  <div className="flex items-center justify-between pt-1 border-t border-primary-green/20">
-                    <span className="text-dark-green font-bold">前日比</span>
+                  <div className="flex items-center justify-between pt-1 border-t border-primary-red/20">
+                    <span className="text-dark-red font-bold">前日比</span>
                     <span className="text-text-gray">{info.changePercent}</span>
                   </div>
-                  <div className="flex items-center justify-between pt-1 border-t border-primary-green/20">
-                    <span className="text-dark-green font-bold">売買高</span>
-                    <span className="text-secondary-green">{latestPrice?.volume || 'N/A'}</span>
+                  <div className="flex items-center justify-between pt-1 border-t border-primary-red/20">
+                    <span className="text-dark-red font-bold">売買高</span>
+                    <span className="text-secondary-red">{latestPrice?.volume || 'N/A'}</span>
                   </div>
                 </div>
               </div>

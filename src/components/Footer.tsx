@@ -24,7 +24,7 @@ export default function Footer() {
       title: '【データ出典と情報の正確性】',
       content: 'データ出典: 公開市場情報（準リアルタイム）。提供される情報の正確性、完全性、適時性を保証するものではありません。',
       highlight: 'AI分析結果は参考情報として提供されるものであり、投資助言または推奨ではありません。',
-      borderColor: 'border-primary-green'
+      borderColor: 'border-primary-red'
     },
     {
       title: '【投資判断の責任】',
@@ -44,22 +44,22 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative z-20 border-t-2 border-primary-green/30 mt-12 bg-white">
+    <footer className="relative z-20 border-t-2 border-primary-red/30 mt-12 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12 py-8">
-          <div className="hidden md:block bg-pale-green/40 backdrop-blur-md border-2 border-primary-green/30 rounded-lg p-6 mb-8">
+          <div className="hidden md:block bg-pale-red/40 backdrop-blur-md border-2 border-primary-red/30 rounded-lg p-6 mb-8">
           <div className="flex items-start gap-4">
-            <div className="bg-secondary-green/20 p-3 rounded-lg flex-shrink-0">
-              <Shield className="w-6 h-6 text-dark-green" />
+            <div className="bg-secondary-red/20 p-3 rounded-lg flex-shrink-0">
+              <Shield className="w-6 h-6 text-dark-red" />
             </div>
             <div className="flex-1">
-              <h3 className="text-lg font-bold text-dark-green mb-3 flex items-center gap-2">
+              <h3 className="text-lg font-bold text-dark-red mb-3 flex items-center gap-2">
                 <Scale className="w-5 h-5" />
                 金融商品取引法に基づく重要事項
               </h3>
 
               <div className="space-y-3 text-sm leading-relaxed text-text-dark">
-                <div className="bg-pale-green rounded p-3 border-l-4 border-primary-green">
-                  <p className="font-bold text-dark-green mb-2">【サービスの性質】</p>
+                <div className="bg-pale-red rounded p-3 border-l-4 border-primary-red">
+                  <p className="font-bold text-dark-red mb-2">【サービスの性質】</p>
                   <p className="text-text-dark">
                     本サービスは、AI技術を活用した株式情報の提供および分析ツールです。
                     <strong className="text-amber-600">投資助言業務、投資一任業務、金融商品仲介業務には該当せず、特定の金融商品の売買を推奨・勧誘するものではありません。</strong>
@@ -76,14 +76,14 @@ export default function Footer() {
                   </p>
                 </div>
 
-                <div className="bg-pale-green rounded p-3 border-l-4 border-primary-green">
-                  <p className="font-bold text-dark-green mb-2">【データ出典と情報の正確性】</p>
+                <div className="bg-pale-red rounded p-3 border-l-4 border-primary-red">
+                  <p className="font-bold text-dark-red mb-2">【データ出典と情報の正確性】</p>
                   <p className="mb-2 text-text-dark">
                     <strong>データ出典:</strong> 公開市場情報（準リアルタイム）
                   </p>
                   <p className="text-text-dark">
                     提供される情報の正確性、完全性、適時性を保証するものではありません。
-                    <strong className="text-secondary-green">AI分析結果は参考情報として提供されるものであり、投資助言または推奨ではありません。</strong>
+                    <strong className="text-secondary-red">AI分析結果は参考情報として提供されるものであり、投資助言または推奨ではありません。</strong>
                   </p>
                 </div>
 
@@ -108,20 +108,20 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="md:hidden bg-pale-green/40 backdrop-blur-md border-2 border-primary-green/30 rounded-lg p-4 mb-6">
+        <div className="md:hidden bg-pale-red/40 backdrop-blur-md border-2 border-primary-red/30 rounded-lg p-4 mb-6">
           <div className="flex items-center gap-2 mb-3">
-            <div className="bg-secondary-green/20 p-2 rounded-lg">
-              <Shield className="w-5 h-5 text-dark-green" />
+            <div className="bg-secondary-red/20 p-2 rounded-lg">
+              <Shield className="w-5 h-5 text-dark-red" />
             </div>
-            <h3 className="text-sm font-bold text-dark-green flex items-center gap-1.5">
+            <h3 className="text-sm font-bold text-dark-red flex items-center gap-1.5">
               <Scale className="w-4 h-4" />
               重要事項
             </h3>
           </div>
 
           <div className="relative">
-            <div className={`bg-pale-green rounded p-3 border-l-4 ${legalDisclosures[currentSlide].borderColor} min-h-[180px]`}>
-              <p className="font-bold text-dark-green mb-2 text-sm">{legalDisclosures[currentSlide].title}</p>
+            <div className={`bg-pale-red rounded p-3 border-l-4 ${legalDisclosures[currentSlide].borderColor} min-h-[180px]`}>
+              <p className="font-bold text-dark-red mb-2 text-sm">{legalDisclosures[currentSlide].title}</p>
               <div className="text-xs leading-relaxed text-text-dark">
                 {legalDisclosures[currentSlide].content && (
                   <p className="mb-2">{legalDisclosures[currentSlide].content}</p>
@@ -140,10 +140,10 @@ export default function Footer() {
             <div className="flex items-center justify-between mt-3">
               <button
                 onClick={prevSlide}
-                className="p-2 bg-secondary-green/20 rounded-full shadow-md hover:bg-secondary-green/30 transition-colors"
+                className="p-2 bg-secondary-red/20 rounded-full shadow-md hover:bg-secondary-red/30 transition-colors"
                 aria-label="前へ"
               >
-                <ChevronLeft className="w-4 h-4 text-dark-green" />
+                <ChevronLeft className="w-4 h-4 text-dark-red" />
               </button>
 
               <div className="flex gap-1.5">
@@ -152,7 +152,7 @@ export default function Footer() {
                     key={index}
                     onClick={() => setCurrentSlide(index)}
                     className={`w-2 h-2 rounded-full transition-all ${
-                      index === currentSlide ? 'bg-primary-green w-6' : 'bg-secondary-green/50'
+                      index === currentSlide ? 'bg-primary-red w-6' : 'bg-secondary-red/50'
                     }`}
                     aria-label={`スライド ${index + 1}`}
                   />
@@ -161,10 +161,10 @@ export default function Footer() {
 
               <button
                 onClick={nextSlide}
-                className="p-2 bg-secondary-green/20 rounded-full shadow-md hover:bg-secondary-green/30 transition-colors"
+                className="p-2 bg-secondary-red/20 rounded-full shadow-md hover:bg-secondary-red/30 transition-colors"
                 aria-label="次へ"
               >
-                <ChevronRight className="w-4 h-4 text-dark-green" />
+                <ChevronRight className="w-4 h-4 text-dark-red" />
               </button>
             </div>
           </div>
@@ -178,10 +178,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t-2 border-primary-green/20 pt-6">
+        <div className="border-t-2 border-primary-red/20 pt-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6">
             <div>
-              <h4 className="font-bold text-dark-green mb-3 flex items-center gap-2 text-sm">
+              <h4 className="font-bold text-dark-red mb-3 flex items-center gap-2 text-sm">
                 <FileText className="w-4 h-4" />
                 法的文書
               </h4>
@@ -189,7 +189,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/terms"
-                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
+                    className="text-secondary-red hover:text-dark-red hover:underline flex items-center gap-1"
                   >
                     利用規約 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -197,7 +197,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/privacy"
-                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
+                    className="text-secondary-red hover:text-dark-red hover:underline flex items-center gap-1"
                   >
                     プライバシーポリシー <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -205,7 +205,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/disclaimer"
-                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
+                    className="text-secondary-red hover:text-dark-red hover:underline flex items-center gap-1"
                   >
                     免責事項 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -213,7 +213,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/risk-disclosure"
-                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
+                    className="text-secondary-red hover:text-dark-red hover:underline flex items-center gap-1"
                   >
                     リスク開示書面 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -221,7 +221,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/specified-commercial-transaction-act"
-                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
+                    className="text-secondary-red hover:text-dark-red hover:underline flex items-center gap-1"
                   >
                     特定商取引法表記 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -230,7 +230,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="font-bold text-dark-green mb-3 flex items-center gap-2 text-sm">
+              <h4 className="font-bold text-dark-red mb-3 flex items-center gap-2 text-sm">
                 <Mail className="w-4 h-4" />
                 お問い合わせ
               </h4>
@@ -238,7 +238,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/contact"
-                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
+                    className="text-secondary-red hover:text-dark-red hover:underline flex items-center gap-1"
                   >
                     お問い合わせフォーム <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -246,7 +246,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/faq"
-                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
+                    className="text-secondary-red hover:text-dark-red hover:underline flex items-center gap-1"
                   >
                     よくある質問 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -254,7 +254,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/support"
-                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
+                    className="text-secondary-red hover:text-dark-red hover:underline flex items-center gap-1"
                   >
                     サポート <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -270,7 +270,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="font-bold text-dark-green mb-3 flex items-center gap-2 text-sm">
+              <h4 className="font-bold text-dark-red mb-3 flex items-center gap-2 text-sm">
                 <Info className="w-4 h-4" />
                 サービス情報
               </h4>
@@ -285,7 +285,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="font-bold text-dark-green mb-3 flex items-center gap-2 text-sm">
+              <h4 className="font-bold text-dark-red mb-3 flex items-center gap-2 text-sm">
                 <Building className="w-4 h-4" />
                 運営会社
               </h4>
@@ -293,7 +293,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/about"
-                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
+                    className="text-secondary-red hover:text-dark-red hover:underline flex items-center gap-1"
                   >
                     会社概要 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -301,7 +301,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/team"
-                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
+                    className="text-secondary-red hover:text-dark-red hover:underline flex items-center gap-1"
                   >
                     チーム紹介 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -309,7 +309,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/careers"
-                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
+                    className="text-secondary-red hover:text-dark-red hover:underline flex items-center gap-1"
                   >
                     採用情報 <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -317,7 +317,7 @@ export default function Footer() {
                 <li>
                   <Link
                     to="/press"
-                    className="text-secondary-green hover:text-dark-green hover:underline flex items-center gap-1"
+                    className="text-secondary-red hover:text-dark-red hover:underline flex items-center gap-1"
                   >
                     プレスリリース <ExternalLink className="w-3 h-3" />
                   </Link>
@@ -326,7 +326,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="border-t border-primary-green/20 pt-4 text-center">
+          <div className="border-t border-primary-red/20 pt-4 text-center">
             <p className="text-xs sm:text-sm text-text-dark mb-2 font-medium">
               &copy; {currentYear} 株式会社AKYI (Kabushikigaisha AKYI). All rights reserved.
             </p>

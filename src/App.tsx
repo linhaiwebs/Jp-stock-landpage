@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
-import AIProcessFlow from './components/AIProcessFlow';
+import FixedHeader from './components/FixedHeader';
+import RotatingAnalysisCircle from './components/RotatingAnalysisCircle';
 import ParticleBackground from './components/ParticleBackground';
 import ModernBackground from './components/ModernBackground';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <ModernBackground>
+      <FixedHeader />
       <ParticleBackground />
       <div className="relative z-10">
         <Routes>
@@ -57,7 +59,7 @@ function App() {
             }
           />
         </Routes>
-        <AIProcessFlow />
+        <RotatingAnalysisCircle />
         <Footer />
       </div>
     </ModernBackground>

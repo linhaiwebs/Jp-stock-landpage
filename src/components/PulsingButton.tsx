@@ -22,12 +22,12 @@ export default function PulsingButton({ onClick, stockName = '', disabled = fals
           disabled={disabled}
           className="relative group disabled:opacity-50 disabled:cursor-not-allowed w-full transform transition-all duration-300 hover:scale-105 active:scale-95"
         >
-          <GradientButton className="animate-button-pulse animate-glow-ring-green">
+          <GradientButton className="animate-button-pulse animate-glow-ring-red">
             <div className="relative px-8 py-5 overflow-hidden" style={{ willChange: 'transform' }}>
               <div
                 className="absolute inset-0 opacity-20 animate-gradient-shift"
                 style={{
-                  background: 'linear-gradient(90deg, rgba(21,128,61,0.3) 0%, rgba(34,197,94,0.5) 25%, rgba(74,222,128,0.4) 50%, rgba(34,197,94,0.5) 75%, rgba(21,128,61,0.3) 100%)',
+                  background: 'linear-gradient(90deg, rgba(185,28,28,0.3) 0%, rgba(239,68,68,0.5) 25%, rgba(248,113,113,0.4) 50%, rgba(239,68,68,0.5) 75%, rgba(185,28,28,0.3) 100%)',
                   backgroundSize: '200% 100%'
                 }}
               />
@@ -43,11 +43,11 @@ export default function PulsingButton({ onClick, stockName = '', disabled = fals
 
               <div className="relative flex flex-col items-center justify-center gap-2">
                 <div className="flex items-center gap-3">
-                  <Sparkles className="w-6 h-6 animate-spin text-green-100 drop-shadow-[0_0_8px_rgba(134,239,172,0.9)]" style={{ animationDuration: '3s', filter: 'drop-shadow(0 0 4px rgba(255,255,255,0.8))' }} />
+                  <Sparkles className="w-6 h-6 animate-spin text-red-100 drop-shadow-[0_0_8px_rgba(252,165,165,0.9)]" style={{ animationDuration: '3s', filter: 'drop-shadow(0 0 4px rgba(255,255,255,0.8))' }} />
                   <span className="font-black text-lg text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.4), 0 0 8px rgba(255,255,255,0.3)' }}>{buttonText}</span>
-                  <Zap className="w-6 h-6 text-green-100 animate-icon-bounce drop-shadow-[0_0_8px_rgba(134,239,172,0.9)]" style={{ filter: 'drop-shadow(0 0 4px rgba(255,255,255,0.8))' }} />
+                  <Zap className="w-6 h-6 text-red-100 animate-icon-bounce drop-shadow-[0_0_8px_rgba(252,165,165,0.9)]" style={{ filter: 'drop-shadow(0 0 4px rgba(255,255,255,0.8))' }} />
                 </div>
-                <span className="text-xs text-green-50 font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>※教育・学習用の情報表示</span>
+                <span className="text-xs text-red-50 font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.3)' }}>※教育・学習用の情報表示</span>
               </div>
             </div>
           </GradientButton>

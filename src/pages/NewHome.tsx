@@ -341,7 +341,7 @@ export default function NewHome() {
       <div className="pb-4">
         {loading && (
           <div className="text-center py-12 md:py-16">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-4 border-accent-green border-t-white"></div>
+            <div className="inline-block animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-4 border-primary-red border-t-white"></div>
             <p className="mt-4 text-text-dark font-medium text-sm sm:text-base">株価データを読み込んでいます...</p>
           </div>
         )}

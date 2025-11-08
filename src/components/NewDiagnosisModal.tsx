@@ -19,7 +19,7 @@ const formatAnalysisText = (text: string) => {
   const lines = text.split('\n');
   return lines.map((line, index) => {
     const formattedLine = line.replace(/(\d+\.?\d*%?|\d+円|[+-]\d+\.?\d*)/g, (match) => {
-      return `<span class="text-green-600 font-semibold text-lg">${match}</span>`;
+      return `<span class="text-red-600 font-semibold text-base">${match}</span>`;
     });
 
     const isBold = line.includes('###') || line.includes('**') || line.match(/^[\d]+\./);
@@ -71,7 +71,7 @@ export default function NewDiagnosisModal({
     <div
       className="fixed inset-0 z-[9998] flex items-center justify-center p-2 sm:p-4 backdrop-blur-md"
       style={{
-        background: 'linear-gradient(135deg, rgba(22, 163, 74, 0.90) 0%, rgba(34, 197, 94, 0.90) 50%, rgba(74, 222, 128, 0.90) 100%)'
+        background: 'linear-gradient(135deg, rgba(220, 38, 38, 0.90) 0%, rgba(239, 68, 68, 0.90) 50%, rgba(248, 113, 113, 0.90) 100%)'
       }}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
@@ -79,45 +79,45 @@ export default function NewDiagnosisModal({
         }
       }}
     >
-      <div className="relative w-full max-w-3xl max-h-[95vh] z-[9999]" onClick={(e) => e.stopPropagation()}>
-        <div className="relative bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-2xl overflow-hidden border-4 border-white">
-          <div className="relative sticky top-0 bg-gradient-to-r from-green-600 to-emerald-600 px-3 py-2 sm:px-5 sm:py-3 flex items-center justify-between border-b-4 border-green-700 backdrop-blur-sm z-10 shadow-lg">
-          <div className="flex-1 text-center pr-8">
-            <h2 className="text-base sm:text-lg md:text-xl font-bold text-white drop-shadow-lg">
-              {stockName}（{stockCode}）AI市場分析レポート（参考資料）
+      <div className="relative w-full max-w-2xl max-h-[90vh] z-[9999]" onClick={(e) => e.stopPropagation()}>
+        <div className="relative bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl shadow-2xl overflow-hidden border-3 border-white">
+          <div className="relative sticky top-0 bg-gradient-to-r from-red-600 to-red-700 px-3 py-2 flex items-center justify-between border-b-3 border-red-800 backdrop-blur-sm z-10 shadow-lg">
+          <div className="flex-1 text-center pr-6">
+            <h2 className="text-sm sm:text-base font-bold text-white drop-shadow-lg">
+              {stockName}（{stockCode}）AI分析レポート
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="p-1 sm:p-2 hover:bg-white/30 rounded-lg transition-colors backdrop-blur-sm hover:shadow-lg"
+            className="p-1 hover:bg-white/30 rounded-lg transition-colors backdrop-blur-sm hover:shadow-lg"
             aria-label="閉じる"
           >
-            <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
           </button>
         </div>
 
-        <div className="relative overflow-y-auto max-h-[calc(95vh-120px)] sm:max-h-[calc(95vh-140px)] px-3 py-3 sm:px-5 sm:py-4 space-y-3 sm:space-y-4 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div className="relative overflow-y-auto max-h-[calc(90vh-100px)] px-3 py-2 sm:px-4 sm:py-3 space-y-2 bg-gradient-to-br from-red-50 to-red-100">
 
-          <p className="text-xs text-center text-gray-600 mb-3">
-            データ出典: 公開市場情報 | 本レポートは参考資料であり、投資助言ではありません
+          <p className="text-[10px] sm:text-xs text-center text-gray-600 mb-2">
+            データ: 公開市場情報 | 参考資料（投資助言ではありません）
           </p>
 
-          <div className="relative bg-white/80 backdrop-blur-xl rounded-lg sm:rounded-xl p-4 sm:p-5 border-2 border-green-200 overflow-hidden shadow-xl">
-            <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 bg-gradient-to-br from-green-200/30 to-emerald-200/30 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-36 sm:h-36 bg-gradient-to-tr from-green-200/30 to-emerald-200/30 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="relative bg-white/80 backdrop-blur-xl rounded-lg p-3 sm:p-4 border-2 border-red-200 overflow-hidden shadow-xl">
+            <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-red-200/30 to-red-100/30 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-20 h-20 sm:w-28 sm:h-28 bg-gradient-to-tr from-red-200/30 to-red-100/30 rounded-full blur-3xl pointer-events-none"></div>
 
-            <div className="relative space-y-2 sm:space-y-3">
-              <div className="bg-white rounded-lg p-3 sm:p-4 border-2 border-green-200 backdrop-blur-sm shadow-lg">
-                <div className="text-xs sm:text-sm text-gray-700 leading-relaxed space-y-2">
+            <div className="relative space-y-2">
+              <div className="bg-white rounded-lg p-2 sm:p-3 border-2 border-red-200 backdrop-blur-sm shadow-lg">
+                <div className="text-xs sm:text-sm text-gray-700 leading-relaxed space-y-1">
                   {isConnecting ? (
                     <div className="text-center py-4">
-                      <p className="text-green-600 font-bold">市場データ分析中...</p>
+                      <p className="text-red-600 font-bold text-sm">市場データ分析中...</p>
                     </div>
                   ) : (
                     <>
                       <div dangerouslySetInnerHTML={{ __html: formatAnalysisText(analysis) }} />
                       {isStreaming && (
-                        <span className="inline-block w-2 h-4 bg-gradient-to-r from-green-600 to-emerald-600 animate-pulse ml-1"></span>
+                        <span className="inline-block w-2 h-4 bg-gradient-to-r from-red-600 to-red-700 animate-pulse ml-1"></span>
                       )}
                     </>
                   )}
@@ -128,19 +128,19 @@ export default function NewDiagnosisModal({
                 <>
                   <button
                     onClick={onLineConversion}
-                    className="relative overflow-hidden w-full text-white font-bold py-3 px-5 rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-sm sm:text-base mt-6 animate-button-pulse animate-glow-ring-green group"
+                    className="relative overflow-hidden w-full text-white font-bold py-2 px-3 rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-xs sm:text-sm mt-3 animate-button-pulse animate-glow-ring-red group"
                     style={{
                       willChange: 'transform',
-                      background: 'linear-gradient(135deg, #15803d 0%, #16a34a 25%, #22c55e 50%, #16a34a 75%, #15803d 100%)',
+                      background: 'linear-gradient(135deg, #b91c1c 0%, #dc2626 25%, #ef4444 50%, #dc2626 75%, #b91c1c 100%)',
                       backgroundSize: '200% 100%',
-                      border: '2px solid rgba(21, 128, 61, 0.6)',
-                      boxShadow: '0 8px 24px rgba(22, 163, 74, 0.5), 0 4px 12px rgba(21, 128, 61, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
+                      border: '2px solid rgba(185, 28, 28, 0.6)',
+                      boxShadow: '0 8px 24px rgba(220, 38, 38, 0.5), 0 4px 12px rgba(185, 28, 28, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.2)'
                     }}
                   >
                     <div
                       className="absolute inset-0 opacity-15 animate-gradient-shift"
                       style={{
-                        background: 'linear-gradient(90deg, rgba(21,128,61,0.3) 0%, rgba(34,197,94,0.5) 50%, rgba(21,128,61,0.3) 100%)',
+                        background: 'linear-gradient(90deg, rgba(185,28,28,0.3) 0%, rgba(239,68,68,0.5) 50%, rgba(185,28,28,0.3) 100%)',
                         backgroundSize: '200% 100%'
                       }}
                     />
@@ -154,13 +154,13 @@ export default function NewDiagnosisModal({
                       }}
                     />
 
-                    <ExternalLink className="relative w-5 h-5 animate-icon-bounce drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]" />
-                    <span className="relative drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.4), 0 0 8px rgba(255,255,255,0.3)' }}>市場分析情報をLINEで受け取る（参考情報）</span>
+                    <ExternalLink className="relative w-4 h-4 animate-icon-bounce drop-shadow-[0_0_4px_rgba(255,255,255,0.8)]" />
+                    <span className="relative drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.4), 0 0 8px rgba(255,255,255,0.3)' }}>LINEで分析情報受取</span>
                   </button>
 
-                  <div className="mt-3 p-3 bg-gradient-to-r from-green-900/30 to-emerald-900/30 rounded-lg border border-green-600/30">
-                    <p className="text-xs text-green-200 leading-relaxed">
-                      LINEで登録すると、参考情報として市場分析レポートをお届けします。※投資助言ではありません
+                  <div className="mt-2 p-2 bg-gradient-to-r from-red-900/30 to-red-800/30 rounded-lg border border-red-600/30">
+                    <p className="text-[10px] sm:text-xs text-red-200 leading-relaxed">
+                      LINE登録で参考情報として市場分析レポートをお届け※投資助言ではありません
                     </p>
                   </div>
                 </>
